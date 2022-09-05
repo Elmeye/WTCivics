@@ -1040,11 +1040,6 @@
                                 "name": "Game Masters",
                                 "reference": true
                               },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Balica Construction Permit",
-                                "reference": true
-                              }
                             ]
                           },
                           "Citizen": {
@@ -1176,11 +1171,6 @@
                                 "name": "Game Masters",
                                 "reference": true
                               },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Balica Construction Permit",
-                                "reference": true
-                              }
                             ]
                           },
                           "Citizen": {
@@ -1333,11 +1323,6 @@
                                 "name": "Game Masters",
                                 "reference": true
                               },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Balica Construction Permit",
-                                "reference": true
-                              }
                             ]
                           },
                           "Citizen": {
@@ -1369,7 +1354,7 @@
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Balica",
+                                "name": "Federal Highways",
                                 "reference": true
                               }
                             ]
@@ -1448,11 +1433,6 @@
                                 "name": "Game Masters",
                                 "reference": true
                               },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Balica Construction Permit",
-                                "reference": true
-                              }
                             ]
                           },
                           "Citizen": {
