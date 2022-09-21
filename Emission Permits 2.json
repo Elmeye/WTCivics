@@ -42,7 +42,11 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamEngineItem"
+                            "value": "Eco.Mods.TechTree.StoveItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
                           },
                           {
                             "type": "Type",
@@ -50,15 +54,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.StoveItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CementKilnItem"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BlastFurnaceItem"
+                            "value": "Eco.Mods.TechTree.SteamEngineItem"
                           },
                           {
                             "type": "Type",
