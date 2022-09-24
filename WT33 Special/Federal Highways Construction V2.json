@@ -174,7 +174,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (Stone Road)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -303,7 +303,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (Stone Road)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -501,7 +501,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (Asphalt Road)",
+                              "name": "# Federal Infrastructure Payout (Asphalt",
                               "reference": true
                             }
                           }
@@ -630,7 +630,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (Asphalt Road)",
+                              "name": "# Federal Infrastructure Payout (Asphalt",
                               "reference": true
                             }
                           }
@@ -1380,16 +1380,16 @@
                           "value": "Eco.Gameplay.Economy.BankAccount"
                         },
                         "requiredTag": null,
-                        "internalDescription": "<foldout><linktext><u>2 Bank Accounts</u></linktext><title>2 Bank Accounts</title><b><link=\"ref:GovernmentBankAccount:517\"><ecoicon item=\"EconomyViewerItem\"><style=\"BankAccount\"># Federal Infrastructure Payout (Asphalt Road)</style></ecoicon></link></b>\r\n<b><link=\"ref:GovernmentBankAccount:516\"><ecoicon item=\"EconomyViewerItem\"><style=\"BankAccount\"># Federal Infrastructure Payout (Stone Road)</style></ecoicon></link></b></foldout>",
+                        "internalDescription": "<foldout><linktext><u>2 Bank Accounts</u></linktext><title>2 Bank Accounts</title><b><link=\"ref:GovernmentBankAccount:517\"><ecoicon item=\"EconomyViewerItem\"><style=\"BankAccount\"># Federal Infrastructure Payout (Asphalt</style></ecoicon></link></b>\r\n<b><link=\"ref:GovernmentBankAccount:516\"><ecoicon item=\"EconomyViewerItem\"><style=\"BankAccount\"># Federal Infrastructure Payout (Stone)</style></ecoicon></link></b></foldout>",
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (Asphalt Road)",
+                            "name": "# Federal Infrastructure Payout (Asphalt",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (Stone Road)",
+                            "name": "# Federal Infrastructure Payout (Stone)",
                             "reference": true
                           }
                         ]
