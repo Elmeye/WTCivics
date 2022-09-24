@@ -1384,12 +1384,12 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (Asphalt Road) 2",
+                            "name": "# Federal Infrastructure Payout (Asphalt Road)",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (Stone Road) 2",
+                            "name": "# Federal Infrastructure Payout (Stone Road)",
                             "reference": true
                           }
                         ]
