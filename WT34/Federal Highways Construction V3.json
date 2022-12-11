@@ -147,7 +147,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -276,7 +276,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -474,7 +474,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -603,7 +603,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -1631,7 +1631,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -1760,7 +1760,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
@@ -1959,7 +1959,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Federal Highways Budget",
+                          "name": "# Minister of Infrastructure",
                           "reference": true
                         }
                       },
