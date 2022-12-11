@@ -840,7 +840,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Buckingham Palace</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>District 2</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Christmas Market</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>Offices of the Government of the States 6</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -854,7 +854,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "District 2",
+                                            "name": "Offices of the Government of the States 6",
                                             "reference": true
                                           },
                                           {
@@ -874,7 +874,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Buckingham Palace",
+                                            "name": "Christmas Market",
                                             "reference": true
                                           }
                                         ]
@@ -3077,7 +3077,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Buckingham Palace</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>District 2</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Christmas Market</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>Offices of the Government of the States 6</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -3091,7 +3091,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "District 2",
+                                            "name": "Offices of the Government of the States 6",
                                             "reference": true
                                           },
                                           {
@@ -3111,7 +3111,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Buckingham Palace",
+                                            "name": "Christmas Market",
                                             "reference": true
                                           }
                                         ]
@@ -5906,7 +5906,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Buckingham Palace</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>District 2</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:525:82033\"><ecoicon item=\"District\"><color=#B8A8E6FF>Christmas Market</color></ecoicon></link>\r\n<link=\"view:525:7993254\"><ecoicon item=\"District\"><color=#BEB769FF>Offices of the Government of the States 6</color></ecoicon></link>\r\n<link=\"view:525:75517\"><ecoicon item=\"District\"><color=#BCBC00FF>Federal Bank</color></ecoicon></link>\r\n<link=\"view:525:75516\"><ecoicon item=\"District\"><color=#4B51D5FF>Federal University</color></ecoicon></link>\r\n<link=\"view:525:75519\"><ecoicon item=\"District\"><color=#AB0300FF>Office of the Federal Government</color></ecoicon></link>\r\n<link=\"view:525:75518\"><ecoicon item=\"District\"><color=#B27601FF>Office of the Government of Unica</color></ecoicon></link>\r\n<link=\"view:525:75521\"><ecoicon item=\"District\"><color=#3A1F00FF>The Capitol</color></ecoicon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -5920,7 +5920,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "District 2",
+                                            "name": "Offices of the Government of the States 6",
                                             "reference": true
                                           },
                                           {
@@ -5940,7 +5940,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Buckingham Palace",
+                                            "name": "Christmas Market",
                                             "reference": true
                                           }
                                         ]
