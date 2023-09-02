@@ -12,7 +12,7 @@
       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
       "name": "Game Masters",
       "reference": true
-    }
+    },
 	{
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
       "name": "Prime Minister",
