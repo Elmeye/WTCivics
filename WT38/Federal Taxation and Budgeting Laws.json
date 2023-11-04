@@ -111,11 +111,11 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>Meteor Store</color></icon></link>",
+                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>GM Claimed</color></icon></link>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Store",
+                                      "name": "GM Claimed",
                                       "reference": true
                                     }
                                   ]
@@ -129,7 +129,7 @@
                       }
                     ],
                     "Comparison": "All"
-                  }
+                  }m
                 },
                 "Then": [
                   {
@@ -287,11 +287,11 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>Meteor Store</color></icon></link>",
+                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>GM Claimed</color></icon></link>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Store",
+                                      "name": "GM Claimed",
                                       "reference": true
                                     }
                                   ]
@@ -329,11 +329,11 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>Meteor Store</color></icon></link>",
+                                  "internalDescription": "<link=\"view:3830:61533101\"><icon name=\"District\"><color=#6AE8CBFF>GM Claimed</color></icon></link>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Meteor Store",
+                                      "name": "GM Claimed",
                                       "reference": true
                                     }
                                   ]
