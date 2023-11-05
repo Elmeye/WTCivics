@@ -1306,11 +1306,11 @@
                                     "value": "Eco.Gameplay.LegislationSystem.District"
                                   },
                                   "requiredTag": null,
-                                  "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><link=\"view:3830:65720200\"><icon name=\"District\"><color=#006EA7FF>Federal Highway Bridge</color></icon></link>\r\n<link=\"view:3830:97723\"><icon name=\"District\"><color=#7F7F7FFF>Federal Highways</color></icon></link></foldout>",
+                                  "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><link=\"view:3830:65720200\"><icon name=\"District\"><color=#006EA7FF>GM Claimed</color></icon></link>\r\n<link=\"view:3830:97723\"><icon name=\"District\"><color=#7F7F7FFF>Federal Highways</color></icon></link></foldout>",
                                   "entries": [
                                     {
                                       "type": "Eco.Gameplay.LegislationSystem.District",
-                                      "name": "Federal Highway Bridge",
+                                      "name": "GM Claimed",
                                       "reference": true
                                     },
                                     {
