@@ -1157,11 +1157,11 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3830:65724057\"><icon name=\"District\"><color=#5F4178FF>Federal Powerplant</color></icon></link>",
+                            "internalDescription": "<link=\"view:3830:65724057\"><icon name=\"District\"><color=#5F4178FF>GM Claimed</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Powerplant",
+                                "name": "GM Claimed",
                                 "reference": true
                               }
                             ]
@@ -1189,11 +1189,6 @@
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
                                 "name": "Minister of Infrastructure",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Electrical Engineer",
                                 "reference": true
                               },
                               {
