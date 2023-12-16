@@ -174,7 +174,7 @@
                                   },
                                   "Operation": "Subtract",
                                   "RightNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                     "properties": {
                                       "CustomStatName": "companyTaxRate",
                                       "TimeRangeInHours": {
@@ -577,7 +577,7 @@
                                   },
                                   "Operation": "Subtract",
                                   "RightNumber": {
-                                    "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                     "properties": {
                                       "CustomStatName": "companyTaxRate",
                                       "TimeRangeInHours": {
@@ -893,7 +893,7 @@
                                             },
                                             "Operation": "Subtract",
                                             "RightNumber": {
-                                              "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                              "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                               "properties": {
                                                 "CustomStatName": "companyTaxRate",
                                                 "TimeRangeInHours": {
