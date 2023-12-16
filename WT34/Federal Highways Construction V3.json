@@ -715,7 +715,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "Stone roads placed (lifetime):",
@@ -751,7 +751,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.SendNotice",
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
                     "reference": false,
                     "properties": {
                       "Message": "Asphalt roads placed (lifetime):",
