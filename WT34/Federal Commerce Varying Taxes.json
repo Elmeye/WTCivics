@@ -896,7 +896,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -1000,7 +1000,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -1125,7 +1125,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -3133,7 +3133,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -3237,7 +3237,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -3362,7 +3362,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -5962,7 +5962,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -6066,7 +6066,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
@@ -6191,7 +6191,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.Conditional_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
                     "reference": false,
                     "properties": {
                       "IfThenBlock": {
