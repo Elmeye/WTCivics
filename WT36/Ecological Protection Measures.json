@@ -83,7 +83,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -204,7 +204,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -325,7 +325,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -446,7 +446,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -567,7 +567,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -688,7 +688,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -809,7 +809,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -930,7 +930,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1051,7 +1051,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1172,7 +1172,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1293,7 +1293,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1414,7 +1414,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1535,7 +1535,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1656,7 +1656,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1777,7 +1777,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -1898,7 +1898,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2019,7 +2019,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2140,7 +2140,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2261,7 +2261,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2382,7 +2382,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2503,7 +2503,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2624,7 +2624,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2745,7 +2745,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2866,7 +2866,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -2987,7 +2987,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3108,7 +3108,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3229,7 +3229,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3350,7 +3350,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3471,7 +3471,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3592,7 +3592,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3713,7 +3713,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3834,7 +3834,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -3955,7 +3955,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
@@ -4076,7 +4076,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.Population",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.Population",
                             "properties": {
                               "SpeciesTypes": {
                                 "type": "GamePickerList",
