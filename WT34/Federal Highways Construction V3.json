@@ -119,7 +119,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "federalStoneRoadsPlaced",
@@ -248,7 +248,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "federalStoneRoadsPlaced",
@@ -446,7 +446,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "federalAsphaltRoadsPlaced",
@@ -575,7 +575,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "federalAsphaltRoadsPlaced",
@@ -727,7 +727,7 @@
                         "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
                       "ValueToDisplay": {
-                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                         "properties": {
                           "CustomStatName": "federalStoneRoadsPlaced",
                           "TimeRangeInHours": {
@@ -763,7 +763,7 @@
                         "contextDescription": "When triggered, the <ecoicon item=\"User\">Citizen</ecoicon> value of the event will be used.\r\n\r\n<ecoicon item=\"User\">Citizen</ecoicon>: The citizen who performed the interaction.\r\n"
                       },
                       "ValueToDisplay": {
-                        "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                         "properties": {
                           "CustomStatName": "federalAsphaltRoadsPlaced",
                           "TimeRangeInHours": {
