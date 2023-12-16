@@ -601,7 +601,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -704,7 +704,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -807,7 +807,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -910,7 +910,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -1013,7 +1013,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -1246,7 +1246,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -1314,7 +1314,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -1382,7 +1382,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
@@ -1450,7 +1450,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.TransferToAccount_LegalAction",
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
                     "reference": false,
                     "properties": {
                       "SourceAccount": {
