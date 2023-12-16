@@ -963,7 +963,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1215,7 +1215,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1318,7 +1318,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
@@ -1466,7 +1466,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.Prevent_LegalAction",
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
