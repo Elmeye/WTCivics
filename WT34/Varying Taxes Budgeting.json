@@ -82,7 +82,7 @@
                 },
                 "Then": [
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "salesTaxDifference",
@@ -289,7 +289,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "totalSalesTaxIncome",
@@ -471,7 +471,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "differenceCalculationRan",
@@ -1116,7 +1116,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "stateDistributionRan",
@@ -1518,7 +1518,7 @@
                     }
                   },
                   {
-                    "type": "Eco.Gameplay.Civics.GameValues.RecordCustomStat",
+                    "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.RecordCustomStat",
                     "reference": false,
                     "properties": {
                       "StatName": "budgetingRan",
