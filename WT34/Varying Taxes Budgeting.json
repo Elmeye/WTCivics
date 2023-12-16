@@ -616,7 +616,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Treasury of Altaica",
+                          "name": "The State of Unica Treasury",
                           "reference": true
                         }
                       },
@@ -683,7 +683,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                      "name": "# Treasury of Altaica",
+                                      "name": "The State of Unica Treasury",
                                       "reference": true
                                     }
                                   }
@@ -719,7 +719,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Treasury of Balica",
+                          "name": "The State of Unica Treasury",
                           "reference": true
                         }
                       },
@@ -786,7 +786,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                      "name": "# Treasury of Balica",
+                                      "name": "The State of Unica Treasury",
                                       "reference": true
                                     }
                                   }
@@ -822,7 +822,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Treasury of Sondaica",
+                          "name": "The State of Unica Treasury",
                           "reference": true
                         }
                       },
@@ -889,7 +889,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                      "name": "# Treasury of Sondaica",
+                                      "name": "The State of Unica Treasury",
                                       "reference": true
                                     }
                                   }
@@ -925,7 +925,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Treasury of Unica",
+                          "name": "The State of Unica Treasury",
                           "reference": true
                         }
                       },
@@ -992,7 +992,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                      "name": "# Treasury of Unica",
+                                      "name": "The State of Unica Treasury",
                                       "reference": true
                                     }
                                   }
@@ -1028,7 +1028,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "# Treasury of Virgata",
+                          "name": "The State of Unica Treasury",
                           "reference": true
                         }
                       },
@@ -1095,7 +1095,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                      "name": "# Treasury of Virgata",
+                                      "name": "The State of Unica Treasury",
                                       "reference": true
                                     }
                                   }
