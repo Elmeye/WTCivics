@@ -51,7 +51,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "differenceCalculationRan",
                               "TimeRangeInHours": {
@@ -240,7 +240,7 @@
                               },
                               "Operation": "Subtract",
                               "RightNumber": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "totalSalesTaxIncome",
                                   "TimeRangeInHours": {
@@ -262,7 +262,7 @@
                           },
                           "Operation": "Subtract",
                           "RightNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "salesTaxDifference",
                               "TimeRangeInHours": {
@@ -444,7 +444,7 @@
                           },
                           "Operation": "Subtract",
                           "RightNumber": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "totalSalesTaxIncome",
                               "TimeRangeInHours": {
@@ -541,7 +541,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "differenceCalculationRan",
                               "TimeRangeInHours": {
@@ -570,7 +570,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "stateDistributionRan",
                               "TimeRangeInHours": {
@@ -635,7 +635,7 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                             "properties": {
                               "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "salesTaxDifference",
                                   "TimeRangeInHours": {
@@ -738,7 +738,7 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                             "properties": {
                               "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "salesTaxDifference",
                                   "TimeRangeInHours": {
@@ -841,7 +841,7 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                             "properties": {
                               "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "salesTaxDifference",
                                   "TimeRangeInHours": {
@@ -944,7 +944,7 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                             "properties": {
                               "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "salesTaxDifference",
                                   "TimeRangeInHours": {
@@ -1047,7 +1047,7 @@
                             "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
                             "properties": {
                               "Number": {
-                                "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                                 "properties": {
                                   "CustomStatName": "salesTaxDifference",
                                   "TimeRangeInHours": {
@@ -1186,7 +1186,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "stateDistributionRan",
                               "TimeRangeInHours": {
@@ -1215,7 +1215,7 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Compare",
                         "properties": {
                           "Left": {
-                            "type": "Eco.Gameplay.Civics.GameValues.CustomStatQuery",
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                             "properties": {
                               "CustomStatName": "budgetingRan",
                               "TimeRangeInHours": {
