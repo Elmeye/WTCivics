@@ -840,7 +840,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States 2</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -864,7 +864,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Offices of the Governments of the States 2",
+                                            "name": "Offices of the Governments of the States",
                                             "reference": true
                                           },
                                           {
@@ -3067,7 +3067,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States 2</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -3091,7 +3091,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Offices of the Governments of the States 2",
+                                            "name": "Offices of the Governments of the States",
                                             "reference": true
                                           },
                                           {
@@ -5890,7 +5890,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States 2</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:3319:341422\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341421\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341424\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341423\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:73401780\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:3319:341430\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color> <style=\"InfoLight\">(draft)</style></icon></link>\r\n<link=\"view:3319:341426\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -5914,7 +5914,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Offices of the Governments of the States 2",
+                                            "name": "Offices of the Governments of the States",
                                             "reference": true
                                           },
                                           {
