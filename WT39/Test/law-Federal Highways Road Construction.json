@@ -913,7 +913,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Superintendant Of Infrastructure</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -922,7 +922,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Superintendant Of Infrastructure",
+                                "name": "Federal Highways Worker",
                                 "reference": true
                               }
                             ]
@@ -1170,7 +1170,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:8094886\"><icon name=\"AppointedTitle\"><style=\"Government\">Infrastructure Specialist</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Superintendant Of Infrastructure</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:8094886\"><icon name=\"AppointedTitle\"><style=\"Government\">Infrastructure Specialist</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1179,7 +1179,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Superintendant Of Infrastructure",
+                                "name": "Federal Highways Worker",
                                 "reference": true
                               },
                               {
@@ -1283,7 +1283,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Superintendant Of Infrastructure</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1292,7 +1292,7 @@
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Superintendant Of Infrastructure",
+                                "name": "Federal Highways Worker",
                                 "reference": true
                               }
                             ]
