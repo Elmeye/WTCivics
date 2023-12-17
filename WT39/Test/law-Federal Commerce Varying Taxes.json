@@ -6958,11 +6958,11 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:2516:462113\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">High Otter</style></icon></link>",
+                            "internalDescription": "<link=\"view:2516:462113\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Federal Highways Worker</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "High Otter",
+                                "name": "Federal Highways Worker",
                                 "reference": true
                               }
                             ]
