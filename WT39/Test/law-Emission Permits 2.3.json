@@ -278,7 +278,7 @@
                                           "type": "GameValueWrapper",
                                           "value": {
                                             "type": "Eco.Gameplay.Players.User",
-                                            "name": "White Tiger",
+                                            "name": "White-Tiger",
                                             "reference": true
                                           }
                                         }
@@ -469,7 +469,7 @@
                                           "type": "GameValueWrapper",
                                           "value": {
                                             "type": "Eco.Gameplay.Players.User",
-                                            "name": "White Tiger",
+                                            "name": "White-Tiger",
                                             "reference": true
                                           }
                                         }
@@ -1256,7 +1256,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Players.User",
-                                      "name": "White Tiger",
+                                      "name": "White-Tiger",
                                       "reference": true
                                     }
                                   },
@@ -1426,7 +1426,7 @@
                                         "type": "GameValueWrapper",
                                         "value": {
                                           "type": "Eco.Gameplay.Players.User",
-                                          "name": "White Tiger",
+                                          "name": "White-Tiger",
                                           "reference": true
                                         }
                                       },
@@ -1551,7 +1551,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Players.User",
-                                      "name": "White Tiger",
+                                      "name": "White-Tiger",
                                       "reference": true
                                     }
                                   }
@@ -1565,7 +1565,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -1655,7 +1655,7 @@
                                     "type": "GameValueWrapper",
                                     "value": {
                                       "type": "Eco.Gameplay.Players.User",
-                                      "name": "White Tiger",
+                                      "name": "White-Tiger",
                                       "reference": true
                                     }
                                   }
@@ -1691,7 +1691,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -1766,7 +1766,7 @@
                                         "type": "GameValueWrapper",
                                         "value": {
                                           "type": "Eco.Gameplay.Players.User",
-                                          "name": "White Tiger",
+                                          "name": "White-Tiger",
                                           "reference": true
                                         }
                                       },
@@ -1915,7 +1915,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -2225,7 +2225,7 @@
                                                   "type": "GameValueWrapper",
                                                   "value": {
                                                     "type": "Eco.Gameplay.Players.User",
-                                                    "name": "White Tiger",
+                                                    "name": "White-Tiger",
                                                     "reference": true
                                                   }
                                                 }
@@ -2277,7 +2277,7 @@
                                                       "type": "GameValueWrapper",
                                                       "value": {
                                                         "type": "Eco.Gameplay.Players.User",
-                                                        "name": "White Tiger",
+                                                        "name": "White-Tiger",
                                                         "reference": true
                                                       }
                                                     }
@@ -2447,7 +2447,7 @@
                                                   "type": "GameValueWrapper",
                                                   "value": {
                                                     "type": "Eco.Gameplay.Players.User",
-                                                    "name": "White Tiger",
+                                                    "name": "White-Tiger",
                                                     "reference": true
                                                   }
                                                 }
@@ -2499,7 +2499,7 @@
                                                       "type": "GameValueWrapper",
                                                       "value": {
                                                         "type": "Eco.Gameplay.Players.User",
-                                                        "name": "White Tiger",
+                                                        "name": "White-Tiger",
                                                         "reference": true
                                                       }
                                                     }
@@ -2624,7 +2624,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -2643,7 +2643,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Players.User",
-                              "name": "White Tiger",
+                              "name": "White-Tiger",
                               "reference": true
                             }
                           },
@@ -2677,7 +2677,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -2734,7 +2734,7 @@
                                                             "type": "GameValueWrapper",
                                                             "value": {
                                                               "type": "Eco.Gameplay.Players.User",
-                                                              "name": "White Tiger",
+                                                              "name": "White-Tiger",
                                                               "reference": true
                                                             }
                                                           }
@@ -2789,7 +2789,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Players.User",
-                                  "name": "White Tiger",
+                                  "name": "White-Tiger",
                                   "reference": true
                                 }
                               }
@@ -2839,7 +2839,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Players.User",
-                              "name": "White Tiger",
+                              "name": "White-Tiger",
                               "reference": true
                             }
                           },
@@ -2861,7 +2861,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Players.User",
-                          "name": "White Tiger",
+                          "name": "White-Tiger",
                           "reference": true
                         }
                       },
@@ -2962,7 +2962,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Players.User",
-                                  "name": "White Tiger",
+                                  "name": "White-Tiger",
                                   "reference": true
                                 }
                               }
@@ -3015,7 +3015,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Players.User",
-                                  "name": "White Tiger",
+                                  "name": "White-Tiger",
                                   "reference": true
                                 }
                               }
@@ -3063,7 +3063,7 @@
                                 "type": "GameValueWrapper",
                                 "value": {
                                   "type": "Eco.Gameplay.Players.User",
-                                  "name": "White Tiger",
+                                  "name": "White-Tiger",
                                   "reference": true
                                 }
                               }
@@ -3104,7 +3104,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Players.User",
-                              "name": "White Tiger",
+                              "name": "White-Tiger",
                               "reference": true
                             }
                           }
@@ -3143,7 +3143,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Players.User",
-                              "name": "White Tiger",
+                              "name": "White-Tiger",
                               "reference": true
                             }
                           }
