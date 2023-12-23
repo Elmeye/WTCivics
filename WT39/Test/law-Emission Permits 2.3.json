@@ -1310,34 +1310,6 @@
                           },
                           "Requirements": "HasNone"
                         }
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
-                        "properties": {
-                          "Titles": {
-                            "type": "GamePickerList",
-                            "mustDeriveType": {
-                              "type": "Type",
-                              "value": "Eco.Gameplay.Civics.Titles.Title"
-                            },
-                            "requiredTag": null,
-                            "internalDescription": "<link=\"view:1972:49651408\"><icon name=\"AppointedTitle\"><style=\"Government\">EP Fix</style></icon></link>",
-                            "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "EP Fix",
-                                "reference": true
-                              }
-                            ]
-                          },
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<icon name=\"User\">Citizen</icon>",
-                            "contextDescription": "The citizen currently being processed for the timer event."
-                          },
-                          "Requirements": "HasNone"
-                        }
                       }
                     ],
                     "Comparison": "All"
