@@ -101,7 +101,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -175,7 +175,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (stone)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -231,7 +231,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -305,7 +305,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (stone)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -430,7 +430,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -560,7 +560,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -734,7 +734,14 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                         "properties": {
                           "CustomStatName": "federalStoneRoadsPlaced",
-                          "Settlement": null,
+                          "Settlement": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Settlements.Settlement",
+                              "name": "The Federation of White Tiger",
+                              "reference": true
+                            }
+                          },
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 0.0
@@ -771,7 +778,14 @@
                         "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
                         "properties": {
                           "CustomStatName": "federalAsphaltRoadsPlaced",
-                          "Settlement": null,
+                          "Settlement": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Settlements.Settlement",
+                              "name": "The Federation of White Tiger",
+                              "reference": true
+                            }
+                          },
                           "TimeRangeInHours": {
                             "type": "GameValueWrapper",
                             "value": 0.0
@@ -827,19 +841,15 @@
                           "value": "Eco.Gameplay.Items.Item"
                         },
                         "requiredTag": "Constructable",
-                        "internalDescription": "<foldout><linktext><u>4 Roads</u></linktext><title>4 Roads</title><link=\"view:109:-1\"><ecoicon item=\"AsphaltConcreteItem\">Asphalt Concrete</ecoicon></link>\r\n<link=\"view:60:-1\"><ecoicon item=\"DirtRampItem\">Dirt Ramp</ecoicon></link>\r\n<link=\"view:1391:-1\"><ecoicon item=\"StoneRampItem\">Stone Ramp</ecoicon></link>\r\n<link=\"view:2470:-1\"><ecoicon item=\"StoneRoadItem\">Stone Road</ecoicon></link></foldout>",
+                        "internalDescription": "<foldout><linktext><u>2 Roads</u></linktext><title>2 Roads</title><link=\"Item:AsphaltConcreteItem\"><style=\"Item\"><icon name=\"AsphaltConcreteItem\" type=\"\">Asphalt Concrete</icon></style></link>\r\n<link=\"Item:StoneRoadItem\"><style=\"Item\"><icon name=\"StoneRoadItem\" type=\"\">Stone Road</icon></style></link></foldout>",
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "DirtRampItem"
+                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.StoneRoadItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
                           }
                         ]
                       }
@@ -913,16 +923,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1237:107511\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Federal Engineer</style></icon></link>\r\n<link=\"view:1237:107487\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Game Masters",
+                                "name": "Federal Engineer",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Federal Highways Worker",
+                                "name": "Game Masters",
                                 "reference": true
                               }
                             ]
@@ -952,7 +962,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -962,6 +972,39 @@
                             ]
                           },
                           "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><link=\"view:1633:96043887\"><icon name=\"District\" type=\"\"><color=#9705DFFF>Canal Bridges</color></icon></link>\r\n<link=\"view:1633:96043888\"><icon name=\"District\" type=\"\"><color=#394A02FF>Port Access Ramp</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Port Access Ramp",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Canal Bridges",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
                         }
                       }
                     ],
@@ -989,8 +1032,8 @@
         "type": "Eco.Gameplay.Civics.Laws.LawSection",
         "reference": false,
         "properties": {
-          "Title": "Prevents mining above and below Federal Highways",
-          "UserDescription": "Mining above and below federal highways is prevented.",
+          "Title": "Prevents mining below Federal Highways",
+          "UserDescription": "Mining below federal highways is prevented.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -1014,79 +1057,11 @@
                           "value": "Eco.Gameplay.Items.Item"
                         },
                         "requiredTag": "Excavatable",
-                        "internalDescription": "<foldout><linktext><u>22 Excavatables</u></linktext><title>22 Excavatables</title><link=\"view:2505:-1\"><ecoicon item=\"BasaltItem\">Basalt</ecoicon></link>\r\n<link=\"view:805:-1\"><ecoicon item=\"ClayItem\">Clay</ecoicon></link>\r\n<link=\"view:1402:-1\"><ecoicon item=\"CoalItem\">Coal</ecoicon></link>\r\n<link=\"view:453:-1\"><ecoicon item=\"CopperOreItem\">Copper Ore</ecoicon></link>\r\n<link=\"view:3192:-1\"><ecoicon item=\"CrushedBasaltItem\">Crushed Basalt</ecoicon></link>\r\n<link=\"view:3615:-1\"><ecoicon item=\"CrushedCopperOreItem\">Crushed Copper Ore</ecoicon></link>\r\n<link=\"view:2301:-1\"><ecoicon item=\"CrushedGneissItem\">Crushed Gneiss</ecoicon></link>\r\n<link=\"view:2920:-1\"><ecoicon item=\"CrushedGoldOreItem\">Crushed Gold Ore</ecoicon></link>\r\n<link=\"view:2180:-1\"><ecoicon item=\"CrushedGraniteItem\">Crushed Granite</ecoicon></link>\r\n<link=\"view:1592:-1\"><ecoicon item=\"CrushedIronOreItem\">Crushed Iron Ore</ecoicon></link>\r\n<link=\"view:3308:-1\"><ecoicon item=\"CrushedLimestoneItem\">Crushed Limestone</ecoicon></link>\r\n<link=\"view:1900:-1\"><ecoicon item=\"CrushedSandstoneItem\">Crushed Sandstone</ecoicon></link>\r\n<link=\"view:2183:-1\"><ecoicon item=\"CrushedShaleItem\">Crushed Shale</ecoicon></link>\r\n<link=\"view:3597:-1\"><ecoicon item=\"DirtItem\">Dirt</ecoicon></link>\r\n<link=\"view:2318:-1\"><ecoicon item=\"GneissItem\">Gneiss</ecoicon></link>\r\n<link=\"view:2088:-1\"><ecoicon item=\"GoldOreItem\">Gold Ore</ecoicon></link>\r\n<link=\"view:553:-1\"><ecoicon item=\"GraniteItem\">Granite</ecoicon></link>\r\n<link=\"view:3775:-1\"><ecoicon item=\"IronOreItem\">Iron Ore</ecoicon></link>\r\n<link=\"view:1333:-1\"><ecoicon item=\"LimestoneItem\">Limestone</ecoicon></link>\r\n<link=\"view:587:-1\"><ecoicon item=\"SandItem\">Sand</ecoicon></link>\r\n<link=\"view:2283:-1\"><ecoicon item=\"SandstoneItem\">Sandstone</ecoicon></link>\r\n<link=\"view:492:-1\"><ecoicon item=\"ShaleItem\">Shale</ecoicon></link></foldout>",
+                        "internalDescription": "<foldout><linktext><u>23 Excavatables</u></linktext><title>23 Excavatables</title><link=\"Item:BasaltItem\"><style=\"Item\"><icon name=\"BasaltItem\" type=\"\">Basalt</icon></style></link>\r\n<link=\"Item:ClayItem\"><style=\"Item\"><icon name=\"ClayItem\" type=\"\">Clay</icon></style></link>\r\n<link=\"Item:CoalItem\"><style=\"Item\"><icon name=\"CoalItem\" type=\"\">Coal</icon></style></link>\r\n<link=\"Item:CopperOreItem\"><style=\"Item\"><icon name=\"CopperOreItem\" type=\"\">Copper Ore</icon></style></link>\r\n<link=\"Item:CrushedBasaltItem\"><style=\"Item\"><icon name=\"CrushedBasaltItem\" type=\"\">Crushed Basalt</icon></style></link>\r\n<link=\"Item:CrushedCoalItem\"><style=\"Item\"><icon name=\"CrushedCoalItem\" type=\"\">Crushed Coal</icon></style></link>\r\n<link=\"Item:CrushedCopperOreItem\"><style=\"Item\"><icon name=\"CrushedCopperOreItem\" type=\"\">Crushed Copper Ore</icon></style></link>\r\n<link=\"Item:CrushedGneissItem\"><style=\"Item\"><icon name=\"CrushedGneissItem\" type=\"\">Crushed Gneiss</icon></style></link>\r\n<link=\"Item:CrushedGoldOreItem\"><style=\"Item\"><icon name=\"CrushedGoldOreItem\" type=\"\">Crushed Gold Ore</icon></style></link>\r\n<link=\"Item:CrushedGraniteItem\"><style=\"Item\"><icon name=\"CrushedGraniteItem\" type=\"\">Crushed Granite</icon></style></link>\r\n<link=\"Item:CrushedIronOreItem\"><style=\"Item\"><icon name=\"CrushedIronOreItem\" type=\"\">Crushed Iron Ore</icon></style></link>\r\n<link=\"Item:CrushedLimestoneItem\"><style=\"Item\"><icon name=\"CrushedLimestoneItem\" type=\"\">Crushed Limestone</icon></style></link>\r\n<link=\"Item:CrushedSandstoneItem\"><style=\"Item\"><icon name=\"CrushedSandstoneItem\" type=\"\">Crushed Sandstone</icon></style></link>\r\n<link=\"Item:CrushedShaleItem\"><style=\"Item\"><icon name=\"CrushedShaleItem\" type=\"\">Crushed Shale</icon></style></link>\r\n<link=\"Item:DirtItem\"><style=\"Item\"><icon name=\"DirtItem\" type=\"\">Dirt</icon></style></link>\r\n<link=\"Item:GneissItem\"><style=\"Item\"><icon name=\"GneissItem\" type=\"\">Gneiss</icon></style></link>\r\n<link=\"Item:GoldOreItem\"><style=\"Item\"><icon name=\"GoldOreItem\" type=\"\">Gold Ore</icon></style></link>\r\n<link=\"Item:GraniteItem\"><style=\"Item\"><icon name=\"GraniteItem\" type=\"\">Granite</icon></style></link>\r\n<link=\"Item:IronOreItem\"><style=\"Item\"><icon name=\"IronOreItem\" type=\"\">Iron Ore</icon></style></link>\r\n<link=\"Item:LimestoneItem\"><style=\"Item\"><icon name=\"LimestoneItem\" type=\"\">Limestone</icon></style></link>\r\n<link=\"Item:SandItem\"><style=\"Item\"><icon name=\"SandItem\" type=\"\">Sand</icon></style></link>\r\n<link=\"Item:SandstoneItem\"><style=\"Item\"><icon name=\"SandstoneItem\" type=\"\">Sandstone</icon></style></link>\r\n<link=\"Item:ShaleItem\"><style=\"Item\"><icon name=\"ShaleItem\" type=\"\">Shale</icon></style></link></foldout>",
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedGneissItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GoldOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedBasaltItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.IronOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ShaleItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasaltItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedShaleItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedCopperOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GneissItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LimestoneItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GraniteItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedSandstoneItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.DirtItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.CrushedGoldOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SandItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedIronOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.CopperOreItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ClayItem"
                           },
                           {
                             "type": "Type",
@@ -1094,7 +1069,51 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.LimestoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GoldOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedCopperOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ClayItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SandItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.DirtItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SandstoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedSandstoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedGraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedGneissItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedBasaltItem"
                           },
                           {
                             "type": "Type",
@@ -1102,7 +1121,35 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.CrushedGraniteItem"
+                            "value": "Eco.Mods.TechTree.CopperOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedCoalItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasaltItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedIronOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CrushedShaleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ShaleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GneissItem"
                           }
                         ]
                       }
@@ -1170,21 +1217,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:8094886\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1237:107511\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Federal Engineer</style></icon></link>\r\n<link=\"view:1237:107487\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Federal Engineer",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
                                 "name": "Game Masters",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Federal Highways Worker",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Federal Highways Worker",
                                 "reference": true
                               }
                             ]
@@ -1214,7 +1256,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1236,115 +1278,7 @@
                     "reference": false,
                     "properties": {
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
-                        "properties": {}
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "Eco.Gameplay.Civics.IfThenBlock",
-              "reference": false,
-              "properties": {
-                "If": {
-                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
-                  "properties": {
-                    "List": [
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
-                        "properties": {
-                          "Left": {
-                            "type": "Eco.Mods.LawExtensions.HeightAt",
-                            "properties": {
-                              "Location": {
-                                "type": "GameValueContext",
-                                "_name": "Action Location",
-                                "markedUpName": "<ecoicon item=\"DigOrMine\">Action Location</ecoicon>",
-                                "contextDescription": "The position where the interaction took place."
-                              }
-                            }
-                          },
-                          "Comparison": "GreaterThan",
-                          "Right": {
-                            "type": "GameValueWrapper",
-                            "value": 78.0
-                          }
-                        }
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
-                        "properties": {
-                          "Titles": {
-                            "type": "GamePickerList",
-                            "mustDeriveType": {
-                              "type": "Type",
-                              "value": "Eco.Gameplay.Civics.Titles.Title"
-                            },
-                            "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1972:9258175\"><icon name=\"AppointedTitle\"><style=\"Government\">Federal Highways Worker</style></icon></link></foldout>",
-                            "entries": [
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Game Masters",
-                                "reference": true
-                              },
-                              {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Federal Highways Worker",
-                                "reference": true
-                              }
-                            ]
-                          },
-                          "Citizen": {
-                            "type": "GameValueContext",
-                            "_name": "Citizen",
-                            "markedUpName": "<ecoicon item=\"User\">Citizen</ecoicon>",
-                            "contextDescription": "The citizen who performed the interaction."
-                          },
-                          "Requirements": "HasNone"
-                        }
-                      },
-                      {
-                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
-                        "properties": {
-                          "Location": {
-                            "type": "GameValueContext",
-                            "_name": "Action Location",
-                            "markedUpName": "<ecoicon item=\"DigOrMine\">Action Location</ecoicon>",
-                            "contextDescription": "The position where the interaction took place."
-                          },
-                          "Districts": {
-                            "type": "GamePickerList",
-                            "mustDeriveType": {
-                              "type": "Type",
-                              "value": "Eco.Gameplay.LegislationSystem.District"
-                            },
-                            "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
-                            "entries": [
-                              {
-                                "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Highways",
-                                "reference": true
-                              }
-                            ]
-                          },
-                          "Requirements": "InsideOne"
-                        }
-                      }
-                    ],
-                    "Comparison": "All"
-                  }
-                },
-                "Then": [
-                  {
-                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
-                    "reference": false,
-                    "properties": {
-                      "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -1406,12 +1340,12 @@
                         "entries": [
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (Asphalt)",
+                            "name": "# Federal Infrastructure Payout (Stone)",
                             "reference": true
                           },
                           {
                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                            "name": "# Federal Infrastructure Payout (stone)",
+                            "name": "# Federal Infrastructure Payout (Asphalt)",
                             "reference": true
                           }
                         ]
@@ -1459,7 +1393,7 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1972:341294\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:2516:341377\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style> <style=\"InfoLight\">(draft)</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1237:107487\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:2592:107574\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
@@ -1536,15 +1470,15 @@
                         "entries": [
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.MortaredGraniteItem"
                           },
                           {
                             "type": "Type",
                             "value": "Eco.Mods.TechTree.MortaredLimestoneItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.MortaredStoneItem"
                           },
                           {
                             "type": "Type",
@@ -1607,7 +1541,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1680,7 +1614,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (stone)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -1736,7 +1670,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1809,7 +1743,7 @@
                             "type": "GameValueWrapper",
                             "value": {
                               "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                              "name": "# Federal Infrastructure Payout (stone)",
+                              "name": "# Federal Infrastructure Payout (Stone)",
                               "reference": true
                             }
                           }
@@ -1875,18 +1809,6 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.ShaleItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.BasaltItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.GneissItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.LimestoneItem"
                           },
                           {
@@ -1895,15 +1817,27 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.DirtItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.ClayItem"
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.DirtItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SandstoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BasaltItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ShaleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GneissItem"
                           }
                         ]
                       }
@@ -1956,7 +1890,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:3319:12315788\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1995,7 +1929,7 @@
                       },
                       "Amount": {
                         "type": "GameValueWrapper",
-                        "value": 0.05
+                        "value": 0.1
                       },
                       "Target": {
                         "type": "GameValueContext",
@@ -2019,8 +1953,729 @@
             }
           ]
         }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Bridge construction for Ocean Biome",
+          "UserDescription": "Prevents road placement and T1-2 blocks for federal bridges over the ocean biome before reaching deep ocean.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<foldout><linktext><u>14 Constructables</u></linktext><title>14 Constructables</title><link=\"Item:AsphaltConcreteItem\"><style=\"Item\"><icon name=\"AsphaltConcreteItem\" type=\"\">Asphalt Concrete</icon></style></link>\r\n<link=\"Item:BrickItem\"><style=\"Item\"><icon name=\"BrickItem\" type=\"\">Brick</icon></style></link>\r\n<link=\"Item:GlassItem\"><style=\"Item\"><icon name=\"GlassItem\" type=\"\">Glass</icon></style></link>\r\n<link=\"Item:HardwoodHewnLogItem\"><style=\"Item\"><icon name=\"HardwoodHewnLogItem\" type=\"\">Hardwood Hewn Log</icon></style></link>\r\n<link=\"Item:HardwoodLumberItem\"><style=\"Item\"><icon name=\"HardwoodLumberItem\" type=\"\">Hardwood Lumber</icon></style></link>\r\n<link=\"Item:HewnLogItem\"><style=\"Item\"><icon name=\"HewnLogItem\" type=\"\">Hewn Log</icon></style></link>\r\n<link=\"Item:LumberItem\"><style=\"Item\"><icon name=\"LumberItem\" type=\"\">Lumber</icon></style></link>\r\n<link=\"Item:MortaredGraniteItem\"><style=\"Item\"><icon name=\"MortaredGraniteItem\" type=\"\">Mortared Granite</icon></style></link>\r\n<link=\"Item:MortaredLimestoneItem\"><style=\"Item\"><icon name=\"MortaredLimestoneItem\" type=\"\">Mortared Limestone</icon></style></link>\r\n<link=\"Item:MortaredSandstoneItem\"><style=\"Item\"><icon name=\"MortaredSandstoneItem\" type=\"\">Mortared Sandstone</icon></style></link>\r\n<link=\"Item:MortaredStoneItem\"><style=\"Item\"><icon name=\"MortaredStoneItem\" type=\"\">Mortared Stone</icon></style></link>\r\n<link=\"Item:SoftwoodHewnLogItem\"><style=\"Item\"><icon name=\"SoftwoodHewnLogItem\" type=\"\">Softwood Hewn Log</icon></style></link>\r\n<link=\"Item:SoftwoodLumberItem\"><style=\"Item\"><icon name=\"SoftwoodLumberItem\" type=\"\">Softwood Lumber</icon></style></link>\r\n<link=\"Item:StoneRoadItem\"><style=\"Item\"><icon name=\"StoneRoadItem\" type=\"\">Stone Road</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneRoadItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodLumberItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LumberItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SoftwoodLumberItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SoftwoodHewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodHewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BrickItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DropOrPickupBlock"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DropOrPickupBlock",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Block Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.BlockItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:DirtItem\"><style=\"Item\"><icon name=\"DirtItem\" type=\"\">Dirt</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.DirtItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.LayerValueAt",
+                            "properties": {
+                              "Location": {
+                                "type": "GameValueContext",
+                                "_name": "Action Location",
+                                "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                                "contextDescription": "<i>The position where the interaction took place.</i>"
+                              },
+                              "WorldLayer": "OceanBiome"
+                            }
+                          },
+                          "Comparison": "GreaterThanOrEqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.1
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>2 Titles</u></linktext><title>2 Titles</title><link=\"view:1237:107511\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Federal Engineer</style></icon></link>\r\n<link=\"view:1237:107487\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Federal Engineer",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Transmission Pole Protection",
+          "UserDescription": "Limits placement of transmission poles along the federal highways",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:TransmissionPoleItem\"><style=\"Item\"><icon name=\"TransmissionPoleItem\" type=\"\">Transmission Pole</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TransmissionPoleItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:1237:107487\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:2592:107568\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:2592:107574\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Prime Minister",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Minister of Infrastructure",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Advanced Tunnel Lining Payouts",
+          "UserDescription": "Pays out for placing brick or reinforced concrete as a tunnel lining",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<foldout><linktext><u>8 Constructables</u></linktext><title>8 Constructables</title><link=\"Item:AshlarBasaltItem\"><style=\"Item\"><icon name=\"AshlarBasaltItem\" type=\"\">Ashlar Basalt</icon></style></link>\r\n<link=\"Item:AshlarGneissItem\"><style=\"Item\"><icon name=\"AshlarGneissItem\" type=\"\">Ashlar Gneiss</icon></style></link>\r\n<link=\"Item:AshlarGraniteItem\"><style=\"Item\"><icon name=\"AshlarGraniteItem\" type=\"\">Ashlar Granite</icon></style></link>\r\n<link=\"Item:AshlarLimestoneItem\"><style=\"Item\"><icon name=\"AshlarLimestoneItem\" type=\"\">Ashlar Limestone</icon></style></link>\r\n<link=\"Item:AshlarSandstoneItem\"><style=\"Item\"><icon name=\"AshlarSandstoneItem\" type=\"\">Ashlar Sandstone</icon></style></link>\r\n<link=\"Item:AshlarShaleItem\"><style=\"Item\"><icon name=\"AshlarShaleItem\" type=\"\">Ashlar Shale</icon></style></link>\r\n<link=\"Item:BrickItem\"><style=\"Item\"><icon name=\"BrickItem\" type=\"\">Brick</icon></style></link>\r\n<link=\"Item:ReinforcedConcreteItem\"><style=\"Item\"><icon name=\"ReinforcedConcreteItem\" type=\"\">Reinforced Concrete</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ReinforcedConcreteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarSandstoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarShaleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGneissItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarBasaltItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BrickItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Constructed",
+                        "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Constructed</icon>",
+                        "contextDescription": "<i>Was the block constructed or deconstructed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.HeightAt",
+                            "properties": {
+                              "Location": {
+                                "type": "GameValueContext",
+                                "_name": "Action Location",
+                                "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                                "contextDescription": "<i>The position where the interaction took place.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "LessThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 77.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Minister of Infrastructure Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 3.5
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "PaymentCode": "Federal Roads",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Deconstructed",
+                        "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Deconstructed</icon>",
+                        "contextDescription": "<i>Was the block constructed or deconstructed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107605\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.HeightAt",
+                            "properties": {
+                              "Location": {
+                                "type": "GameValueContext",
+                                "_name": "Action Location",
+                                "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                                "contextDescription": "<i>The position where the interaction took place.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "LessThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 77.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Minister of Infrastructure Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 3.5
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "TaxCode": "Federal Roads",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ],
-    "State": "Draft"
+    "State": "Active"
   }
 }

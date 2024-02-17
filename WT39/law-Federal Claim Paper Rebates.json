@@ -1,0 +1,2313 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Federal Claim Paper Rebates",
+  "reference": false,
+  "description": "Implement a rebate program for the acquisition of Claim Papers, with a rebate of 75 euros per Claim Paper for farmers and gathers, and 50 to everyone else. This program is applicable to individual farmers and gatherers for up to 30 Claim Papers, and to other eligible individuals for up to 10 Claim Papers. For corporate entities, eligibility for the program is determined based on whether the individual purchasing the Claim Papers is employed in a farming or gathering capacity.\r\n\r\nIntroduce a rebate for the purchase of Claim Stakes, offering a rebate of 300 euros per Claim Stake for farmers and gatherers, and 200 for everyone else. Farmers and gatherers are eligible for a rebate on up to 4 Claim Stakes, whereas other qualified individuals are limited to a rebate on one Claim Stake. In the context of corporate entities, the program's eligibility hinges on whether the individual responsible for purchasing the Claim Stakes holds a job as a farmer or gatherer.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Paper Logic",
+          "UserDescription": "Provide Papers at a lower price for Farmers or gatherers",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CurrencyTrade"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "BankAccount",
+                    "propDisplayName": "Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:2840:107412\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Euro</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Traded",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:ClaimPaperItem\"><style=\"Item\"><icon name=\"ClaimPaperItem\" type=\"\">Claim Paper</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Gameplay.Items.ClaimPaperItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107608\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "IfThenBlock": {
+                                            "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                            "reference": false,
+                                            "properties": {
+                                              "If": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                                "properties": {
+                                                  "List": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        },
+                                                        "Skills": {
+                                                          "type": "GamePickerList",
+                                                          "mustDeriveType": {
+                                                            "type": "Type",
+                                                            "value": "Eco.Gameplay.Skills.Skill"
+                                                          },
+                                                          "requiredTag": null,
+                                                          "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                          "entries": [
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                            },
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "Requirements": "HasAny",
+                                                        "RequiredLevel": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 1.0
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                      "properties": {
+                                                        "Left": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                          "properties": {
+                                                            "CustomStatName": "boughtClaimPapers",
+                                                            "Settlement": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": {
+                                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                "name": "The Federation of White Tiger",
+                                                                "reference": true
+                                                              }
+                                                            },
+                                                            "TimeRangeInHours": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": 0.0
+                                                            },
+                                                            "TimeRangeType": "CurrentTimeBlock",
+                                                            "User": {
+                                                              "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                              "properties": {
+                                                                "Citizen": {
+                                                                  "type": "GameValueContext",
+                                                                  "_name": "Buyer",
+                                                                  "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                  "contextDescription": "<i>The buying player.</i>"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Comparison": "LessThan",
+                                                        "Right": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 30.0
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "Comparison": "All"
+                                                }
+                                              },
+                                              "Then": [
+                                                {
+                                                  "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                                  "reference": false,
+                                                  "properties": {
+                                                    "SourceBankAccount": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                        "name": "# Federal Executive Funds",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Currency": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.Currency",
+                                                        "name": "Euro",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Amount": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                      "properties": {
+                                                        "LeftNumber": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                          "properties": {
+                                                            "LeftNumber": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Number Of Items",
+                                                              "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                              "contextDescription": "<i>Number of items in the transaction</i>"
+                                                            },
+                                                            "Operation": "AtMost",
+                                                            "RightNumber": {
+                                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                              "properties": {
+                                                                "LeftNumber": {
+                                                                  "type": "GameValueWrapper",
+                                                                  "value": 30.0
+                                                                },
+                                                                "Operation": "Subtract",
+                                                                "RightNumber": {
+                                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                                  "properties": {
+                                                                    "CustomStatName": "boughtClaimPapers",
+                                                                    "Settlement": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": {
+                                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                        "name": "The Federation of White Tiger",
+                                                                        "reference": true
+                                                                      }
+                                                                    },
+                                                                    "TimeRangeInHours": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": 0.0
+                                                                    },
+                                                                    "TimeRangeType": "CurrentTimeBlock",
+                                                                    "User": {
+                                                                      "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                                      "properties": {
+                                                                        "Citizen": {
+                                                                          "type": "GameValueContext",
+                                                                          "_name": "Buyer",
+                                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                          "contextDescription": "<i>The buying player.</i>"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Operation": "Multiply",
+                                                        "RightNumber": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 75.0
+                                                        }
+                                                      }
+                                                    },
+                                                    "Target": {
+                                                      "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        }
+                                                      }
+                                                    },
+                                                    "PaymentCode": "Claim Paper Rebate",
+                                                    "Silent": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                      "properties": {}
+                                                    },
+                                                    "InfoboxOnSuccess": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                      "properties": {}
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "IfThenBlock": {
+                                            "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                            "reference": false,
+                                            "properties": {
+                                              "If": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                                "properties": {
+                                                  "List": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        },
+                                                        "Skills": {
+                                                          "type": "GamePickerList",
+                                                          "mustDeriveType": {
+                                                            "type": "Type",
+                                                            "value": "Eco.Gameplay.Skills.Skill"
+                                                          },
+                                                          "requiredTag": null,
+                                                          "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                          "entries": [
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                            },
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "Requirements": "HasNone",
+                                                        "RequiredLevel": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 1.0
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                      "properties": {
+                                                        "Left": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                          "properties": {
+                                                            "CustomStatName": "boughtClaimPapers",
+                                                            "Settlement": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": {
+                                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                "name": "The Federation of White Tiger",
+                                                                "reference": true
+                                                              }
+                                                            },
+                                                            "TimeRangeInHours": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": 0.0
+                                                            },
+                                                            "TimeRangeType": "CurrentTimeBlock",
+                                                            "User": {
+                                                              "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                              "properties": {
+                                                                "Citizen": {
+                                                                  "type": "GameValueContext",
+                                                                  "_name": "Buyer",
+                                                                  "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                  "contextDescription": "<i>The buying player.</i>"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Comparison": "LessThan",
+                                                        "Right": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 10.0
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "Comparison": "All"
+                                                }
+                                              },
+                                              "Then": [
+                                                {
+                                                  "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                                  "reference": false,
+                                                  "properties": {
+                                                    "SourceBankAccount": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                        "name": "# Federal Executive Funds",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Currency": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.Currency",
+                                                        "name": "Euro",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Amount": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                      "properties": {
+                                                        "LeftNumber": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                          "properties": {
+                                                            "LeftNumber": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Number Of Items",
+                                                              "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                              "contextDescription": "<i>Number of items in the transaction</i>"
+                                                            },
+                                                            "Operation": "AtMost",
+                                                            "RightNumber": {
+                                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                              "properties": {
+                                                                "LeftNumber": {
+                                                                  "type": "GameValueWrapper",
+                                                                  "value": 10.0
+                                                                },
+                                                                "Operation": "Subtract",
+                                                                "RightNumber": {
+                                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                                  "properties": {
+                                                                    "CustomStatName": "boughtClaimPapers",
+                                                                    "Settlement": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": {
+                                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                        "name": "The Federation of White Tiger",
+                                                                        "reference": true
+                                                                      }
+                                                                    },
+                                                                    "TimeRangeInHours": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": 0.0
+                                                                    },
+                                                                    "TimeRangeType": "CurrentTimeBlock",
+                                                                    "User": {
+                                                                      "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                                      "properties": {
+                                                                        "Citizen": {
+                                                                          "type": "GameValueContext",
+                                                                          "_name": "Buyer",
+                                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                          "contextDescription": "<i>The buying player.</i>"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Operation": "Multiply",
+                                                        "RightNumber": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 50.0
+                                                        }
+                                                      }
+                                                    },
+                                                    "Target": {
+                                                      "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        }
+                                                      }
+                                                    },
+                                                    "PaymentCode": "Claim Paper Rebate",
+                                                    "Silent": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                      "properties": {}
+                                                    },
+                                                    "InfoboxOnSuccess": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                      "properties": {}
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Not",
+                                            "properties": {
+                                              "NotValue": {
+                                                "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                                "properties": {
+                                                  "Citizen": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Buyer",
+                                                    "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                    "contextDescription": "<i>The buying player.</i>"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "IfThenBlock": {
+                                            "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                            "reference": false,
+                                            "properties": {
+                                              "If": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                                "properties": {
+                                                  "List": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        },
+                                                        "Skills": {
+                                                          "type": "GamePickerList",
+                                                          "mustDeriveType": {
+                                                            "type": "Type",
+                                                            "value": "Eco.Gameplay.Skills.Skill"
+                                                          },
+                                                          "requiredTag": null,
+                                                          "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                          "entries": [
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                            },
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "Requirements": "HasAny",
+                                                        "RequiredLevel": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 1.0
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                      "properties": {
+                                                        "Left": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                          "properties": {
+                                                            "CustomStatName": "boughtClaimPapers",
+                                                            "Settlement": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": {
+                                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                "name": "The Federation of White Tiger",
+                                                                "reference": true
+                                                              }
+                                                            },
+                                                            "TimeRangeInHours": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": 0.0
+                                                            },
+                                                            "TimeRangeType": "CurrentTimeBlock",
+                                                            "User": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Buyer",
+                                                              "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                              "contextDescription": "<i>The buying player.</i>"
+                                                            }
+                                                          }
+                                                        },
+                                                        "Comparison": "LessThan",
+                                                        "Right": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 30.0
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "Comparison": "All"
+                                                }
+                                              },
+                                              "Then": [
+                                                {
+                                                  "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                                  "reference": false,
+                                                  "properties": {
+                                                    "SourceBankAccount": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                        "name": "# Federal Executive Funds",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Currency": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.Currency",
+                                                        "name": "Euro",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Amount": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                      "properties": {
+                                                        "LeftNumber": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                          "properties": {
+                                                            "LeftNumber": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Number Of Items",
+                                                              "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                              "contextDescription": "<i>Number of items in the transaction</i>"
+                                                            },
+                                                            "Operation": "AtMost",
+                                                            "RightNumber": {
+                                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                              "properties": {
+                                                                "LeftNumber": {
+                                                                  "type": "GameValueWrapper",
+                                                                  "value": 30.0
+                                                                },
+                                                                "Operation": "Subtract",
+                                                                "RightNumber": {
+                                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                                  "properties": {
+                                                                    "CustomStatName": "boughtClaimPapers",
+                                                                    "Settlement": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": {
+                                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                        "name": "The Federation of White Tiger",
+                                                                        "reference": true
+                                                                      }
+                                                                    },
+                                                                    "TimeRangeInHours": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": 0.0
+                                                                    },
+                                                                    "TimeRangeType": "CurrentTimeBlock",
+                                                                    "User": {
+                                                                      "type": "GameValueContext",
+                                                                      "_name": "Buyer",
+                                                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                      "contextDescription": "<i>The buying player.</i>"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Operation": "Multiply",
+                                                        "RightNumber": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 75.0
+                                                        }
+                                                      }
+                                                    },
+                                                    "Target": {
+                                                      "type": "GameValueContext",
+                                                      "_name": "Buyer",
+                                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                      "contextDescription": "<i>The buying player.</i>"
+                                                    },
+                                                    "PaymentCode": "Claim Paper Rebate",
+                                                    "Silent": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                      "properties": {}
+                                                    },
+                                                    "InfoboxOnSuccess": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                      "properties": {}
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "IfThenBlock": {
+                                            "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                            "reference": false,
+                                            "properties": {
+                                              "If": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                                "properties": {
+                                                  "List": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                                      "properties": {
+                                                        "Citizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Buyer",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                          "contextDescription": "<i>The buying player.</i>"
+                                                        },
+                                                        "Skills": {
+                                                          "type": "GamePickerList",
+                                                          "mustDeriveType": {
+                                                            "type": "Type",
+                                                            "value": "Eco.Gameplay.Skills.Skill"
+                                                          },
+                                                          "requiredTag": null,
+                                                          "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                          "entries": [
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                            },
+                                                            {
+                                                              "type": "Type",
+                                                              "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                            }
+                                                          ]
+                                                        },
+                                                        "Requirements": "HasNone",
+                                                        "RequiredLevel": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 1.0
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                                      "properties": {
+                                                        "Left": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                          "properties": {
+                                                            "CustomStatName": "boughtClaimPapers",
+                                                            "Settlement": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": {
+                                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                "name": "The Federation of White Tiger",
+                                                                "reference": true
+                                                              }
+                                                            },
+                                                            "TimeRangeInHours": {
+                                                              "type": "GameValueWrapper",
+                                                              "value": 0.0
+                                                            },
+                                                            "TimeRangeType": "CurrentTimeBlock",
+                                                            "User": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Buyer",
+                                                              "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                              "contextDescription": "<i>The buying player.</i>"
+                                                            }
+                                                          }
+                                                        },
+                                                        "Comparison": "LessThan",
+                                                        "Right": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 10.0
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "Comparison": "All"
+                                                }
+                                              },
+                                              "Then": [
+                                                {
+                                                  "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                                  "reference": false,
+                                                  "properties": {
+                                                    "SourceBankAccount": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                        "name": "# Federal Executive Funds",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Currency": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Economy.Currency",
+                                                        "name": "Euro",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "Amount": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                      "properties": {
+                                                        "LeftNumber": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                          "properties": {
+                                                            "LeftNumber": {
+                                                              "type": "GameValueContext",
+                                                              "_name": "Number Of Items",
+                                                              "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                              "contextDescription": "<i>Number of items in the transaction</i>"
+                                                            },
+                                                            "Operation": "AtMost",
+                                                            "RightNumber": {
+                                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                              "properties": {
+                                                                "LeftNumber": {
+                                                                  "type": "GameValueWrapper",
+                                                                  "value": 10.0
+                                                                },
+                                                                "Operation": "Subtract",
+                                                                "RightNumber": {
+                                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                                  "properties": {
+                                                                    "CustomStatName": "boughtClaimPapers",
+                                                                    "Settlement": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": {
+                                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                                        "name": "The Federation of White Tiger",
+                                                                        "reference": true
+                                                                      }
+                                                                    },
+                                                                    "TimeRangeInHours": {
+                                                                      "type": "GameValueWrapper",
+                                                                      "value": 0.0
+                                                                    },
+                                                                    "TimeRangeType": "CurrentTimeBlock",
+                                                                    "User": {
+                                                                      "type": "GameValueContext",
+                                                                      "_name": "Buyer",
+                                                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                      "contextDescription": "<i>The buying player.</i>"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "Operation": "Multiply",
+                                                        "RightNumber": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 50.0
+                                                        }
+                                                      }
+                                                    },
+                                                    "Target": {
+                                                      "type": "GameValueContext",
+                                                      "_name": "Buyer",
+                                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                      "contextDescription": "<i>The buying player.</i>"
+                                                    },
+                                                    "PaymentCode": "Claim Paper Rebate",
+                                                    "Silent": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                                      "properties": {}
+                                                    },
+                                                    "InfoboxOnSuccess": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.No",
+                                                      "properties": {}
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Buyer",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                      "contextDescription": "<i>The buying player.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "boughtClaimPapers",
+                                "Person": {
+                                  "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Buyer",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                      "contextDescription": "<i>The buying player.</i>"
+                                    }
+                                  }
+                                },
+                                "Count": {
+                                  "type": "GameValueContext",
+                                  "_name": "Number Of Items",
+                                  "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                  "contextDescription": "<i>Number of items in the transaction</i>"
+                                },
+                                "DisplayResultToCitizen": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Not",
+                                  "properties": {
+                                    "NotValue": {
+                                      "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                      "properties": {
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Buyer",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                          "contextDescription": "<i>The buying player.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "boughtClaimPapers",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "_name": "Buyer",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                  "contextDescription": "<i>The buying player.</i>"
+                                },
+                                "Count": {
+                                  "type": "GameValueContext",
+                                  "_name": "Number Of Items",
+                                  "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                  "contextDescription": "<i>Number of items in the transaction</i>"
+                                },
+                                "DisplayResultToCitizen": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Claim Stake Rebate",
+          "UserDescription": "Provides the Claim Stake Rebate",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CurrencyTrade"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "BankAccount",
+                    "propDisplayName": "Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:2840:107412\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Euro</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CurrencyTrade",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Traded",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:FederationClaimStakeItem\"><style=\"Item\"><icon name=\"FederationClaimStakeItem\" type=\"\">Federation Claim Stake</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FederationClaimStakeItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1633:107608\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Buyer",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                      "contextDescription": "<i>The buying player.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              },
+                                              "Skills": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Skills.Skill"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                  },
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                  }
+                                                ]
+                                              },
+                                              "Requirements": "HasAny",
+                                              "RequiredLevel": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "boughtClaimStakes",
+                                                  "Settlement": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                                      "name": "The Federation of White Tiger",
+                                                      "reference": true
+                                                    }
+                                                  },
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 0.0
+                                                  },
+                                                  "TimeRangeType": "CurrentTimeBlock",
+                                                  "User": {
+                                                    "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                    "properties": {
+                                                      "Citizen": {
+                                                        "type": "GameValueContext",
+                                                        "_name": "Buyer",
+                                                        "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                        "contextDescription": "<i>The buying player.</i>"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Comparison": "LessThan",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 4.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Federal Executive Funds",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                "properties": {
+                                                  "LeftNumber": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Number Of Items",
+                                                    "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                    "contextDescription": "<i>Number of items in the transaction</i>"
+                                                  },
+                                                  "Operation": "AtMost",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                    "properties": {
+                                                      "LeftNumber": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": 4.0
+                                                      },
+                                                      "Operation": "Subtract",
+                                                      "RightNumber": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                        "properties": {
+                                                          "CustomStatName": "boughtClaimStakes",
+                                                          "Settlement": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": {
+                                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                                              "name": "The Federation of White Tiger",
+                                                              "reference": true
+                                                            }
+                                                          },
+                                                          "TimeRangeInHours": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": 0.0
+                                                          },
+                                                          "TimeRangeType": "CurrentTimeBlock",
+                                                          "User": {
+                                                            "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                            "properties": {
+                                                              "Citizen": {
+                                                                "type": "GameValueContext",
+                                                                "_name": "Buyer",
+                                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                "contextDescription": "<i>The buying player.</i>"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Multiply",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 300.0
+                                              }
+                                            }
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Claim Stake Rebate",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              },
+                                              "Skills": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Skills.Skill"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                  },
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                  }
+                                                ]
+                                              },
+                                              "Requirements": "HasNone",
+                                              "RequiredLevel": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "boughtClaimStakes",
+                                                  "Settlement": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                                      "name": "The Federation of White Tiger",
+                                                      "reference": true
+                                                    }
+                                                  },
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 0.0
+                                                  },
+                                                  "TimeRangeType": "CurrentTimeBlock",
+                                                  "User": {
+                                                    "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                    "properties": {
+                                                      "Citizen": {
+                                                        "type": "GameValueContext",
+                                                        "_name": "Buyer",
+                                                        "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                        "contextDescription": "<i>The buying player.</i>"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Comparison": "LessThan",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Federal Executive Funds",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                "properties": {
+                                                  "LeftNumber": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Number Of Items",
+                                                    "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                    "contextDescription": "<i>Number of items in the transaction</i>"
+                                                  },
+                                                  "Operation": "AtMost",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                    "properties": {
+                                                      "LeftNumber": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": 1.0
+                                                      },
+                                                      "Operation": "Subtract",
+                                                      "RightNumber": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                        "properties": {
+                                                          "CustomStatName": "boughtClaimStakes",
+                                                          "Settlement": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": {
+                                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                                              "name": "The Federation of White Tiger",
+                                                              "reference": true
+                                                            }
+                                                          },
+                                                          "TimeRangeInHours": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": 0.0
+                                                          },
+                                                          "TimeRangeType": "CurrentTimeBlock",
+                                                          "User": {
+                                                            "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                                            "properties": {
+                                                              "Citizen": {
+                                                                "type": "GameValueContext",
+                                                                "_name": "Buyer",
+                                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                                "contextDescription": "<i>The buying player.</i>"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Multiply",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 200.0
+                                              }
+                                            }
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Claim Stake Rebate",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Not",
+                                  "properties": {
+                                    "NotValue": {
+                                      "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                      "properties": {
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Buyer",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                          "contextDescription": "<i>The buying player.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              },
+                                              "Skills": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Skills.Skill"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                  },
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                  }
+                                                ]
+                                              },
+                                              "Requirements": "HasAny",
+                                              "RequiredLevel": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "boughtClaimStakes",
+                                                  "Settlement": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                                      "name": "The Federation of White Tiger",
+                                                      "reference": true
+                                                    }
+                                                  },
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 0.0
+                                                  },
+                                                  "TimeRangeType": "CurrentTimeBlock",
+                                                  "User": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Buyer",
+                                                    "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                    "contextDescription": "<i>The buying player.</i>"
+                                                  }
+                                                }
+                                              },
+                                              "Comparison": "LessThan",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 4.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Federal Executive Funds",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                "properties": {
+                                                  "LeftNumber": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Number Of Items",
+                                                    "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                    "contextDescription": "<i>Number of items in the transaction</i>"
+                                                  },
+                                                  "Operation": "AtMost",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                    "properties": {
+                                                      "LeftNumber": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": 4.0
+                                                      },
+                                                      "Operation": "Subtract",
+                                                      "RightNumber": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                        "properties": {
+                                                          "CustomStatName": "boughtClaimStakes",
+                                                          "Settlement": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": {
+                                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                                              "name": "The Federation of White Tiger",
+                                                              "reference": true
+                                                            }
+                                                          },
+                                                          "TimeRangeInHours": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": 0.0
+                                                          },
+                                                          "TimeRangeType": "CurrentTimeBlock",
+                                                          "User": {
+                                                            "type": "GameValueContext",
+                                                            "_name": "Buyer",
+                                                            "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                            "contextDescription": "<i>The buying player.</i>"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Multiply",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 300.0
+                                              }
+                                            }
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Buyer",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                            "contextDescription": "<i>The buying player.</i>"
+                                          },
+                                          "PaymentCode": "Claim Stake Rebate",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Buyer",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                "contextDescription": "<i>The buying player.</i>"
+                                              },
+                                              "Skills": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Skills.Skill"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.FarmingSkill"
+                                                  },
+                                                  {
+                                                    "type": "Type",
+                                                    "value": "Eco.Mods.TechTree.GatheringSkill"
+                                                  }
+                                                ]
+                                              },
+                                              "Requirements": "HasNone",
+                                              "RequiredLevel": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                "properties": {
+                                                  "CustomStatName": "boughtClaimStakes",
+                                                  "Settlement": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": {
+                                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                                      "name": "The Federation of White Tiger",
+                                                      "reference": true
+                                                    }
+                                                  },
+                                                  "TimeRangeInHours": {
+                                                    "type": "GameValueWrapper",
+                                                    "value": 0.0
+                                                  },
+                                                  "TimeRangeType": "CurrentTimeBlock",
+                                                  "User": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Buyer",
+                                                    "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                    "contextDescription": "<i>The buying player.</i>"
+                                                  }
+                                                }
+                                              },
+                                              "Comparison": "LessThan",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 1.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Federal Executive Funds",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                            "properties": {
+                                              "LeftNumber": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                "properties": {
+                                                  "LeftNumber": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Number Of Items",
+                                                    "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                                    "contextDescription": "<i>Number of items in the transaction</i>"
+                                                  },
+                                                  "Operation": "AtMost",
+                                                  "RightNumber": {
+                                                    "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                                    "properties": {
+                                                      "LeftNumber": {
+                                                        "type": "GameValueWrapper",
+                                                        "value": 1.0
+                                                      },
+                                                      "Operation": "Subtract",
+                                                      "RightNumber": {
+                                                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                        "properties": {
+                                                          "CustomStatName": "boughtClaimStakes",
+                                                          "Settlement": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": {
+                                                              "type": "Eco.Gameplay.Settlements.Settlement",
+                                                              "name": "The Federation of White Tiger",
+                                                              "reference": true
+                                                            }
+                                                          },
+                                                          "TimeRangeInHours": {
+                                                            "type": "GameValueWrapper",
+                                                            "value": 0.0
+                                                          },
+                                                          "TimeRangeType": "CurrentTimeBlock",
+                                                          "User": {
+                                                            "type": "GameValueContext",
+                                                            "_name": "Buyer",
+                                                            "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                                            "contextDescription": "<i>The buying player.</i>"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "Operation": "Multiply",
+                                              "RightNumber": {
+                                                "type": "GameValueWrapper",
+                                                "value": 200.0
+                                              }
+                                            }
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Buyer",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                            "contextDescription": "<i>The buying player.</i>"
+                                          },
+                                          "PaymentCode": "Claim Stake Rebate",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Buyer",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                      "contextDescription": "<i>The buying player.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "boughtClaimStakes",
+                                "Person": {
+                                  "type": "Eco.Mods.Companies.EmployerLegalPerson",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Buyer",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                      "contextDescription": "<i>The buying player.</i>"
+                                    }
+                                  }
+                                },
+                                "Count": {
+                                  "type": "GameValueContext",
+                                  "_name": "Number Of Items",
+                                  "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                  "contextDescription": "<i>Number of items in the transaction</i>"
+                                },
+                                "DisplayResultToCitizen": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Not",
+                                  "properties": {
+                                    "NotValue": {
+                                      "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                      "properties": {
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Buyer",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                          "contextDescription": "<i>The buying player.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                              "reference": false,
+                              "properties": {
+                                "StatName": "boughtClaimStakes",
+                                "Person": {
+                                  "type": "GameValueContext",
+                                  "_name": "Buyer",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Buyer</icon>",
+                                  "contextDescription": "<i>The buying player.</i>"
+                                },
+                                "Count": {
+                                  "type": "GameValueContext",
+                                  "_name": "Number Of Items",
+                                  "markedUpName": "<icon name=\"CurrencyTrade\" type=\"\">Number Of Items</icon>",
+                                  "contextDescription": "<i>Number of items in the transaction</i>"
+                                },
+                                "DisplayResultToCitizen": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
