@@ -1,0 +1,698 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Federal Farming Space",
+  "reference": false,
+  "description": "Goverment farmland \n\nThe Title of \"Federal Farmer\" is given out by the Minister of Infrastructure\n\nRegulations\n\n1) Only one plot per title (more may be given out later).\n \n2) Taking from a plot that is not yours will be met by a fine of 250 Euros, and you will lose the title.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Land Protection",
+          "UserDescription": "To make farming plots for the farmers and to prevent vandalism.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>64 Plants</u></linktext><title>64 Plants</title><link=\"view:714:-1\"><icon name=\"AgaveSpecies\" type=\"\"><color=#60FFFFFF>Agave Species</color></icon></link>\r\n<link=\"view:121:-1\"><icon name=\"AmanitaMushroomSpecies\" type=\"\"><color=#60FFFFFF>Amanita Mushroom Species</color></icon></link>\r\n<link=\"view:263:-1\"><icon name=\"ArcticWillowSpecies\" type=\"\"><color=#60FFFFFF>Arctic Willow Species</color></icon></link>\r\n<link=\"view:1408:-1\"><icon name=\"BarrelCactusSpecies\" type=\"\"><color=#60FFFFFF>Barrel Cactus Species</color></icon></link>\r\n<link=\"view:3344:-1\"><icon name=\"BeansSpecies\" type=\"\"><color=#60FFFFFF>Beans Species</color></icon></link>\r\n<link=\"view:3480:-1\"><icon name=\"BeetsSpecies\" type=\"\"><color=#60FFFFFF>Beets Species</color></icon></link>\r\n<link=\"view:4265:-1\"><icon name=\"BigBluestemSpecies\" type=\"\"><color=#60FFFFFF>Big Bluestem Species</color></icon></link>\r\n<link=\"view:3365:-1\"><icon name=\"BirchSpecies\" type=\"\"><color=#60FFFFFF>Birch Species</color></icon></link>\r\n<link=\"view:539:-1\"><icon name=\"BoleteMushroomSpecies\" type=\"\"><color=#60FFFFFF>Bolete Mushroom Species</color></icon></link>\r\n<link=\"view:3527:-1\"><icon name=\"BullrushSpecies\" type=\"\"><color=#60FFFFFF>Bullrush Species</color></icon></link>\r\n<link=\"view:4230:-1\"><icon name=\"BunchgrassSpecies\" type=\"\"><color=#60FFFFFF>Bunchgrass Species</color></icon></link>\r\n<link=\"view:2067:-1\"><icon name=\"ButtonbushSpecies\" type=\"\"><color=#60FFFFFF>Buttonbush Species</color></icon></link>\r\n<link=\"view:254:-1\"><icon name=\"CamasSpecies\" type=\"\"><color=#60FFFFFF>Camas Species</color></icon></link>\r\n<link=\"view:3706:-1\"><icon name=\"CedarSpecies\" type=\"\"><color=#60FFFFFF>Cedar Species</color></icon></link>\r\n<link=\"view:2499:-1\"><icon name=\"CeibaSpecies\" type=\"\"><color=#60FFFFFF>Ceiba Species</color></icon></link>\r\n<link=\"view:2080:-1\"><icon name=\"CommonGrassSpecies\" type=\"\"><color=#60FFFFFF>Common Grass Species</color></icon></link>\r\n<link=\"view:2624:-1\"><icon name=\"CookeinaMushroomSpecies\" type=\"\"><color=#60FFFFFF>Cookeina Mushroom Species</color></icon></link>\r\n<link=\"view:4356:-1\"><icon name=\"CornSpecies\" type=\"\"><color=#60FFFFFF>Corn Species</color></icon></link>\r\n<link=\"view:2584:-1\"><icon name=\"CottonSpecies\" type=\"\"><color=#60FFFFFF>Cotton Species</color></icon></link>\r\n<link=\"view:1319:-1\"><icon name=\"CreosoteBushSpecies\" type=\"\"><color=#60FFFFFF>Creosote Bush Species</color></icon></link>\r\n<link=\"view:989:-1\"><icon name=\"CriminiMushroomSpecies\" type=\"\"><color=#60FFFFFF>Crimini Mushroom Species</color></icon></link>\r\n<link=\"view:2877:-1\"><icon name=\"DeerLichenSpecies\" type=\"\"><color=#60FFFFFF>Deer Lichen Species</color></icon></link>\r\n<link=\"view:4504:-1\"><icon name=\"DesertMossSpecies\" type=\"\"><color=#60FFFFFF>Desert Moss Species</color></icon></link>\r\n<link=\"view:2874:-1\"><icon name=\"DwarfWillowSpecies\" type=\"\"><color=#60FFFFFF>Dwarf Willow Species</color></icon></link>\r\n<link=\"view:3547:-1\"><icon name=\"FernSpecies\" type=\"\"><color=#60FFFFFF>Fern Species</color></icon></link>\r\n<link=\"view:4183:-1\"><icon name=\"FilmyFernSpecies\" type=\"\"><color=#60FFFFFF>Filmy Fern Species</color></icon></link>\r\n<link=\"view:4300:-1\"><icon name=\"FirSpecies\" type=\"\"><color=#60FFFFFF>Fir Species</color></icon></link>\r\n<link=\"view:996:-1\"><icon name=\"FireweedSpecies\" type=\"\"><color=#60FFFFFF>Fireweed Species</color></icon></link>\r\n<link=\"view:339:-1\"><icon name=\"FlaxSpecies\" type=\"\"><color=#60FFFFFF>Flax Species</color></icon></link>\r\n<link=\"view:2389:-1\"><icon name=\"HeliconiaSpecies\" type=\"\"><color=#60FFFFFF>Heliconia Species</color></icon></link>\r\n<link=\"view:4228:-1\"><icon name=\"HuckleberrySpecies\" type=\"\"><color=#60FFFFFF>Huckleberry Species</color></icon></link>\r\n<link=\"view:1823:-1\"><icon name=\"JointfirSpecies\" type=\"\"><color=#60FFFFFF>Jointfir Species</color></icon></link>\r\n<link=\"view:2536:-1\"><icon name=\"JoshuaSpecies\" type=\"\"><color=#60FFFFFF>Joshua Species</color></icon></link>\r\n<link=\"view:2225:-1\"><icon name=\"KelpSpecies\" type=\"\"><color=#60FFFFFF>Kelp Species</color></icon></link>\r\n<link=\"view:152:-1\"><icon name=\"KingFernSpecies\" type=\"\"><color=#60FFFFFF>King Fern Species</color></icon></link>\r\n<link=\"view:897:-1\"><icon name=\"LatticeMushroomSpecies\" type=\"\"><color=#60FFFFFF>Lattice Mushroom Species</color></icon></link>\r\n<link=\"view:1816:-1\"><icon name=\"LupineSpecies\" type=\"\"><color=#60FFFFFF>Lupine Species</color></icon></link>\r\n<link=\"view:893:-1\"><icon name=\"OakSpecies\" type=\"\"><color=#60FFFFFF>Oak Species</color></icon></link>\r\n<link=\"view:2617:-1\"><icon name=\"OceanSpraySpecies\" type=\"\"><color=#60FFFFFF>Ocean Spray Species</color></icon></link>\r\n<link=\"view:896:-1\"><icon name=\"OldGrowthRedwoodSpecies\" type=\"\"><color=#60FFFFFF>Old Growth Redwood Species</color></icon></link>\r\n<link=\"view:2534:-1\"><icon name=\"OrchidSpecies\" type=\"\"><color=#60FFFFFF>Orchid Species</color></icon></link>\r\n<link=\"view:2370:-1\"><icon name=\"PalmSpecies\" type=\"\"><color=#60FFFFFF>Palm Species</color></icon></link>\r\n<link=\"view:2232:-1\"><icon name=\"PapayaSpecies\" type=\"\"><color=#60FFFFFF>Papaya Species</color></icon></link>\r\n<link=\"view:403:-1\"><icon name=\"PeatMossSpecies\" type=\"\"><color=#60FFFFFF>Peat Moss Species</color></icon></link>\r\n<link=\"view:1804:-1\"><icon name=\"PineappleSpecies\" type=\"\"><color=#60FFFFFF>Pineapple Species</color></icon></link>\r\n<link=\"view:3345:-1\"><icon name=\"PitcherPlantSpecies\" type=\"\"><color=#60FFFFFF>Pitcher Plant Species</color></icon></link>\r\n<link=\"view:1300:-1\"><icon name=\"PricklyPearSpecies\" type=\"\"><color=#60FFFFFF>Prickly Pear Species</color></icon></link>\r\n<link=\"view:693:-1\"><icon name=\"PumpkinSpecies\" type=\"\"><color=#60FFFFFF>Pumpkin Species</color></icon></link>\r\n<link=\"view:1913:-1\"><icon name=\"RedwoodSpecies\" type=\"\"><color=#60FFFFFF>Redwood Species</color></icon></link>\r\n<link=\"view:2257:-1\"><icon name=\"RiceSpecies\" type=\"\"><color=#60FFFFFF>Rice Species</color></icon></link>\r\n<link=\"view:2272:-1\"><icon name=\"SaguaroCactusSpecies\" type=\"\"><color=#60FFFFFF>Saguaro Cactus Species</color></icon></link>\r\n<link=\"view:284:-1\"><icon name=\"SalalSpecies\" type=\"\"><color=#60FFFFFF>Salal Species</color></icon></link>\r\n<link=\"view:3921:-1\"><icon name=\"SaxifrageSpecies\" type=\"\"><color=#60FFFFFF>Saxifrage Species</color></icon></link>\r\n<link=\"view:205:-1\"><icon name=\"SeagrassSpecies\" type=\"\"><color=#60FFFFFF>Seagrass Species</color></icon></link>\r\n<link=\"view:3444:-1\"><icon name=\"SpruceSpecies\" type=\"\"><color=#60FFFFFF>Spruce Species</color></icon></link>\r\n<link=\"view:277:-1\"><icon name=\"SunflowerSpecies\" type=\"\"><color=#60FFFFFF>Sunflower Species</color></icon></link>\r\n<link=\"view:3432:-1\"><icon name=\"SwitchgrassSpecies\" type=\"\"><color=#60FFFFFF>Switchgrass Species</color></icon></link>\r\n<link=\"view:2303:-1\"><icon name=\"TaroSpecies\" type=\"\"><color=#60FFFFFF>Taro Species</color></icon></link>\r\n<link=\"view:854:-1\"><icon name=\"TomatoesSpecies\" type=\"\"><color=#60FFFFFF>Tomatoes Species</color></icon></link>\r\n<link=\"view:1798:-1\"><icon name=\"TrilliumSpecies\" type=\"\"><color=#60FFFFFF>Trillium Species</color></icon></link>\r\n<link=\"view:3493:-1\"><icon name=\"UrchinSpecies\" type=\"\"><color=#60FFFFFF>Urchin Species</color></icon></link>\r\n<link=\"view:251:-1\"><icon name=\"WaterweedSpecies\" type=\"\"><color=#60FFFFFF>Waterweed Species</color></icon></link>\r\n<link=\"view:3723:-1\"><icon name=\"WheatSpecies\" type=\"\"><color=#60FFFFFF>Wheat Species</color></icon></link>\r\n<link=\"view:3935:-1\"><icon name=\"WhiteBursageSpecies\" type=\"\"><color=#60FFFFFF>White Bursage Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beets+BeetsSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Huckleberry+HuckleberrySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Agave+AgaveSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Buttonbush+ButtonbushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BoleteMushroom+BoleteMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pineapple+PineappleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bunchgrass+BunchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BigBluestem+BigBluestemSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CommonGrass+CommonGrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Lupine+LupineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CreosoteBush+CreosoteBushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cedar+CedarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.ArcticWillow+ArcticWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tomatoes+TomatoesSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pumpkin+PumpkinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Taro+TaroSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BarrelCactus+BarrelCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Jointfir+JointfirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Seagrass+SeagrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OceanSpray+OceanSpraySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.KingFern+KingFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DwarfWillow+DwarfWillowSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.LatticeMushroom+LatticeMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PricklyPear+PricklyPearSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.FilmyFern+FilmyFernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CookeinaMushroom+CookeinaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Joshua+JoshuaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.WhiteBursage+WhiteBursageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Waterweed+WaterweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Papaya+PapayaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Kelp+KelpSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fern+FernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Wheat+WheatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.AmanitaMushroom+AmanitaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Bullrush+BullrushSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fireweed+FireweedSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Switchgrass+SwitchgrassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PeatMoss+PeatMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Heliconia+HeliconiaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Trillium+TrilliumSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cotton+CottonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Corn+CornSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Flax+FlaxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CriminiMushroom+CriminiMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Rice+RiceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Saxifrage+SaxifrageSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Urchin+UrchinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Salal+SalalSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PitcherPlant+PitcherPlantSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beans+BeansSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DeerLichen+DeerLichenSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Orchid+OrchidSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.DesertMoss+DesertMossSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Camas+CamasSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Sunflower+SunflowerSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "<foldout><linktext><u>17 Harvesters</u></linktext><title>17 Harvesters</title><link=\"Item:CompositeBowItem\"><style=\"Item\"><icon name=\"CompositeBowItem\" type=\"\">Composite Bow</icon></style></link>\r\n<link=\"Item:HandsItem\"><style=\"Item\"><icon name=\"HandsItem\" type=\"\">Hands</icon></style></link>\r\n<link=\"Item:IronMacheteItem\"><style=\"Item\"><icon name=\"IronMacheteItem\" type=\"\">Iron Machete</icon></style></link>\r\n<link=\"Item:IronShovelItem\"><style=\"Item\"><icon name=\"IronShovelItem\" type=\"\">Iron Shovel</icon></style></link>\r\n<link=\"Item:IronSickleItem\"><style=\"Item\"><icon name=\"IronSickleItem\" type=\"\">Iron Sickle</icon></style></link>\r\n<link=\"Item:ModernMacheteItem\"><style=\"Item\"><icon name=\"ModernMacheteItem\" type=\"\">Modern Machete</icon></style></link>\r\n<link=\"Item:ModernScytheItem\"><style=\"Item\"><icon name=\"ModernScytheItem\" type=\"\">Modern Scythe</icon></style></link>\r\n<link=\"Item:ModernShovelItem\"><style=\"Item\"><icon name=\"ModernShovelItem\" type=\"\">Modern Shovel</icon></style></link>\r\n<link=\"Item:RecurveBowItem\"><style=\"Item\"><icon name=\"RecurveBowItem\" type=\"\">Recurve Bow</icon></style></link>\r\n<link=\"Item:SteamTractorHarvesterItem\"><style=\"Item\"><icon name=\"SteamTractorHarvesterItem\" type=\"\">Steam Tractor Harvester</icon></style></link>\r\n<link=\"Item:SteelMacheteItem\"><style=\"Item\"><icon name=\"SteelMacheteItem\" type=\"\">Steel Machete</icon></style></link>\r\n<link=\"Item:SteelShovelItem\"><style=\"Item\"><icon name=\"SteelShovelItem\" type=\"\">Steel Shovel</icon></style></link>\r\n<link=\"Item:SteelSickleItem\"><style=\"Item\"><icon name=\"SteelSickleItem\" type=\"\">Steel Sickle</icon></style></link>\r\n<link=\"Item:StoneMacheteItem\"><style=\"Item\"><icon name=\"StoneMacheteItem\" type=\"\">Stone Machete</icon></style></link>\r\n<link=\"Item:StoneSickleItem\"><style=\"Item\"><icon name=\"StoneSickleItem\" type=\"\">Stone Sickle</icon></style></link>\r\n<link=\"Item:WoodenBowItem\"><style=\"Item\"><icon name=\"WoodenBowItem\" type=\"\">Wooden Bow</icon></style></link>\r\n<link=\"Item:WoodenShovelItem\"><style=\"Item\"><icon name=\"WoodenShovelItem\" type=\"\">Wooden Shovel</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RecurveBowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTractorHarvesterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneSickleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelMacheteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronSickleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Gameplay.Items.HandsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoneMacheteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernMacheteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronMacheteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CompositeBowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernScytheItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenBowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelSickleItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenShovelItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "<foldout><linktext><u>10 Excavations</u></linktext><title>10 Excavations</title><link=\"Item:ExcavatorItem\"><style=\"Item\"><icon name=\"ExcavatorItem\" type=\"\">Excavator</icon></style></link>\r\n<link=\"Item:IronPickaxeItem\"><style=\"Item\"><icon name=\"IronPickaxeItem\" type=\"\">Iron Pickaxe</icon></style></link>\r\n<link=\"Item:IronShovelItem\"><style=\"Item\"><icon name=\"IronShovelItem\" type=\"\">Iron Shovel</icon></style></link>\r\n<link=\"Item:ModernPickaxeItem\"><style=\"Item\"><icon name=\"ModernPickaxeItem\" type=\"\">Modern Pickaxe</icon></style></link>\r\n<link=\"Item:ModernShovelItem\"><style=\"Item\"><icon name=\"ModernShovelItem\" type=\"\">Modern Shovel</icon></style></link>\r\n<link=\"Item:SkidSteerItem\"><style=\"Item\"><icon name=\"SkidSteerItem\" type=\"\">Skid Steer</icon></style></link>\r\n<link=\"Item:SteelPickaxeItem\"><style=\"Item\"><icon name=\"SteelPickaxeItem\" type=\"\">Steel Pickaxe</icon></style></link>\r\n<link=\"Item:SteelShovelItem\"><style=\"Item\"><icon name=\"SteelShovelItem\" type=\"\">Steel Shovel</icon></style></link>\r\n<link=\"Item:StonePickaxeItem\"><style=\"Item\"><icon name=\"StonePickaxeItem\" type=\"\">Stone Pickaxe</icon></style></link>\r\n<link=\"Item:WoodenShovelItem\"><style=\"Item\"><icon name=\"WoodenShovelItem\" type=\"\">Wooden Shovel</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronPickaxeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StonePickaxeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelPickaxeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenShovelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernPickaxeItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3826:85552546\"><icon name=\"District\" type=\"\"><color=#BFBE6EFF>Govermint farmland</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Govermint farmland",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:2215:13166612\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Federal farmer </style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Federal farmer ",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Land Protection II",
+          "UserDescription": "To stop claiming of the plots",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position of the claim.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3826:85552546\"><icon name=\"District\" type=\"\"><color=#BFBE6EFF>Govermint farmland</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Govermint farmland",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
