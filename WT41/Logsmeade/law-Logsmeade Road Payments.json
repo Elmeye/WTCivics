@@ -137,7 +137,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -233,7 +233,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -400,7 +400,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -500,7 +500,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -866,7 +866,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -962,7 +962,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -1129,7 +1129,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
@@ -1229,7 +1229,7 @@
                         "type": "GameValueWrapper",
                         "value": {
                           "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                          "name": "Logsmeade Town Infrastructure",
+                          "name": "Logsmeade Town Treasury",
                           "reference": true
                         }
                       },
