@@ -1,0 +1,909 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Cultural Law (For Test and Export)",
+  "reference": false,
+  "description": "Purpose:\n1) Tracks rep used on anything\n2) Sends notification each hour unless opting out that you have rep available\n3) Gives rep once you give over 5 and 10 rep to either deeds/pictures that day.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Notify people to use their rep",
+          "UserDescription": "Citizens are notified every hour if they have rep still remaining to be used.\n-Every hour, each citizen is checked for their custom stat \"repTrack\" which is the sum of all rep they have given to anything in the last time block. (Every 24 hrs of \"current time block\" rep is updated)\n-If it is NOT equal to 15 (so they have some left), AND if they have not opted out of the notification by using \"!repNoticeToggle\", send the message:\nPlease rep paintings in your nearest museum. Toggle this notification by sending \"!repNoticeToggle\n-Notice is by default on\n-Message is \"Please rep paintings in your nearest museum. Toggle this notification by sending \"!repNoticeToggle\"",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Active",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "repTrack",
+                              "Settlement": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Settlements.Settlement",
+                                  "name": "The Federation of White Tiger",
+                                  "reference": true
+                                }
+                              },
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              },
+                              "TimeRangeType": "CurrentTimeBlock",
+                              "RestrictCountToCitizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "NotEqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 15.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                "properties": {
+                                  "CustomStatName": "repNotice",
+                                  "Settlement": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Settlements.Settlement",
+                                      "name": "The Federation of White Tiger",
+                                      "reference": true
+                                    }
+                                  },
+                                  "TimeRangeInHours": {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAgeInHours",
+                                    "properties": {}
+                                  },
+                                  "TimeRangeType": "CountBackFromPresentTime",
+                                  "RestrictCountToCitizen": {
+                                    "type": "GameValueContext",
+                                    "_name": "Citizen",
+                                    "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                    "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                  }
+                                }
+                              },
+                              "Operation": "Modulus",
+                              "RightNumber": {
+                                "type": "GameValueWrapper",
+                                "value": 2.0
+                              }
+                            }
+                          },
+                          "Comparison": "EqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Please rep paintings in your nearest museum. Toggle this notification by sending \"!repNoticeToggle\"",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Track Rep And Reward",
+          "UserDescription": "On any rep transfer, track the rep given each day as repTrack to be used to know when to stop sending notifications which can be toggled off or on via \"!repNoticeToggle\"",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ReputationTransfer"
+                },
+                "Configs": []
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "Any"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "repTrack",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Reputation Sender",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                        "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Negative_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "GameValueContext",
+                            "_name": "Reputation Amount Transferred",
+                            "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Amount Transferred</icon>",
+                            "contextDescription": "<i>The amount of reputation that was transferred.</i>"
+                          }
+                        }
+                      },
+                      "DisplayResultToCitizen": true,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Toggle notifications",
+          "UserDescription": "Typing !repNoticeToggle toggles whether or not someone gets the rep notification",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!repNoticeToggle"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "repNotice",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "DisplayResultToCitizen": true,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Rep Rewards",
+          "UserDescription": "Reward people for giving rep to a set of \"good targets\" currently deeds or pictures.\nEach day, when you give at least 5, or 10 rep to deeds/pictures, you get 1/1 rep and a 33% chance for 1/2 Euros, respectively\n\nOn rep transfer for deed or picture the \"repRewardTrack\" custom stat is updated, and since the clauses in the \"then\" are all done at once, they do not recognize that it changed yet. \nTherefore to check that the rep given passed a threshold, K, it checks \"if repRewardTrack + rep >= K\"\n",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ReputationTransfer"
+                },
+                "Configs": []
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "ReputationGivenToDeed",
+                        "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Given To Deed</icon>",
+                        "contextDescription": "<i>What kind of thing was recieving the reputation?</i>"
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "ReputationGivenToPicture",
+                        "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Given To Picture</icon>",
+                        "contextDescription": "<i>What kind of thing was recieving the reputation?</i>"
+                      }
+                    ],
+                    "Comparison": "Any"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "repRewardTrack",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Reputation Sender",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                        "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                      },
+                      "Count": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Negative_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "GameValueContext",
+                            "_name": "Reputation Amount Transferred",
+                            "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Amount Transferred</icon>",
+                            "contextDescription": "<i>The amount of reputation that was transferred.</i>"
+                          }
+                        }
+                      },
+                      "DisplayResultToCitizen": true,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "repRewardTrack",
+                                        "Settlement": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Settlements.Settlement",
+                                            "name": "The Federation of White Tiger",
+                                            "reference": true
+                                          }
+                                        },
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CurrentTimeBlock",
+                                        "RestrictCountToCitizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Reputation Sender",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                          "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "LessThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 5.0
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "repRewardTrack",
+                                            "Settlement": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                "name": "The Federation of White Tiger",
+                                                "reference": true
+                                              }
+                                            },
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            },
+                                            "TimeRangeType": "CurrentTimeBlock",
+                                            "RestrictCountToCitizen": {
+                                              "type": "GameValueContext",
+                                              "_name": "Reputation Sender",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                              "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Add",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Negative_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "GameValueContext",
+                                              "_name": "Reputation Amount Transferred",
+                                              "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Amount Transferred</icon>",
+                                              "contextDescription": "<i>The amount of reputation that was transferred.</i>"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 5.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Gave >= 5 rep to pictures/deeds.",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Reputation Sender",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                  "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                },
+                                "ValueToDisplay": null,
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "ReputationChange": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                },
+                                "ReputationMessage": "Gave >=5 rep to deed or pics: get 1 rep",
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Reputation Sender",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                  "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                },
+                                "SendNotice": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                                "properties": {
+                                                  "Formula": "(((111 * ((103 * x + 3) % 10007) + 5) % 9973 + 44545) % 10007 )% 100 +1",
+                                                  "Variables": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                                      "reference": false,
+                                                      "properties": {
+                                                        "Name": "x",
+                                                        "Definition": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAge",
+                                                          "properties": {
+                                                            "AgeFormat": "Seconds"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "Comparison": "LessThanOrEqualTo",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 33.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Secretary of Culture Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "TargetAccount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                            "properties": {
+                                              "User": {
+                                                "type": "GameValueContext",
+                                                "_name": "Reputation Sender",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                                "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                              }
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "PreventIfUnableToPay": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                      "properties": {
+                                        "CustomStatName": "repRewardTrack",
+                                        "Settlement": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Settlements.Settlement",
+                                            "name": "The Federation of White Tiger",
+                                            "reference": true
+                                          }
+                                        },
+                                        "TimeRangeInHours": {
+                                          "type": "GameValueWrapper",
+                                          "value": 24.0
+                                        },
+                                        "TimeRangeType": "CurrentTimeBlock",
+                                        "RestrictCountToCitizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Reputation Sender",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                          "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "LessThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "repRewardTrack",
+                                            "Settlement": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                "name": "The Federation of White Tiger",
+                                                "reference": true
+                                              }
+                                            },
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            },
+                                            "TimeRangeType": "CurrentTimeBlock",
+                                            "RestrictCountToCitizen": {
+                                              "type": "GameValueContext",
+                                              "_name": "Reputation Sender",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                              "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                            }
+                                          }
+                                        },
+                                        "Operation": "Add",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Negative_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "GameValueContext",
+                                              "_name": "Reputation Amount Transferred",
+                                              "markedUpName": "<icon name=\"ReputationTransfer\" type=\"\">Reputation Amount Transferred</icon>",
+                                              "contextDescription": "<i>The amount of reputation that was transferred.</i>"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 10.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Gave >=10 rep to pic/deed",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Reputation Sender",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                  "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                },
+                                "ValueToDisplay": null,
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "ReputationChange": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                },
+                                "ReputationMessage": "gave >=10 rep to deed/pictures",
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Reputation Sender",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                  "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                },
+                                "SendNotice": true,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                            "properties": {
+                                              "Left": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                                "properties": {
+                                                  "Formula": "(((111 * ((103 * x + 3) % 10007) + 5) % 9973 + 44545) % 10007 )% 100 +1",
+                                                  "Variables": [
+                                                    {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                                      "reference": false,
+                                                      "properties": {
+                                                        "Name": "x",
+                                                        "Definition": {
+                                                          "type": "Eco.Gameplay.Civics.GameValues.Values.WorldAge",
+                                                          "properties": {
+                                                            "AgeFormat": "Seconds"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "Comparison": "LessThanOrEqualTo",
+                                              "Right": {
+                                                "type": "GameValueWrapper",
+                                                "value": 33.0
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Secretary of Culture Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "TargetAccount": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                            "properties": {
+                                              "User": {
+                                                "type": "GameValueContext",
+                                                "_name": "Reputation Sender",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Reputation Sender</icon>",
+                                                "contextDescription": "<i>The citizen who's sending the reputation.</i>"
+                                              }
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 2.0
+                                          },
+                                          "PreventIfUnableToPay": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}

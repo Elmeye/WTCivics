@@ -1,0 +1,3164 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Banking Regulations P3 (Bonds to Bank)",
+  "reference": false,
+  "description": "This law establishes banking and financial institution regulations for the Federal Bank. This is part 3 of 3 - these parts should be used together. The Minister of Finance has oversight and authority over the Federal Bank Matters. The MoF sets the interest rates. All interest rates are variable and subject to change. Individual aspects of this law are not guaranteed if not implemented by the Minister of Finance.\n\nTo Implement:\n1) Create the following currencies, you will need 9 Mints: Savings Note, High Yield Savings Note, General Bond, Educational Bond, Meteor Protection Bond, Cultural Bond, Infrastructural Bond, Loan Notes, and Credit Score.\n2) Create the following bank accounts: Federal Bank Main Account, Federal Bank Interest Rates, Bond Tracker, and Bond Repayment.\n3) The Interest rates are controlled by sending the desired daily percentage rate of the additional currencies (except the Credit Score) to the \"Federal Bank Interest Rates\" account.\n4) This law uses the currency exchange, which handles the savings, high yield savings, loans, and bonds - these should move in and out of the Federal Bank Main Account. Duplicates can be placed in towns or countries at the request of the local authority. The exchange must be on a federal claim stake owned by the Minister of Finance.\n5) Various attributes of this law can be adjusted and should be reviewed by Parliament prior to passing. ",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Minister of Finance Bond Purchase",
+          "UserDescription": "This article allows the Minister of Finance to purchase the bonds issued to the public.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:261:36979162\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\">Federal Bank Main Account</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "Federal Bank Main Account",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:261:4335063\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Executive Funds</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Executive Funds",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesCurrency",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueContext",
+                            "_name": "Currency",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                            "contextDescription": "<i>The currency of the payment.</i>"
+                          },
+                          "TargetCurrency": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Economy.Currency"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3427:39568110\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">General Bond</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Economy.Currency",
+                                "name": "General Bond",
+                                "reference": true
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Federal Bank Main Account",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                          "name": "The Federation of White Tiger Treasury",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "_name": "Currency",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                        "contextDescription": "<i>The currency of the payment.</i>"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesCurrency",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueContext",
+                            "_name": "Currency",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                            "contextDescription": "<i>The currency of the payment.</i>"
+                          },
+                          "TargetCurrency": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Economy.Currency"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3427:39569607\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Educational Bond</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Economy.Currency",
+                                "name": "Educational Bond",
+                                "reference": true
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Federal Bank Main Account",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Ministry of Education Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "_name": "Currency",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                        "contextDescription": "<i>The currency of the payment.</i>"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesCurrency",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueContext",
+                            "_name": "Currency",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                            "contextDescription": "<i>The currency of the payment.</i>"
+                          },
+                          "TargetCurrency": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Economy.Currency"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3427:39569631\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Meteor Protection Bond</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Economy.Currency",
+                                "name": "Meteor Protection Bond",
+                                "reference": true
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Federal Bank Main Account",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Meteor Store",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "_name": "Currency",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                        "contextDescription": "<i>The currency of the payment.</i>"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesCurrency",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueContext",
+                            "_name": "Currency",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                            "contextDescription": "<i>The currency of the payment.</i>"
+                          },
+                          "TargetCurrency": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Economy.Currency"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3427:39569657\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Cultural Bond</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Economy.Currency",
+                                "name": "Cultural Bond",
+                                "reference": true
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Federal Bank Main Account",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Secretary of Culture Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "_name": "Currency",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                        "contextDescription": "<i>The currency of the payment.</i>"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesCurrency",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueContext",
+                            "_name": "Currency",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                            "contextDescription": "<i>The currency of the payment.</i>"
+                          },
+                          "TargetCurrency": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Economy.Currency"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3427:39569692\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Infrastructural Bond</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Economy.Currency",
+                                "name": "Infrastructural Bond",
+                                "reference": true
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Federal Bank Main Account",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Minister of Infrastructure Budget",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueContext",
+                        "_name": "Currency",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency</icon>",
+                        "contextDescription": "<i>The currency of the payment.</i>"
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Bond Automatic Repayment (To Bank)",
+          "UserDescription": "This article covers automatic bond repayment when the bank bought the bonds.\n\nParliamentry values:\nMinimum Payment: 500\nMinimum Payment 5%\nTime interval: once per day (if changing this value, also need to adjust frequency of interest rate in the payment)",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.GlobalTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.TimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "General Bond",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Account": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "Bond Tracker",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Repayment",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Federal Bank Main Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "General Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Percent": {
+                                              "type": "GameValueWrapper",
+                                              "value": 5.0
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 500.0
+                                            },
+                                            "Operation": "AtMost",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "General Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "General Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "General Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Federal Bank Interest Rates",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Tracker",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "General Bond",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "General Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5.0
+                                        }
+                                      }
+                                    },
+                                    "Operation": "AtLeast",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 500.0
+                                        },
+                                        "Operation": "AtMost",
+                                        "RightNumber": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "General Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Educational Bond",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Account": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "Bond Tracker",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Repayment",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Federal Bank Main Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Educational Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Percent": {
+                                              "type": "GameValueWrapper",
+                                              "value": 5.0
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 500.0
+                                            },
+                                            "Operation": "AtMost",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Educational Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Educational Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Educational Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Federal Bank Interest Rates",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Tracker",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Educational Bond",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Educational Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5.0
+                                        }
+                                      }
+                                    },
+                                    "Operation": "AtLeast",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 500.0
+                                        },
+                                        "Operation": "AtMost",
+                                        "RightNumber": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Educational Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Meteor Protection Bond",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Account": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "Bond Tracker",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Repayment",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Federal Bank Main Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Meteor Protection Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Percent": {
+                                              "type": "GameValueWrapper",
+                                              "value": 5.0
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 500.0
+                                            },
+                                            "Operation": "AtMost",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Meteor Protection Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Meteor Protection Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Meteor Protection Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Tracker",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Meteor Protection Bond",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Meteor Protection Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5.0
+                                        }
+                                      }
+                                    },
+                                    "Operation": "AtLeast",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 500.0
+                                        },
+                                        "Operation": "AtMost",
+                                        "RightNumber": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Meteor Protection Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Cultural Bond",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Account": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "Bond Tracker",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Repayment",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Federal Bank Main Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Cultural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Percent": {
+                                              "type": "GameValueWrapper",
+                                              "value": 5.0
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 500.0
+                                            },
+                                            "Operation": "AtMost",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Cultural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Cultural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Cultural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Federal Bank Interest Rates",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Tracker",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Cultural Bond",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Cultural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5.0
+                                        }
+                                      }
+                                    },
+                                    "Operation": "AtLeast",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 500.0
+                                        },
+                                        "Operation": "AtMost",
+                                        "RightNumber": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Cultural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Infrastructural Bond",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Account": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "Bond Tracker",
+                                            "reference": true
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThan",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Repayment",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Federal Bank Main Account",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                          "properties": {
+                                            "Number": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Infrastructural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Percent": {
+                                              "type": "GameValueWrapper",
+                                              "value": 5.0
+                                            }
+                                          }
+                                        },
+                                        "Operation": "AtLeast",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 500.0
+                                            },
+                                            "Operation": "AtMost",
+                                            "RightNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Infrastructural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Bond Tracker",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "Operation": "Add",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Infrastructural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                              "properties": {
+                                                "Currency": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.Currency",
+                                                    "name": "Infrastructural Bond",
+                                                    "reference": true
+                                                  }
+                                                },
+                                                "Account": {
+                                                  "type": "GameValueWrapper",
+                                                  "value": {
+                                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                    "name": "Federal Bank Interest Rates",
+                                                    "reference": true
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "Bond Tracker",
+                                    "reference": true
+                                  }
+                                },
+                                "TargetAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Infrastructural Bond",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Infrastructural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "Percent": {
+                                          "type": "GameValueWrapper",
+                                          "value": 5.0
+                                        }
+                                      }
+                                    },
+                                    "Operation": "AtLeast",
+                                    "RightNumber": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 500.0
+                                        },
+                                        "Operation": "AtMost",
+                                        "RightNumber": {
+                                          "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Infrastructural Bond",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Account": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "Bond Tracker",
+                                                "reference": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PreventIfUnableToPay": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "PM Manual Bond Repayment to the Bank",
+          "UserDescription": "This article processes manual repayment of bonds paid by the bank.\n",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:261:4335063\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Executive Funds</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Executive Funds",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:261:36979162\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\">Federal Bank Main Account</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "Federal Bank Main Account",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ReceiveGovernmentFunds",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:3427:111921\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Euro</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "General Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Currency Amount",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                            "contextDescription": "<i>The amount of funds received.</i>"
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "General Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "General Bond",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Educational Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Currency Amount",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                            "contextDescription": "<i>The amount of funds received.</i>"
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Educational Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Educational Bond",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Meteor Protection Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Currency Amount",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                            "contextDescription": "<i>The amount of funds received.</i>"
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Meteor Protection Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Meteor Protection Bond",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Cultural Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Currency Amount",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                            "contextDescription": "<i>The amount of funds received.</i>"
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Cultural Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Cultural Bond",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Infrastructural Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Currency Amount",
+                            "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                            "contextDescription": "<i>The amount of funds received.</i>"
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Infrastructural Bond",
+                                  "reference": true
+                                }
+                              },
+                              "Account": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "Bond Tracker",
+                                  "reference": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.Money.TransferToAccount_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "Bond Tracker",
+                          "reference": true
+                        }
+                      },
+                      "TargetAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Executive Funds",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Infrastructural Bond",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueContext",
+                        "_name": "Currency Amount",
+                        "markedUpName": "<icon name=\"ReceiveGovernmentFunds\" type=\"\">Currency Amount</icon>",
+                        "contextDescription": "<i>The amount of funds received.</i>"
+                      },
+                      "PreventIfUnableToPay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Draft"
+  }
+}

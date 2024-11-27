@@ -1,0 +1,1526 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "QOL for Going Merry",
+  "reference": false,
+  "description": "A collection of Quality of Life laws.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Towing Law",
+          "UserDescription": "This law enables the Mayor of Going Merry to move problematic vehicles.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.MountAction"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.MountAction",
+                    "propNameBacker": "WorldObjectItem",
+                    "propDisplayName": "World Object Item",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Mountable",
+                        "internalDescription": "<foldout><linktext><u>21 Vehicles</u></linktext><title>21 Vehicles</title><link=\"Item:CraneItem\"><style=\"Item\"><icon name=\"CraneItem\" type=\"\">Crane</icon></style></link>\r\n<link=\"Item:EgyptianCanoeItem\"><style=\"Item\"><icon name=\"EgyptianCanoeItem\" type=\"\">Egyptian Canoe</icon></style></link>\r\n<link=\"Item:ExcavatorItem\"><style=\"Item\"><icon name=\"ExcavatorItem\" type=\"\">Excavator</icon></style></link>\r\n<link=\"Item:HandPlowItem\"><style=\"Item\"><icon name=\"HandPlowItem\" type=\"\">Hand Plow</icon></style></link>\r\n<link=\"Item:IndustrialBargeItem\"><style=\"Item\"><icon name=\"IndustrialBargeItem\" type=\"\">Industrial Barge</icon></style></link>\r\n<link=\"Item:LargeCanoeItem\"><style=\"Item\"><icon name=\"LargeCanoeItem\" type=\"\">Large Canoe</icon></style></link>\r\n<link=\"Item:MediumFishingTrawlerItem\"><style=\"Item\"><icon name=\"MediumFishingTrawlerItem\" type=\"\">Medium Fishing Trawler</icon></style></link>\r\n<link=\"Item:NorseCanoeItem\"><style=\"Item\"><icon name=\"NorseCanoeItem\" type=\"\">Norse Canoe</icon></style></link>\r\n<link=\"Item:PoweredCartItem\"><style=\"Item\"><icon name=\"PoweredCartItem\" type=\"\">Powered Cart</icon></style></link>\r\n<link=\"Item:SkidSteerItem\"><style=\"Item\"><icon name=\"SkidSteerItem\" type=\"\">Skid Steer</icon></style></link>\r\n<link=\"Item:SmallCanoeItem\"><style=\"Item\"><icon name=\"SmallCanoeItem\" type=\"\">Small Canoe</icon></style></link>\r\n<link=\"Item:SmallWoodCartItem\"><style=\"Item\"><icon name=\"SmallWoodCartItem\" type=\"\">Small Wood Cart</icon></style></link>\r\n<link=\"Item:SmallWoodenBoatItem\"><style=\"Item\"><icon name=\"SmallWoodenBoatItem\" type=\"\">Small Wooden Boat</icon></style></link>\r\n<link=\"Item:SteamTractorItem\"><style=\"Item\"><icon name=\"SteamTractorItem\" type=\"\">Steam Tractor</icon></style></link>\r\n<link=\"Item:SteamTruckItem\"><style=\"Item\"><icon name=\"SteamTruckItem\" type=\"\">Steam Truck</icon></style></link>\r\n<link=\"Item:TruckItem\"><style=\"Item\"><icon name=\"TruckItem\" type=\"\">Truck</icon></style></link>\r\n<link=\"Item:WheelbarrowItem\"><style=\"Item\"><icon name=\"WheelbarrowItem\" type=\"\">Wheelbarrow</icon></style></link>\r\n<link=\"Item:WoodCartItem\"><style=\"Item\"><icon name=\"WoodCartItem\" type=\"\">Wood Cart</icon></style></link>\r\n<link=\"Item:WoodShopCartItem\"><style=\"Item\"><icon name=\"WoodShopCartItem\" type=\"\">Wood Shop Cart</icon></style></link>\r\n<link=\"Item:WoodenBargeItem\"><style=\"Item\"><icon name=\"WoodenBargeItem\" type=\"\">Wooden Barge</icon></style></link>\r\n<link=\"Item:WoodenTransportShipItem\"><style=\"Item\"><icon name=\"WoodenTransportShipItem\" type=\"\">Wooden Transport Ship</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTractorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MediumFishingTrawlerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HandPlowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.NorseCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CraneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.EgyptianCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3534:2760598\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Going Merry Mayor</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Going Merry Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasAny"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Hunting on Property",
+          "UserDescription": "This law enables everyone to hunt on owned land.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>26 Species</u></linktext><title>26 Species</title><link=\"view:3725:-1\"><icon name=\"AgoutiSpecies\" type=\"\"><color=#60FFFFFF>Agouti Species</color></icon></link>\r\n<link=\"view:1931:-1\"><icon name=\"AlligatorSpecies\" type=\"\"><color=#60FFFFFF>Alligator Species</color></icon></link>\r\n<link=\"view:4166:-1\"><icon name=\"BassSpecies\" type=\"\"><color=#60FFFFFF>Bass Species</color></icon></link>\r\n<link=\"view:609:-1\"><icon name=\"BighornSheepSpecies\" type=\"\"><color=#60FFFFFF>Bighorn Sheep Species</color></icon></link>\r\n<link=\"view:2398:-1\"><icon name=\"BisonSpecies\" type=\"\"><color=#60FFFFFF>Bison Species</color></icon></link>\r\n<link=\"view:23:-1\"><icon name=\"BlueSharkSpecies\" type=\"\"><color=#60FFFFFF>Blue Shark Species</color></icon></link>\r\n<link=\"view:4169:-1\"><icon name=\"ClamSpecies\" type=\"\"><color=#60FFFFFF>Clam Species</color></icon></link>\r\n<link=\"view:3613:-1\"><icon name=\"CodSpecies\" type=\"\"><color=#60FFFFFF>Cod Species</color></icon></link>\r\n<link=\"view:2159:-1\"><icon name=\"CoyoteSpecies\" type=\"\"><color=#60FFFFFF>Coyote Species</color></icon></link>\r\n<link=\"view:657:-1\"><icon name=\"CrabSpecies\" type=\"\"><color=#60FFFFFF>Crab Species</color></icon></link>\r\n<link=\"view:1121:-1\"><icon name=\"DeerSpecies\" type=\"\"><color=#60FFFFFF>Deer Species</color></icon></link>\r\n<link=\"view:2962:-1\"><icon name=\"ElkSpecies\" type=\"\"><color=#60FFFFFF>Elk Species</color></icon></link>\r\n<link=\"view:2728:-1\"><icon name=\"FoxSpecies\" type=\"\"><color=#60FFFFFF>Fox Species</color></icon></link>\r\n<link=\"view:2014:-1\"><icon name=\"HareSpecies\" type=\"\"><color=#60FFFFFF>Hare Species</color></icon></link>\r\n<link=\"view:3162:-1\"><icon name=\"JaguarSpecies\" type=\"\"><color=#60FFFFFF>Jaguar Species</color></icon></link>\r\n<link=\"view:2923:-1\"><icon name=\"MountainGoatSpecies\" type=\"\"><color=#60FFFFFF>Mountain Goat Species</color></icon></link>\r\n<link=\"view:712:-1\"><icon name=\"OtterSpecies\" type=\"\"><color=#60FFFFFF>Otter Species</color></icon></link>\r\n<link=\"view:604:-1\"><icon name=\"PacificSardineSpecies\" type=\"\"><color=#60FFFFFF>Pacific Sardine Species</color></icon></link>\r\n<link=\"view:3763:-1\"><icon name=\"PrairieDogSpecies\" type=\"\"><color=#60FFFFFF>Prairie Dog Species</color></icon></link>\r\n<link=\"view:528:-1\"><icon name=\"SalmonSpecies\" type=\"\"><color=#60FFFFFF>Salmon Species</color></icon></link>\r\n<link=\"view:3139:-1\"><icon name=\"SnappingTurtleSpecies\" type=\"\"><color=#60FFFFFF>Snapping Turtle Species</color></icon></link>\r\n<link=\"view:2663:-1\"><icon name=\"TortoiseSpecies\" type=\"\"><color=#60FFFFFF>Tortoise Species</color></icon></link>\r\n<link=\"view:4336:-1\"><icon name=\"TroutSpecies\" type=\"\"><color=#60FFFFFF>Trout Species</color></icon></link>\r\n<link=\"view:1841:-1\"><icon name=\"TunaSpecies\" type=\"\"><color=#60FFFFFF>Tuna Species</color></icon></link>\r\n<link=\"view:1292:-1\"><icon name=\"TurkeySpecies\" type=\"\"><color=#60FFFFFF>Turkey Species</color></icon></link>\r\n<link=\"view:2924:-1\"><icon name=\"WolfSpecies\" type=\"\"><color=#60FFFFFF>Wolf Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Trout+TroutSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PrairieDog+PrairieDogSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bass+BassSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlueShark+BlueSharkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Elk+ElkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Otter+OtterSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bison+BisonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tortoise+TortoiseSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PacificSardine+PacificSardineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SnappingTurtle+SnappingTurtleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Salmon+SalmonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Turkey+TurkeySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Clam+ClamSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.OnOwnedLand",
+                        "properties": {}
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Vehicle Placement",
+          "UserDescription": "This law enables everyone to place vehicles on owned land.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>12 Vehicles</u></linktext><title>12 Vehicles</title><link=\"Item:EgyptianCanoeItem\"><style=\"Item\"><icon name=\"EgyptianCanoeItem\" type=\"\">Egyptian Canoe</icon></style></link>\r\n<link=\"Item:HandPlowItem\"><style=\"Item\"><icon name=\"HandPlowItem\" type=\"\">Hand Plow</icon></style></link>\r\n<link=\"Item:LargeCanoeItem\"><style=\"Item\"><icon name=\"LargeCanoeItem\" type=\"\">Large Canoe</icon></style></link>\r\n<link=\"Item:NorseCanoeItem\"><style=\"Item\"><icon name=\"NorseCanoeItem\" type=\"\">Norse Canoe</icon></style></link>\r\n<link=\"Item:PoweredCartItem\"><style=\"Item\"><icon name=\"PoweredCartItem\" type=\"\">Powered Cart</icon></style></link>\r\n<link=\"Item:SmallCanoeItem\"><style=\"Item\"><icon name=\"SmallCanoeItem\" type=\"\">Small Canoe</icon></style></link>\r\n<link=\"Item:SmallWoodCartItem\"><style=\"Item\"><icon name=\"SmallWoodCartItem\" type=\"\">Small Wood Cart</icon></style></link>\r\n<link=\"Item:SmallWoodenBoatItem\"><style=\"Item\"><icon name=\"SmallWoodenBoatItem\" type=\"\">Small Wooden Boat</icon></style></link>\r\n<link=\"Item:WheelbarrowItem\"><style=\"Item\"><icon name=\"WheelbarrowItem\" type=\"\">Wheelbarrow</icon></style></link>\r\n<link=\"Item:WoodCartItem\"><style=\"Item\"><icon name=\"WoodCartItem\" type=\"\">Wood Cart</icon></style></link>\r\n<link=\"Item:WoodShopCartItem\"><style=\"Item\"><icon name=\"WoodShopCartItem\" type=\"\">Wood Shop Cart</icon></style></link>\r\n<link=\"Item:WoodenBargeItem\"><style=\"Item\"><icon name=\"WoodenBargeItem\" type=\"\">Wooden Barge</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HandPlowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.NorseCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.EgyptianCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "PlacingObject",
+                        "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Placing Object</icon>",
+                        "contextDescription": "<i>Was the item placed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.OnOwnedLand",
+                        "properties": {}
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Cleaning up",
+          "UserDescription": "This law enables the collection of debris on owned land in order to help with cleaning up our neighborhood.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CleanupTreeDebris"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CleanupTreeDebris",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.OnOwnedLand",
+                        "properties": {}
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "District Protection",
+          "UserDescription": "This law protects districted land. In case you disagree, please contact the Mayor of Going Merry.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "PreviousDeedOwner",
+                    "propDisplayName": "Previous Deed Owner",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Aliases.IAlias"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<style=\"ErrorLight\">None</style>",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ClaimOrUnclaimProperty",
+                    "propNameBacker": "Deed",
+                    "propDisplayName": "Deed",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Property.Deed"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position of the claim.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>6 Districts</u></linktext><title>6 Districts</title><link=\"view:87:31230542\"><icon name=\"District\" type=\"\"><color=#32270DFF>GM Bridges Revision 18</color></icon></link>\r\n<link=\"view:87:31230541\"><icon name=\"District\" type=\"\"><color=#FF0000FF>GM Gov Building Revision 24</color></icon></link>\r\n<link=\"view:87:31230540\"><icon name=\"District\" type=\"\"><color=#060072FF>GM Harbor Revision 32</color></icon></link>\r\n<link=\"view:87:31230545\"><icon name=\"District\" type=\"\"><color=#171AB3FF>GM Piped Road Revision 4</color></icon></link>\r\n<link=\"view:87:31230538\"><icon name=\"District\" type=\"\"><color=#000000FF>GM Road Revision 32</color></icon></link>\r\n<link=\"view:87:31230539\"><icon name=\"District\" type=\"\"><color=#482600FF>GM Warehouse Revision 31</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Road Revision 32",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Bridges Revision 18",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Piped Road Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Warehouse Revision 31",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Harbor Revision 32",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Gov Building Revision 24",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3534:2760598\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Going Merry Mayor</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Going Merry Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "ClaimingLand",
+                        "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Claiming Land</icon>",
+                        "contextDescription": "<i>Was the property claimed or unclaimed?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position of the claim.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:87:31230543\"><icon name=\"District\" type=\"\"><color=#0B3F40FF>GM River Revision 19</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM River Revision 19",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "ClaimingLand",
+                        "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Claiming Land</icon>",
+                        "contextDescription": "<i>Was the property claimed or unclaimed?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "This river is protected from claiming in order to keep it beautiful and naturally.",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who claimed or unclaimed the land.</i>"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": {
+                        "type": "GameValueContext",
+                        "_name": "Action Location",
+                        "markedUpName": "<icon name=\"ClaimOrUnclaimProperty\" type=\"\">Action Location</icon>",
+                        "contextDescription": "<i>The position of the claim.</i>"
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Harbor & Warehouse Protection",
+          "UserDescription": "This law prevents picking up or placing construction blocks within the harbor & warehouse in case the citizen is not the mayor of Going Merry.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ConstructOrDeconstruct"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Constructable",
+                        "internalDescription": "<foldout><linktext><u>18 Constructables</u></linktext><title>18 Constructables</title><link=\"Item:AdobeItem\"><style=\"Item\"><icon name=\"AdobeItem\" type=\"\">Adobe</icon></style></link>\r\n<link=\"Item:AshlarGraniteItem\"><style=\"Item\"><icon name=\"AshlarGraniteItem\" type=\"\">Ashlar Granite</icon></style></link>\r\n<link=\"Item:AshlarLimestoneItem\"><style=\"Item\"><icon name=\"AshlarLimestoneItem\" type=\"\">Ashlar Limestone</icon></style></link>\r\n<link=\"Item:AsphaltConcreteItem\"><style=\"Item\"><icon name=\"AsphaltConcreteItem\" type=\"\">Asphalt Concrete</icon></style></link>\r\n<link=\"Item:CottonCurtainsItem\"><style=\"Item\"><icon name=\"CottonCurtainsItem\" type=\"\">Cotton Curtains</icon></style></link>\r\n<link=\"Item:GardenGravelItem\"><style=\"Item\"><icon name=\"GardenGravelItem\" type=\"\">Garden Gravel</icon></style></link>\r\n<link=\"Item:GlassItem\"><style=\"Item\"><icon name=\"GlassItem\" type=\"\">Glass</icon></style></link>\r\n<link=\"Item:HardwoodHewnLogItem\"><style=\"Item\"><icon name=\"HardwoodHewnLogItem\" type=\"\">Hardwood Hewn Log</icon></style></link>\r\n<link=\"Item:HewnLogItem\"><style=\"Item\"><icon name=\"HewnLogItem\" type=\"\">Hewn Log</icon></style></link>\r\n<link=\"Item:IronPipeItem\"><style=\"Item\"><icon name=\"IronPipeItem\" type=\"\">Iron Pipe</icon></style></link>\r\n<link=\"Item:MortaredGraniteItem\"><style=\"Item\"><icon name=\"MortaredGraniteItem\" type=\"\">Mortared Granite</icon></style></link>\r\n<link=\"Item:MortaredLimestoneItem\"><style=\"Item\"><icon name=\"MortaredLimestoneItem\" type=\"\">Mortared Limestone</icon></style></link>\r\n<link=\"Item:MortaredSandstoneItem\"><style=\"Item\"><icon name=\"MortaredSandstoneItem\" type=\"\">Mortared Sandstone</icon></style></link>\r\n<link=\"Item:MortaredStoneItem\"><style=\"Item\"><icon name=\"MortaredStoneItem\" type=\"\">Mortared Stone</icon></style></link>\r\n<link=\"Item:NylonCarpetItem\"><style=\"Item\"><icon name=\"NylonCarpetItem\" type=\"\">Nylon Carpet</icon></style></link>\r\n<link=\"Item:SoftwoodHewnLogItem\"><style=\"Item\"><icon name=\"SoftwoodHewnLogItem\" type=\"\">Softwood Hewn Log</icon></style></link>\r\n<link=\"Item:WoolCurtainsItem\"><style=\"Item\"><icon name=\"WoolCurtainsItem\" type=\"\">Wool Curtains</icon></style></link>\r\n<link=\"Item:ZenGardenItem\"><style=\"Item\"><icon name=\"ZenGardenItem\" type=\"\">Zen Garden</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarGraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoolCurtainsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GardenGravelItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AshlarLimestoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CottonCurtainsItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GlassItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredGraniteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredSandstoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.NylonCarpetItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SoftwoodHewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredLimestoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HardwoodHewnLogItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronPipeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ZenGardenItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MortaredStoneItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AsphaltConcreteItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdobeItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ConstructOrDeconstruct",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Construction",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3534:2760598\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Going Merry Mayor</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Going Merry Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"ConstructOrDeconstruct\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>2 Districts</u></linktext><title>2 Districts</title><link=\"view:87:31230540\"><icon name=\"District\" type=\"\"><color=#060072FF>GM Harbor Revision 32</color></icon></link>\r\n<link=\"view:87:31230539\"><icon name=\"District\" type=\"\"><color=#482600FF>GM Warehouse Revision 31</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Warehouse Revision 31",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Harbor Revision 32",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Explosives ",
+          "UserDescription": "This law prohibits the placement of dynamite and mining charges within public infrastructure of Going Merry. Please be cautious!",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:DynamiteItem\"><style=\"Item\"><icon name=\"DynamiteItem\" type=\"\">Dynamite</icon></style></link>  <link=\"Item:MiningChargeItem\"><style=\"Item\"><icon name=\"MiningChargeItem\" type=\"\">Mining Charge</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MiningChargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.DynamiteItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "PlacingObject",
+                        "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Placing Object</icon>",
+                        "contextDescription": "<i>Was the item placed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:87:31230542\"><icon name=\"District\" type=\"\"><color=#32270DFF>GM Bridges Revision 18</color></icon></link>\r\n<link=\"view:87:31230541\"><icon name=\"District\" type=\"\"><color=#FF0000FF>GM Gov Building Revision 24</color></icon></link>\r\n<link=\"view:87:31230540\"><icon name=\"District\" type=\"\"><color=#060072FF>GM Harbor Revision 32</color></icon></link>\r\n<link=\"view:87:31230545\"><icon name=\"District\" type=\"\"><color=#171AB3FF>GM Piped Road Revision 4</color></icon></link>\r\n<link=\"view:87:31230543\"><icon name=\"District\" type=\"\"><color=#0B3F40FF>GM River Revision 19</color></icon></link>\r\n<link=\"view:87:31230538\"><icon name=\"District\" type=\"\"><color=#000000FF>GM Road Revision 32</color></icon></link>\r\n<link=\"view:87:31230539\"><icon name=\"District\" type=\"\"><color=#482600FF>GM Warehouse Revision 31</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Road Revision 32",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Bridges Revision 18",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Piped Road Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Warehouse Revision 31",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Harbor Revision 32",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM River Revision 19",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Gov Building Revision 24",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.LawExtensions.HeightAt",
+                            "properties": {
+                              "Location": {
+                                "type": "GameValueContext",
+                                "_name": "Action Location",
+                                "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Action Location</icon>",
+                                "contextDescription": "<i>The position where the interaction took place.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 60.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Fire in the hole!",
+                      "NotificationType": "OnScreenNotice",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Wood Shop Cart Movement",
+          "UserDescription": "This law enables the Mayor of Going Merry to move Wood Shop Carts.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.MoveWorldObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.MoveWorldObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "World Object Moved",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:WoodShopCartItem\"><style=\"Item\"><icon name=\"WoodShopCartItem\" type=\"\">Wood Shop Cart</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3534:2760598\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Going Merry Mayor</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Going Merry Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasAll"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Transmission Pole Protection",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlaceOrPickUpObject"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlaceOrPickUpObject",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Placed or Picked Up",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.WorldObjectItem"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"Item:TransmissionPoleItem\"><style=\"Item\"><icon name=\"TransmissionPoleItem\" type=\"\">Transmission Pole</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TransmissionPoleItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "PickingUpObject",
+                        "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Picking Up Object</icon>",
+                        "contextDescription": "<i>Was the item placed?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3534:2760598\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Going Merry Mayor</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Going Merry Mayor",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PlaceOrPickUpObject\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The position where the interaction took place.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:87:31230547\"><icon name=\"District\" type=\"\"><color=#D6FF00FF>GM Trans Pole</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "GM Trans Pole",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
