@@ -239,7 +239,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
-                                    "name": "Logsmeade Town Treasury",
+                                    "name": "Logsmeade Treasury",
                                     "reference": true
                                   }
                                 },
@@ -332,7 +332,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
-                                    "name": "Logsmeade Town Treasury",
+                                    "name": "Logsmeade Treasury",
                                     "reference": true
                                   }
                                 },
@@ -465,7 +465,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
-                                    "name": "Logsmeade Town Treasury",
+                                    "name": "Logsmeade Treasury",
                                     "reference": true
                                   }
                                 },
