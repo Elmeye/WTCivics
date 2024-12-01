@@ -10,7 +10,7 @@
   "managers": [
     {
       "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-      "name": "Logsmeade Town Mayor",
+      "name": "Logsmeade Mayor",
       "reference": true
     }
   ],

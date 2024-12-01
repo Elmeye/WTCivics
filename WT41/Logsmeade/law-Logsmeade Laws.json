@@ -105,11 +105,11 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<link=\"view:119:59081408\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Logsmeade Town Mayor</style></icon></link>",
+                            "internalDescription": "<link=\"view:119:59081408\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Logsmeade Mayor</style></icon></link>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Logsmeade Town Mayor",
+                                "name": "Logsmeade Mayor",
                                 "reference": true
                               }
                             ]
