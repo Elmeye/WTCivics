@@ -712,7 +712,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:87:112148\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:87:112145\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:87:112149\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:87:112139\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:87:26615287\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:87:112152\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:87:112138\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:87:112148\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:87:112145\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:87:112149\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:87:112139\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:87:26615287\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:87:112152\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:87:112138\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -741,7 +741,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Offices of the Governments of the States Revision 12",
+                                            "name": "Offices of the Governments of the States",
                                             "reference": true
                                           },
                                           {
@@ -6709,7 +6709,7 @@
                                           "value": "Eco.Gameplay.LegislationSystem.District"
                                         },
                                         "requiredTag": null,
-                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:87:112148\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:87:112145\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:87:112149\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:87:112139\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:87:26615287\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:87:112152\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:87:112138\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
+                                        "internalDescription": "<foldout><linktext><u>7 Districts</u></linktext><title>7 Districts</title><link=\"view:87:112148\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:87:112145\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:87:112149\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:87:112139\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:87:26615287\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States</color></icon></link>\r\n<link=\"view:87:112152\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:87:112138\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link></foldout>",
                                         "entries": [
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
@@ -6738,7 +6738,7 @@
                                           },
                                           {
                                             "type": "Eco.Gameplay.LegislationSystem.District",
-                                            "name": "Offices of the Governments of the States Revision 12",
+                                            "name": "Offices of the Governments of the States",
                                             "reference": true
                                           },
                                           {
