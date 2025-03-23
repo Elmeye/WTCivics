@@ -1,0 +1,2074 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Queen Ceiba Law",
+  "reference": false,
+  "description": "Dedicated to Queen Ceiba\n\nYou give us life, to you we pledge:\nNo stumps or debris left behind, no felling of young trees, and to use every log to its fullest potential",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Stump creation",
+          "UserDescription": "Taxes citizen (or employee of a company) 10 euro for every stump created",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopTree"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Felled",
+                        "markedUpName": "<icon name=\"ChopTree\" type=\"\">Felled</icon>",
+                        "contextDescription": "<i>Was the tree felled?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "GameValueContext",
+                            "_name": "Growth Percent",
+                            "markedUpName": "<icon name=\"ChopTree\" type=\"\">Growth Percent</icon>",
+                            "contextDescription": "<i>A value of 100 represents a fully grown tree, 0 represents a newly-planted seed.</i>"
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 30.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "TreeStumps",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "DisplayResultToCitizen": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "TaxCode": null,
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "TaxCode": null,
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Debris creation",
+          "UserDescription": "Taxes citizen (or employee of a company) 0.2 euro for every piece of debris created",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CreateTreeDebris"
+                },
+                "Configs": []
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "TreeDebris",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who chopped down the tree that is generating debris.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueContext",
+                        "_name": "Count",
+                        "markedUpName": "<icon name=\"CreateTreeDebris\" type=\"\">Count</icon>",
+                        "contextDescription": "<i>The number of debris blocks created in this action.</i>"
+                      },
+                      "DisplayResultToCitizen": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who chopped down the tree that is generating debris.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "GameValueContext",
+                                      "_name": "Count",
+                                      "markedUpName": "<icon name=\"CreateTreeDebris\" type=\"\">Count</icon>",
+                                      "contextDescription": "<i>The number of debris blocks created in this action.</i>"
+                                    },
+                                    "Operation": "Multiply",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.2
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen who chopped down the tree that is generating debris.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "TaxCode": null,
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who chopped down the tree that is generating debris.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                  "properties": {
+                                    "LeftNumber": {
+                                      "type": "GameValueContext",
+                                      "_name": "Count",
+                                      "markedUpName": "<icon name=\"CreateTreeDebris\" type=\"\">Count</icon>",
+                                      "contextDescription": "<i>The number of debris blocks created in this action.</i>"
+                                    },
+                                    "Operation": "Multiply",
+                                    "RightNumber": {
+                                      "type": "GameValueWrapper",
+                                      "value": 0.2
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who chopped down the tree that is generating debris.</i>"
+                                },
+                                "TaxCode": null,
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "stump Removal",
+          "UserDescription": "Pays citizen (or employee of a company) 10 euro for every stump destroyed",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopStump"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopStump",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopStump",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Destroyed",
+                        "markedUpName": "<icon name=\"ChopStump\" type=\"\">Destroyed</icon>",
+                        "contextDescription": "<i>Was the stump destroyed?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "TreeStumps",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": -1.0
+                      },
+                      "DisplayResultToCitizen": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Debris removal",
+          "UserDescription": "Pays citizen (or employee of a company) 0.2 euro for every piece of debris cleared\n\nClearing debris is allowed on all properties ignoring access rules",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CleanupTreeDebris"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.CleanupTreeDebris",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "TreeDebris",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": -1.0
+                      },
+                      "DisplayResultToCitizen": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 0.2
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 0.2
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.IgnoreAuth_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "PromptCitizensOnInteractions": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Assulting Ceiba",
+          "UserDescription": "Citizens (or employees) are chared an additional 10 euro per tree felled if in the past 24 hours they created more stumps or debris than they cleared.\n\nBefore charging the additional tax it first sends out a warning that the additional tax is taxed",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopTree"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Felled",
+                        "markedUpName": "<icon name=\"ChopTree\" type=\"\">Felled</icon>",
+                        "contextDescription": "<i>Was the tree felled?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                  "properties": {
+                                    "CustomStatName": "TreeStumps",
+                                    "Settlement": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                        "name": "The Federation of White Tiger",
+                                        "reference": true
+                                      }
+                                    },
+                                    "TimeRangeInHours": {
+                                      "type": "GameValueWrapper",
+                                      "value": 24.0
+                                    },
+                                    "TimeRangeType": "CountBackFromPresentTime",
+                                    "RestrictCountToCitizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                },
+                                "Comparison": "GreaterThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                  "properties": {
+                                    "CustomStatName": "TreeDebris",
+                                    "Settlement": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                        "name": "The Federation of White Tiger",
+                                        "reference": true
+                                      }
+                                    },
+                                    "TimeRangeInHours": {
+                                      "type": "GameValueWrapper",
+                                      "value": 24.0
+                                    },
+                                    "TimeRangeType": "CountBackFromPresentTime",
+                                    "RestrictCountToCitizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                },
+                                "Comparison": "GreaterThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 50.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "Any"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Please remove created stumps and debris or you will be additional taxed",
+                      "NotificationType": "OnScreenNotice",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "ValueToDisplay": null,
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Felled",
+                        "markedUpName": "<icon name=\"ChopTree\" type=\"\">Felled</icon>",
+                        "contextDescription": "<i>Was the tree felled?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                  "properties": {
+                                    "CustomStatName": "TreeStumps",
+                                    "Settlement": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                        "name": "The Federation of White Tiger",
+                                        "reference": true
+                                      }
+                                    },
+                                    "TimeRangeInHours": {
+                                      "type": "GameValueWrapper",
+                                      "value": 24.0
+                                    },
+                                    "TimeRangeType": "CountBackFromPresentTime",
+                                    "RestrictCountToCitizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                },
+                                "Comparison": "GreaterThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 15.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                  "properties": {
+                                    "CustomStatName": "TreeDebris",
+                                    "Settlement": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                        "name": "The Federation of White Tiger",
+                                        "reference": true
+                                      }
+                                    },
+                                    "TimeRangeInHours": {
+                                      "type": "GameValueWrapper",
+                                      "value": 24.0
+                                    },
+                                    "TimeRangeType": "CountBackFromPresentTime",
+                                    "RestrictCountToCitizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                },
+                                "Comparison": "GreaterThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 75.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "Any"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "TaxCode": "TreePolluterTax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 10.0
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "TaxCode": "TreePolluterTax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Pleasing Ceiba",
+          "UserDescription": "Every 24 hours citizen (or employee) is payed 1 euro for every tree planted with a max of 50 euro",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.PlantSeeds"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlantSeeds",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.PlantSpecies"
+                        },
+                        "requiredTag": "Plants",
+                        "internalDescription": "<foldout><linktext><u>9 Plants</u></linktext><title>9 Plants</title><link=\"view:3681:-1\"><icon name=\"BirchSpecies\" type=\"\"><color=#60FFFFFF>Birch Species</color></icon></link>\r\n<link=\"view:4078:-1\"><icon name=\"CedarSpecies\" type=\"\"><color=#60FFFFFF>Cedar Species</color></icon></link>\r\n<link=\"view:3288:-1\"><icon name=\"CeibaSpecies\" type=\"\"><color=#60FFFFFF>Ceiba Species</color></icon></link>\r\n<link=\"view:4459:-1\"><icon name=\"FirSpecies\" type=\"\"><color=#60FFFFFF>Fir Species</color></icon></link>\r\n<link=\"view:806:-1\"><icon name=\"OakSpecies\" type=\"\"><color=#60FFFFFF>Oak Species</color></icon></link>\r\n<link=\"view:1415:-1\"><icon name=\"OldGrowthRedwoodSpecies\" type=\"\"><color=#60FFFFFF>Old Growth Redwood Species</color></icon></link>\r\n<link=\"view:4455:-1\"><icon name=\"RedwoodSpecies\" type=\"\"><color=#60FFFFFF>Redwood Species</color></icon></link>\r\n<link=\"view:2127:-1\"><icon name=\"SaguaroCactusSpecies\" type=\"\"><color=#60FFFFFF>Saguaro Cactus Species</color></icon></link>\r\n<link=\"view:2862:-1\"><icon name=\"SpruceSpecies\" type=\"\"><color=#60FFFFFF>Spruce Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cedar+CedarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fir+FirSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Birch+BirchSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Oak+OakSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Ceiba+CeibaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Redwood+RedwoodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.SaguaroCactus+SaguaroCactusSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Spruce+SpruceSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.OldGrowthRedwood+OldGrowthRedwoodSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.PlantSeeds",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Planter",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "TreePlanted",
+                              "Settlement": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Settlements.Settlement",
+                                  "name": "The Federation of White Tiger",
+                                  "reference": true
+                                }
+                              },
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "RestrictCountToCitizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen planting the plant.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "LessThanOrEqualTo",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 50.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.Laws.LegalActions.RecordCustomStat",
+                    "reference": false,
+                    "properties": {
+                      "StatName": "TreePlanted",
+                      "Person": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen planting the plant.</i>"
+                      },
+                      "Count": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "DisplayResultToCitizen": false,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen planting the plant.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                },
+                                "Target": {
+                                  "type": "Eco.Mods.Companies.AccountLegalPersonAlias",
+                                  "properties": {
+                                    "BankAccount": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                      "properties": {
+                                        "User": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen planting the plant.</i>"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen planting the plant.</i>"
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "None"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "SourceBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                    "name": "# Federal Executive Funds",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen planting the plant.</i>"
+                                },
+                                "PaymentCode": null,
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Querry stats",
+          "UserDescription": "Lets citizen (or employee) collect all relevant stats used in the law",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!TreeQuery"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Tree stumps not removed",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "TreeStumps",
+                          "Settlement": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Settlements.Settlement",
+                              "name": "The Federation of White Tiger",
+                              "reference": true
+                            }
+                          },
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "RestrictCountToCitizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Tree debris not removed",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "TreeDebris",
+                          "Settlement": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Settlements.Settlement",
+                              "name": "The Federation of White Tiger",
+                              "reference": true
+                            }
+                          },
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "RestrictCountToCitizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                    "reference": false,
+                    "properties": {
+                      "Message": "Tree planted",
+                      "NotificationType": "SideBarMessage",
+                      "PeopleToSendTo": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "ValueToDisplay": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                        "properties": {
+                          "CustomStatName": "TreePlanted",
+                          "Settlement": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Settlements.Settlement",
+                              "name": "The Federation of White Tiger",
+                              "reference": true
+                            }
+                          },
+                          "TimeRangeInHours": {
+                            "type": "GameValueWrapper",
+                            "value": 24.0
+                          },
+                          "TimeRangeType": "CountBackFromPresentTime",
+                          "RestrictCountToCitizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                          }
+                        }
+                      },
+                      "LocationToDisplay": null,
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
