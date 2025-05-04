@@ -1,0 +1,3089 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Daily Quests",
+  "reference": false,
+  "description": "Here are a collected of four daily quests. Hunter quest is to kill 125 of the marked animals. Farmers quest is to harvest 500 crops of the marked crops. Loggers quest is to chop down 100 trees of the marked trees. Miners quests is to mine 750 of the marked ores. ",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Records Hunted Animals",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>22 Species</u></linktext><title>22 Species</title><link=\"view:2333:-1\"><icon name=\"AgoutiSpecies\" type=\"\"><color=#60FFFFFF>Agouti Species</color></icon></link>\r\n<link=\"view:353:-1\"><icon name=\"AlligatorSpecies\" type=\"\"><color=#60FFFFFF>Alligator Species</color></icon></link>\r\n<link=\"view:1584:-1\"><icon name=\"BighornSheepSpecies\" type=\"\"><color=#60FFFFFF>Bighorn Sheep Species</color></icon></link>\r\n<link=\"view:2278:-1\"><icon name=\"BisonSpecies\" type=\"\"><color=#60FFFFFF>Bison Species</color></icon></link>\r\n<link=\"view:4724:-1\"><icon name=\"BlueSharkSpecies\" type=\"\"><color=#60FFFFFF>Blue Shark Species</color></icon></link>\r\n<link=\"view:4159:-1\"><icon name=\"CodSpecies\" type=\"\"><color=#60FFFFFF>Cod Species</color></icon></link>\r\n<link=\"view:1092:-1\"><icon name=\"CottonSpecies\" type=\"\"><color=#60FFFFFF>Cotton Species</color></icon></link>\r\n<link=\"view:250:-1\"><icon name=\"CoyoteSpecies\" type=\"\"><color=#60FFFFFF>Coyote Species</color></icon></link>\r\n<link=\"view:1379:-1\"><icon name=\"CrabSpecies\" type=\"\"><color=#60FFFFFF>Crab Species</color></icon></link>\r\n<link=\"view:4594:-1\"><icon name=\"DeerSpecies\" type=\"\"><color=#60FFFFFF>Deer Species</color></icon></link>\r\n<link=\"view:3232:-1\"><icon name=\"FoxSpecies\" type=\"\"><color=#60FFFFFF>Fox Species</color></icon></link>\r\n<link=\"view:1749:-1\"><icon name=\"HareSpecies\" type=\"\"><color=#60FFFFFF>Hare Species</color></icon></link>\r\n<link=\"view:1103:-1\"><icon name=\"JaguarSpecies\" type=\"\"><color=#60FFFFFF>Jaguar Species</color></icon></link>\r\n<link=\"view:2908:-1\"><icon name=\"MoonJellyfishSpecies\" type=\"\"><color=#60FFFFFF>Moon Jellyfish Species</color></icon></link>\r\n<link=\"view:1536:-1\"><icon name=\"MountainGoatSpecies\" type=\"\"><color=#60FFFFFF>Mountain Goat Species</color></icon></link>\r\n<link=\"view:2152:-1\"><icon name=\"OtterSpecies\" type=\"\"><color=#60FFFFFF>Otter Species</color></icon></link>\r\n<link=\"view:4501:-1\"><icon name=\"PacificSardineSpecies\" type=\"\"><color=#60FFFFFF>Pacific Sardine Species</color></icon></link>\r\n<link=\"view:4863:-1\"><icon name=\"SalmonSpecies\" type=\"\"><color=#60FFFFFF>Salmon Species</color></icon></link>\r\n<link=\"view:172:-1\"><icon name=\"TroutSpecies\" type=\"\"><color=#60FFFFFF>Trout Species</color></icon></link>\r\n<link=\"view:3845:-1\"><icon name=\"TunaSpecies\" type=\"\"><color=#60FFFFFF>Tuna Species</color></icon></link>\r\n<link=\"view:3296:-1\"><icon name=\"TurkeySpecies\" type=\"\"><color=#60FFFFFF>Turkey Species</color></icon></link>\r\n<link=\"view:3711:-1\"><icon name=\"WolfSpecies\" type=\"\"><color=#60FFFFFF>Wolf Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Trout+TroutSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Turkey+TurkeySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MoonJellyfish+MoonJellyfishSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Bison+BisonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BlueShark+BlueSharkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Otter+OtterSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cotton+CottonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PacificSardine+PacificSardineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Salmon+SalmonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "GameValueContext",
+                              "_name": "DestroyingOrganism",
+                              "markedUpName": "<icon name=\"HarvestOrHunt\" type=\"\">Destroying Organism</icon>",
+                              "contextDescription": "<i>An animal or a plant was destroyed.</i>"
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                              "properties": {
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "Skills": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Skills.Skill"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"Item:HuntingSkill\"><style=\"Item\"><icon name=\"HuntingSkill\" type=\"\">Hunting</icon></style></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.HuntingSkill"
+                                    }
+                                  ]
+                                },
+                                "Requirements": "HasAll",
+                                "RequiredLevel": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Hunt",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "Comparison": "LessThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 125.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Hunt",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "TaxCode": "QuestHunt",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Records Harvested Crops",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.HarvestOrHunt"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.Species"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>20 Plants</u></linktext><title>20 Plants</title><link=\"view:3227:-1\"><icon name=\"BeansSpecies\" type=\"\"><color=#60FFFFFF>Beans Species</color></icon></link>\r\n<link=\"view:2668:-1\"><icon name=\"BeetsSpecies\" type=\"\"><color=#60FFFFFF>Beets Species</color></icon></link>\r\n<link=\"view:4081:-1\"><icon name=\"BoleteMushroomSpecies\" type=\"\"><color=#60FFFFFF>Bolete Mushroom Species</color></icon></link>\r\n<link=\"view:804:-1\"><icon name=\"CookeinaMushroomSpecies\" type=\"\"><color=#60FFFFFF>Cookeina Mushroom Species</color></icon></link>\r\n<link=\"view:1747:-1\"><icon name=\"CornSpecies\" type=\"\"><color=#60FFFFFF>Corn Species</color></icon></link>\r\n<link=\"view:1092:-1\"><icon name=\"CottonSpecies\" type=\"\"><color=#60FFFFFF>Cotton Species</color></icon></link>\r\n<link=\"view:997:-1\"><icon name=\"CriminiMushroomSpecies\" type=\"\"><color=#60FFFFFF>Crimini Mushroom Species</color></icon></link>\r\n<link=\"view:4447:-1\"><icon name=\"FernSpecies\" type=\"\"><color=#60FFFFFF>Fern Species</color></icon></link>\r\n<link=\"view:1124:-1\"><icon name=\"FlaxSpecies\" type=\"\"><color=#60FFFFFF>Flax Species</color></icon></link>\r\n<link=\"view:4033:-1\"><icon name=\"HuckleberrySpecies\" type=\"\"><color=#60FFFFFF>Huckleberry Species</color></icon></link>\r\n<link=\"view:4813:-1\"><icon name=\"PalmSpecies\" type=\"\"><color=#60FFFFFF>Palm Species</color></icon></link>\r\n<link=\"view:2882:-1\"><icon name=\"PapayaSpecies\" type=\"\"><color=#60FFFFFF>Papaya Species</color></icon></link>\r\n<link=\"view:3017:-1\"><icon name=\"PineappleSpecies\" type=\"\"><color=#60FFFFFF>Pineapple Species</color></icon></link>\r\n<link=\"view:1849:-1\"><icon name=\"PricklyPearSpecies\" type=\"\"><color=#60FFFFFF>Prickly Pear Species</color></icon></link>\r\n<link=\"view:2425:-1\"><icon name=\"PumpkinSpecies\" type=\"\"><color=#60FFFFFF>Pumpkin Species</color></icon></link>\r\n<link=\"view:448:-1\"><icon name=\"RiceSpecies\" type=\"\"><color=#60FFFFFF>Rice Species</color></icon></link>\r\n<link=\"view:1746:-1\"><icon name=\"SunflowerSpecies\" type=\"\"><color=#60FFFFFF>Sunflower Species</color></icon></link>\r\n<link=\"view:3598:-1\"><icon name=\"TaroSpecies\" type=\"\"><color=#60FFFFFF>Taro Species</color></icon></link>\r\n<link=\"view:2154:-1\"><icon name=\"TomatoesSpecies\" type=\"\"><color=#60FFFFFF>Tomatoes Species</color></icon></link>\r\n<link=\"view:319:-1\"><icon name=\"WheatSpecies\" type=\"\"><color=#60FFFFFF>Wheat Species</color></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.BoleteMushroom+BoleteMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Tomatoes+TomatoesSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pumpkin+PumpkinSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Sunflower+SunflowerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Fern+FernSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Papaya+PapayaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Palm+PalmSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CriminiMushroom+CriminiMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Flax+FlaxSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beans+BeansSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Pineapple+PineappleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Huckleberry+HuckleberrySpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.PricklyPear+PricklyPearSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Corn+CornSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Beets+BeetsSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Taro+TaroSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.CookeinaMushroom+CookeinaMushroomSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Cotton+CottonSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Wheat+WheatSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.Organisms.Rice+RiceSpecies"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.HarvestOrHunt",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Harvester",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                              "properties": {
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "Skills": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Skills.Skill"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.FarmingSkill"
+                                    },
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.GatheringSkill"
+                                    }
+                                  ]
+                                },
+                                "Requirements": "HasAny",
+                                "RequiredLevel": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Crops",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "Comparison": "LessThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 250.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Crops",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "TaxCode": "QuestCrops",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Records Felled Trees",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChopTree"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "Species",
+                    "propDisplayName": "Species",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Simulation.Types.TreeSpecies"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChopTree",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Logging",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "GameValueContext",
+                              "_name": "Felled",
+                              "markedUpName": "<icon name=\"ChopTree\" type=\"\">Felled</icon>",
+                              "contextDescription": "<i>Was the tree felled?</i>"
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                              "properties": {
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "Skills": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Skills.Skill"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"Item:LoggingSkill\"><style=\"Item\"><icon name=\"LoggingSkill\" type=\"\">Logging</icon></style></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.LoggingSkill"
+                                    }
+                                  ]
+                                },
+                                "Requirements": "HasAll",
+                                "RequiredLevel": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Tree",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "Comparison": "LessThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 100.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Tree",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "TaxCode": "QuestTree",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Records Mined Ores",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.DigOrMine"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ItemUsed",
+                    "propDisplayName": "Item Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavatable",
+                        "internalDescription": "<foldout><linktext><u>5 Excavatables</u></linktext><title>5 Excavatables</title><link=\"Item:CoalItem\"><style=\"Item\"><icon name=\"CoalItem\" type=\"\">Coal</icon></style></link>\r\n<link=\"Item:CopperOreItem\"><style=\"Item\"><icon name=\"CopperOreItem\" type=\"\">Copper Ore</icon></style></link>\r\n<link=\"Item:GoldOreItem\"><style=\"Item\"><icon name=\"GoldOreItem\" type=\"\">Gold Ore</icon></style></link>\r\n<link=\"Item:IronOreItem\"><style=\"Item\"><icon name=\"IronOreItem\" type=\"\">Iron Ore</icon></style></link>\r\n<link=\"Item:SulfurItem\"><style=\"Item\"><icon name=\"SulfurItem\" type=\"\">Sulfur</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CoalItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.GoldOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SulfurItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IronOreItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CopperOreItem"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.DigOrMine",
+                    "propNameBacker": "ToolUsed",
+                    "propDisplayName": "Tool Used",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "Excavation",
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                              "properties": {
+                                "Citizen": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "Skills": {
+                                  "type": "GamePickerList",
+                                  "mustDeriveType": {
+                                    "type": "Type",
+                                    "value": "Eco.Gameplay.Skills.Skill"
+                                  },
+                                  "requiredTag": null,
+                                  "internalDescription": "<link=\"Item:MiningSkill\"><style=\"Item\"><icon name=\"MiningSkill\" type=\"\">Mining</icon></style></link>",
+                                  "entries": [
+                                    {
+                                      "type": "Type",
+                                      "value": "Eco.Mods.TechTree.MiningSkill"
+                                    }
+                                  ]
+                                },
+                                "Requirements": "HasAll",
+                                "RequiredLevel": {
+                                  "type": "GameValueWrapper",
+                                  "value": 1.0
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                              "properties": {
+                                "Left": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Mine",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "Comparison": "LessThan",
+                                "Right": {
+                                  "type": "GameValueWrapper",
+                                  "value": 200.0
+                                }
+                              }
+                            }
+                          ],
+                          "Comparison": "All"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Mine",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 1.0
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                      },
+                      "TaxCode": "QuestMine",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Quest Payment System",
+          "UserDescription": "Every 24 hours, citizens who are above the marked number in each catigory will have completed a \"Quest\". They will receive 10 euros and 1 rep.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Active",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 24.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Euro",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                        },
+                                        "TargetAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "# Quest Hunt",
+                                            "reference": true
+                                          }
+                                        },
+                                        "ConsiderRebates": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 125.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Quest",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Hunting Quest",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": false,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                            "properties": {
+                                              "Demographics": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"view:1598:112923\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                    "name": "Employee of Private Company",
+                                                    "reference": true
+                                                  }
+                                                ]
+                                              },
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              },
+                                              "Requirements": "HasNone"
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Hunting Quest",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": false,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Euro",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                        },
+                                        "TargetAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "# Quest Tree",
+                                            "reference": true
+                                          }
+                                        },
+                                        "ConsiderRebates": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 100.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Tree Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": false,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                            "properties": {
+                                              "Demographics": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"view:1598:112923\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                    "name": "Employee of Private Company",
+                                                    "reference": true
+                                                  }
+                                                ]
+                                              },
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              },
+                                              "Requirements": "HasNone"
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Tree Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": true,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Euro",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                        },
+                                        "TargetAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "# Quest Crops",
+                                            "reference": true
+                                          }
+                                        },
+                                        "ConsiderRebates": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 250.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Farming Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": true,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                            "properties": {
+                                              "Demographics": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"view:1598:112923\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                    "name": "Employee of Private Company",
+                                                    "reference": true
+                                                  }
+                                                ]
+                                              },
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              },
+                                              "Requirements": "HasNone"
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Farming Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": true,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                  "properties": {
+                                    "Left": {
+                                      "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                      "properties": {
+                                        "Currency": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.Currency",
+                                            "name": "Euro",
+                                            "reference": true
+                                          }
+                                        },
+                                        "Citizen": {
+                                          "type": "GameValueContext",
+                                          "_name": "Citizen",
+                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                          "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                        },
+                                        "TargetAccount": {
+                                          "type": "GameValueWrapper",
+                                          "value": {
+                                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                            "name": "# Quest Mine",
+                                            "reference": true
+                                          }
+                                        },
+                                        "ConsiderRebates": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                          "properties": {}
+                                        }
+                                      }
+                                    },
+                                    "Comparison": "GreaterThanOrEqualTo",
+                                    "Right": {
+                                      "type": "GameValueWrapper",
+                                      "value": 200.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                                            "properties": {
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              }
+                                            }
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Mining Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": true,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "IfThenBlock": {
+                                  "type": "Eco.Gameplay.Civics.IfThenBlock",
+                                  "reference": false,
+                                  "properties": {
+                                    "If": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                                      "properties": {
+                                        "List": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                            "properties": {
+                                              "Demographics": {
+                                                "type": "GamePickerList",
+                                                "mustDeriveType": {
+                                                  "type": "Type",
+                                                  "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                                },
+                                                "requiredTag": null,
+                                                "internalDescription": "<link=\"view:1598:112923\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                                "entries": [
+                                                  {
+                                                    "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                                    "name": "Employee of Private Company",
+                                                    "reference": true
+                                                  }
+                                                ]
+                                              },
+                                              "Citizen": {
+                                                "type": "GameValueContext",
+                                                "_name": "Citizen",
+                                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                              },
+                                              "Requirements": "HasNone"
+                                            }
+                                          }
+                                        ],
+                                        "Comparison": "All"
+                                      }
+                                    },
+                                    "Then": [
+                                      {
+                                        "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "SourceBankAccount": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                              "name": "# Minister of Infrastructure Budget",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Currency": {
+                                            "type": "GameValueWrapper",
+                                            "value": {
+                                              "type": "Eco.Gameplay.Economy.Currency",
+                                              "name": "Euro",
+                                              "reference": true
+                                            }
+                                          },
+                                          "Amount": {
+                                            "type": "GameValueWrapper",
+                                            "value": 60.0
+                                          },
+                                          "Target": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "PaymentCode": "Quests",
+                                          "Silent": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          },
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "Eco.Gameplay.Civics.LegalActions.ChangeReputation_LegalAction",
+                                        "reference": false,
+                                        "properties": {
+                                          "ReputationChange": {
+                                            "type": "GameValueWrapper",
+                                            "value": 1.0
+                                          },
+                                          "ReputationMessage": "Completed Mining Quests",
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "SendNotice": true,
+                                          "InfoboxOnSuccess": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Hunt",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.SmartTax.OwedTaxes",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "TargetAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Quest Hunt",
+                              "reference": true
+                            }
+                          },
+                          "ConsiderRebates": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "RebateCode": "QuestHuntRebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Tree",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.SmartTax.OwedTaxes",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "TargetAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Quest Tree",
+                              "reference": true
+                            }
+                          },
+                          "ConsiderRebates": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "RebateCode": "QuestTreeRebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Crops",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.SmartTax.OwedTaxes",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "TargetAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Quest Crops",
+                              "reference": true
+                            }
+                          },
+                          "ConsiderRebates": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "RebateCode": "QuestCropsRebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Quest Mine",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Mods.SmartTax.OwedTaxes",
+                        "properties": {
+                          "Currency": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.Currency",
+                              "name": "Euro",
+                              "reference": true
+                            }
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "TargetAccount": {
+                            "type": "GameValueWrapper",
+                            "value": {
+                              "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                              "name": "# Quest Mine",
+                              "reference": true
+                            }
+                          },
+                          "ConsiderRebates": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                            "properties": {}
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "RebateCode": "QuestMineRebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Query Quests",
+          "UserDescription": "",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.ChatSent"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Tag",
+                    "propDisplayName": "Tag",
+                    "properties": {
+                      "String": null
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectString",
+                    "typeToConfig": "Eco.Gameplay.GameActions.ChatSent",
+                    "propNameBacker": "Message",
+                    "propDisplayName": "Message",
+                    "properties": {
+                      "String": "!quests"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "Skills": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Skills.Skill"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"Item:HuntingSkill\"><style=\"Item\"><icon name=\"HuntingSkill\" type=\"\">Hunting</icon></style></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.HuntingSkill"
+                                        }
+                                      ]
+                                    },
+                                    "Requirements": "HasAll",
+                                    "RequiredLevel": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Hunt 125 Animals",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "ValueToDisplay": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Hunt",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "Skills": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Skills.Skill"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>  <link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.FarmingSkill"
+                                        },
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.GatheringSkill"
+                                        }
+                                      ]
+                                    },
+                                    "Requirements": "HasAny",
+                                    "RequiredLevel": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Harvest 250 Crops",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "ValueToDisplay": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Crops",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "Skills": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Skills.Skill"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"Item:MiningSkill\"><style=\"Item\"><icon name=\"MiningSkill\" type=\"\">Mining</icon></style></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.MiningSkill"
+                                        }
+                                      ]
+                                    },
+                                    "Requirements": "HasAll",
+                                    "RequiredLevel": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Mine 200 Ore Blocks",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "ValueToDisplay": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Mine",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "Skills": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Skills.Skill"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"Item:LoggingSkill\"><style=\"Item\"><icon name=\"LoggingSkill\" type=\"\">Logging</icon></style></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.LoggingSkill"
+                                        }
+                                      ]
+                                    },
+                                    "Requirements": "HasAll",
+                                    "RequiredLevel": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "Chop 100 Trees",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "ValueToDisplay": {
+                                  "type": "Eco.Mods.SmartTax.OwedTaxes",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "TargetAccount": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Quest Tree",
+                                        "reference": true
+                                      }
+                                    },
+                                    "ConsiderRebates": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                      "properties": {}
+                                    }
+                                  }
+                                },
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.SkillRequirements",
+                                  "properties": {
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                    },
+                                    "Skills": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Skills.Skill"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<foldout><linktext><u>5 Specialties</u></linktext><title>5 Specialties</title><link=\"Item:FarmingSkill\"><style=\"Item\"><icon name=\"FarmingSkill\" type=\"\">Farming</icon></style></link>\r\n<link=\"Item:GatheringSkill\"><style=\"Item\"><icon name=\"GatheringSkill\" type=\"\">Gathering</icon></style></link>\r\n<link=\"Item:HuntingSkill\"><style=\"Item\"><icon name=\"HuntingSkill\" type=\"\">Hunting</icon></style></link>\r\n<link=\"Item:LoggingSkill\"><style=\"Item\"><icon name=\"LoggingSkill\" type=\"\">Logging</icon></style></link>\r\n<link=\"Item:MiningSkill\"><style=\"Item\"><icon name=\"MiningSkill\" type=\"\">Mining</icon></style></link></foldout>",
+                                      "entries": [
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.LoggingSkill"
+                                        },
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.HuntingSkill"
+                                        },
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.FarmingSkill"
+                                        },
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.MiningSkill"
+                                        },
+                                        {
+                                          "type": "Type",
+                                          "value": "Eco.Mods.TechTree.GatheringSkill"
+                                        }
+                                      ]
+                                    },
+                                    "Requirements": "HasNone",
+                                    "RequiredLevel": {
+                                      "type": "GameValueWrapper",
+                                      "value": 1.0
+                                    }
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Gameplay.Civics.LegalActions.SendNotice",
+                              "reference": false,
+                              "properties": {
+                                "Message": "You need to have Logging, Mining, Gathering, or Farming to have a quest",
+                                "NotificationType": "SideBarMessage",
+                                "PeopleToSendTo": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen who performed the interaction.</i>"
+                                },
+                                "ValueToDisplay": null,
+                                "LocationToDisplay": null,
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
