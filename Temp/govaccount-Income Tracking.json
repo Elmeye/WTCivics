@@ -10,7 +10,7 @@
   "managers": [
     {
       "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-      "name": "White Tiger",
+      "name": "Game Masters",
       "reference": true
     }
   ],
