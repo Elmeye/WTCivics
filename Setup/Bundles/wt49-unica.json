@@ -10185,6 +10185,47 @@
         ],
         "State": "Active"
       }
+    },
+    {
+      "version": [
+        1,
+        0
+      ],
+      "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+      "name": "Unica Road Worker",
+      "reference": false,
+      "description": "Concept Title, do not change.",
+      "managers": [
+        {
+          "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+          "name": "Governing Mayor for Unica",
+          "reference": true
+        },
+        {
+          "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+          "name": "Game Masters",
+          "reference": true
+        }
+      ],
+      "users": [],
+      "properties": {
+        "RequiredOfOfficeHolders": null,
+        "BackupOwner": {
+          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+          "name": "Everyone",
+          "reference": true
+        },
+        "Wages": {
+          "type": "Eco.Gameplay.Economy.Jobs.RecurringTransferDefinition",
+          "reference": false,
+          "properties": {
+            "Currency": null,
+            "AmountPerHour": null,
+            "PaymentType": "OnlineAndOfflineHours"
+          }
+        },
+        "WagesSourceBankAccount": null
+      }
     }
   ]
 }
