@@ -170,7 +170,7 @@
                       "value": "Eco.Gameplay.Civics.Titles.Title"
                     },
                     "requiredTag": null,
-                    "internalDescription": "<foldout><linktext><u>9 Titles</u></linktext><title>9 Titles</title><link=\"view:4686:124353\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">In Jail</style></icon></link>\r\n<link=\"view:2885:124423\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:2885:517730\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Culture</style></icon></link>\r\n<link=\"view:2885:513393\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Education</style></icon></link>\r\n<link=\"view:2885:517719\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Finance</style></icon></link>\r\n<link=\"view:2885:513379\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:2885:124418\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link>\r\n<link=\"view:4686:124332\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Research Assistant</style></icon></link>\r\n<link=\"view:4686:124335\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">State Official</style></icon></link></foldout>",
+                    "internalDescription": "<foldout><linktext><u>9 Titles</u></linktext><title>9 Titles</title><link=\"view:4686:124353\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">In Jail</style></icon></link>\r\n<link=\"view:2885:124423\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:2885:517730\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Culture</style></icon></link>\r\n<link=\"view:2885:513393\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Education</style></icon></link>\r\n<link=\"view:2885:517719\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Director of the Federal Bank</style></icon></link>\r\n<link=\"view:2885:513379\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:2885:124418\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link>\r\n<link=\"view:4686:124332\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Research Assistant</style></icon></link>\r\n<link=\"view:4686:124335\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">State Official</style></icon></link></foldout>",
                     "entries": [
                       {
                         "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
@@ -179,7 +179,7 @@
                       },
                       {
                         "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                        "name": "Minister of Finance",
+                        "name": "Director of the Federal Bank",
                         "reference": true
                       },
                       {
