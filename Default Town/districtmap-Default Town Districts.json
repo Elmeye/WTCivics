@@ -17,7 +17,7 @@
       "reference": false,
       "description": null,
       "properties": {
-        "State": "Draft"
+        "State": "Uninitialized"
       },
       "color": [
         0.405835,

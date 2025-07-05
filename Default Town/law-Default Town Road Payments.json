@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.Laws.Law",
   "name": "Default Town Road Payments",
   "reference": false,
-  "description": null,
+  "description": "Purpose: Basic road payment law for other towns and states to copy\nType: Example Law\nAuthor: Elmeye\nMaintainer: Elmeye\n\nDont forget to change all the default town refrences and tax codes",
   "properties": {
     "Sections": [
       {
@@ -136,7 +136,7 @@
                       "SourceBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -166,7 +166,7 @@
                       },
                       "PaymentCode": "DefaultTownRoads",
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -232,7 +232,7 @@
                       "SourceBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -257,7 +257,7 @@
                       },
                       "PaymentCode": "DefaultTownRoads",
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -399,7 +399,7 @@
                       "TargetBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -433,7 +433,7 @@
                         "properties": {}
                       },
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -499,7 +499,7 @@
                       "TargetBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -528,7 +528,7 @@
                         "properties": {}
                       },
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -698,12 +698,12 @@
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Game Masters",
+                                "name": "Default Town Road Worker",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Default Town Road Worker",
+                                "name": "Game Masters",
                                 "reference": true
                               }
                             ]
@@ -726,6 +726,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
@@ -865,7 +866,7 @@
                       "SourceBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -880,7 +881,7 @@
                       },
                       "Amount": {
                         "type": "GameValueWrapper",
-                        "value": 4.0
+                        "value": 1.0
                       },
                       "Target": {
                         "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
@@ -895,7 +896,7 @@
                       },
                       "PaymentCode": "DefaultTownRoads",
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -961,7 +962,7 @@
                       "SourceBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -976,7 +977,7 @@
                       },
                       "Amount": {
                         "type": "GameValueWrapper",
-                        "value": 4.0
+                        "value": 1.0
                       },
                       "Target": {
                         "type": "GameValueContext",
@@ -986,7 +987,7 @@
                       },
                       "PaymentCode": "DefaultTownRoads",
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -1128,7 +1129,7 @@
                       "TargetBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -1143,7 +1144,7 @@
                       },
                       "Amount": {
                         "type": "GameValueWrapper",
-                        "value": 4.0
+                        "value": 1.0
                       },
                       "Target": {
                         "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
@@ -1162,7 +1163,7 @@
                         "properties": {}
                       },
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -1228,7 +1229,7 @@
                       "TargetBankAccount": {
                         "type": "GameValueWrapper",
                         "value": {
-                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
                           "name": "Default Town Treasury",
                           "reference": true
                         }
@@ -1243,7 +1244,7 @@
                       },
                       "Amount": {
                         "type": "GameValueWrapper",
-                        "value": 4.0
+                        "value": 1.0
                       },
                       "Target": {
                         "type": "GameValueContext",
@@ -1257,7 +1258,7 @@
                         "properties": {}
                       },
                       "Silent": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       },
                       "InfoboxOnSuccess": {
@@ -1273,6 +1274,6 @@
         }
       }
     ],
-    "State": "Active"
+    "State": "Draft"
   }
 }

@@ -6,7 +6,7 @@
   "type": "Eco.Gameplay.Civics.Laws.Law",
   "name": "Default Town Sales Tax",
   "reference": false,
-  "description": "Default Town Sales Tax for development of State infrastructure",
+  "description": "Purpose: Basic sales tax for other towns and states to copy\nType: Example Law\nAuthor: Elmeye\nMaintainer: Elmeye\n\nDont forget to change all the default town refrences and tax codes, you will need to update the state offices district as well.",
   "properties": {
     "Sections": [
       {
@@ -14,7 +14,7 @@
         "reference": false,
         "properties": {
           "Title": "Sales Tax",
-          "UserDescription": "A flat tax of 2% on all sales within Default Town. An exception is made for the State Office, as well as skillless players actively selling.  It also takes into account companies.",
+          "UserDescription": "A flat tax of 5% on all sales within Default Town. An exception is made for the State Office, as well as skillless players actively selling.  It also takes into account companies.\nA sales tax of 5% is the maximum amount that Towns and States can do.",
           "Triggers": [
             {
               "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
@@ -262,7 +262,7 @@
                                     },
                                     "Percent": {
                                       "type": "GameValueWrapper",
-                                      "value": 2.0
+                                      "value": 5.0
                                     }
                                   }
                                 },
@@ -381,7 +381,7 @@
                                                   "value": 0.0
                                                 },
                                                 "TimeRangeType": "CurrentTimeBlock",
-                                                "User": {
+                                                "RestrictCountToCitizen": {
                                                   "type": "GameValueContext",
                                                   "_name": "Seller",
                                                   "markedUpName": "<icon name=\"User\" type=\"\">Seller</icon>",
@@ -395,7 +395,7 @@
                                     },
                                     "Percent": {
                                       "type": "GameValueWrapper",
-                                      "value": 2.0
+                                      "value": 5.0
                                     }
                                   }
                                 },
@@ -514,7 +514,7 @@
                                                   "value": 0.0
                                                 },
                                                 "TimeRangeType": "CurrentTimeBlock",
-                                                "User": {
+                                                "RestrictCountToCitizen": {
                                                   "type": "Eco.Mods.Companies.EmployerLegalPerson",
                                                   "properties": {
                                                     "Citizen": {
@@ -533,7 +533,7 @@
                                     },
                                     "Percent": {
                                       "type": "GameValueWrapper",
-                                      "value": 2.0
+                                      "value": 5.0
                                     }
                                   }
                                 },
@@ -579,6 +579,6 @@
         }
       }
     ],
-    "State": "Active"
+    "State": "Draft"
   }
 }
