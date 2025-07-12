@@ -1,0 +1,919 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Income Tax Law",
+  "reference": false,
+  "description": "This law establishes a federal income tax.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Federal Income Tax",
+          "UserDescription": "First IF statement: For specialized citizens, this income tax uses a progressive percentage where the brackets and tax rates are configurable. The percentage of expenses (set to 0%) is also configurable.\nSecond IF Statement: For Zero-star citizens, this income tax uses a progressive percentage where the brackets and tax rates are configurable. This subtracts 100% of expenses. This section could be deleted and the set of conditions on the first IF statement removed to treat all citizens the same.\n\nBy default, expenses are store based purchases. This could be expanded as government sees fit.\n\nNote: This law already accounts for company tax and companies. UBI and Loans are already excluded.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Non-Abandoned",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "income",
+                              "Settlement": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Settlements.Settlement",
+                                  "name": "The Federation of White Tiger",
+                                  "reference": true
+                                }
+                              },
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "RestrictCountToCitizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                        "properties": {
+                          "List": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                              "properties": {
+                                "List": [
+                                  {
+                                    "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                    "properties": {
+                                      "Citizen": {
+                                        "type": "GameValueContext",
+                                        "_name": "Citizen",
+                                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                    "properties": {
+                                      "Left": {
+                                        "type": "Eco.Mods.Companies.SkillCount",
+                                        "properties": {
+                                          "LegalPerson": {
+                                            "type": "Eco.Mods.Companies.AccountLegalPerson",
+                                            "properties": {
+                                              "BankAccount": {
+                                                "type": "Eco.Gameplay.Civics.GameValues.PersonalBankAccount_GameValue",
+                                                "properties": {
+                                                  "User": {
+                                                    "type": "GameValueContext",
+                                                    "_name": "Citizen",
+                                                    "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                    "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "UniqueSkills": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                            "properties": {}
+                                          },
+                                          "Highest": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      "Comparison": "GreaterThan",
+                                      "Right": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      }
+                                    }
+                                  }
+                                ],
+                                "Comparison": "All"
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                              "properties": {
+                                "List": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Not",
+                                    "properties": {
+                                      "NotValue": {
+                                        "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                                        "properties": {
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                                    "properties": {
+                                      "Left": {
+                                        "type": "Eco.Mods.LawExtensions.CitizenSkillCount",
+                                        "properties": {
+                                          "Citizen": {
+                                            "type": "GameValueContext",
+                                            "_name": "Citizen",
+                                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                          },
+                                          "IncludeUnspecialised": {
+                                            "type": "Eco.Gameplay.Civics.GameValues.No",
+                                            "properties": {}
+                                          }
+                                        }
+                                      },
+                                      "Comparison": "GreaterThan",
+                                      "Right": {
+                                        "type": "GameValueWrapper",
+                                        "value": 1.0
+                                      }
+                                    }
+                                  }
+                                ],
+                                "Comparison": "All"
+                              }
+                            }
+                          ],
+                          "Comparison": "Any"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1979:114850\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Utility Accounts</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:2231:114924\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                    },
+                                    "Requirements": "HasNone"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "The Federation of White Tiger Treasury",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.ProgressivePercent",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                  "properties": {
+                                                    "CustomStatName": "income",
+                                                    "Settlement": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                        "name": "The Federation of White Tiger",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "TimeRangeInHours": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 24.0
+                                                    },
+                                                    "TimeRangeType": "CountBackFromPresentTime",
+                                                    "RestrictCountToCitizen": {
+                                                      "type": "GameValueContext",
+                                                      "_name": "Citizen",
+                                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                      "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                                    }
+                                                  }
+                                                },
+                                                "Operation": "Subtract",
+                                                "RightNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                                  "properties": {
+                                                    "Number": {
+                                                      "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                      "properties": {
+                                                        "CustomStatName": "expense",
+                                                        "Settlement": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": {
+                                                            "type": "Eco.Gameplay.Settlements.Settlement",
+                                                            "name": "The Federation of White Tiger",
+                                                            "reference": true
+                                                          }
+                                                        },
+                                                        "TimeRangeInHours": {
+                                                          "type": "GameValueWrapper",
+                                                          "value": 24.0
+                                                        },
+                                                        "TimeRangeType": "CountBackFromPresentTime",
+                                                        "RestrictCountToCitizen": {
+                                                          "type": "GameValueContext",
+                                                          "_name": "Citizen",
+                                                          "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                          "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                                        }
+                                                      }
+                                                    },
+                                                    "Percent": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 0.0
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        },
+                                        "Thresholds": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 100.0
+                                        },
+                                        "Operation": "Subtract",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "companyTaxRate",
+                                            "Settlement": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                "name": "The Federation of White Tiger",
+                                                "reference": true
+                                              }
+                                            },
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "RestrictCountToCitizen": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                },
+                                "TaxCode": "Federal Income Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                            "properties": {
+                              "CustomStatName": "income",
+                              "Settlement": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Settlements.Settlement",
+                                  "name": "The Federation of White Tiger",
+                                  "reference": true
+                                }
+                              },
+                              "TimeRangeInHours": {
+                                "type": "GameValueWrapper",
+                                "value": 24.0
+                              },
+                              "TimeRangeType": "CountBackFromPresentTime",
+                              "RestrictCountToCitizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 0.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:1979:114850\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Utility Accounts</style></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Utility Accounts",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Conditional_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "IfThenBlock": {
+                        "type": "Eco.Gameplay.Civics.IfThenBlock",
+                        "reference": false,
+                        "properties": {
+                          "If": {
+                            "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                            "properties": {
+                              "List": [
+                                {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Values.MatchesDemographic",
+                                  "properties": {
+                                    "Demographics": {
+                                      "type": "GamePickerList",
+                                      "mustDeriveType": {
+                                        "type": "Type",
+                                        "value": "Eco.Gameplay.Civics.Demographics.Demographic"
+                                      },
+                                      "requiredTag": null,
+                                      "internalDescription": "<link=\"view:2231:114924\"><icon name=\"Demographic\" type=\"\"><style=\"Government\">Employee of Private Company</style></icon></link>",
+                                      "entries": [
+                                        {
+                                          "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                                          "name": "Employee of Private Company",
+                                          "reference": true
+                                        }
+                                      ]
+                                    },
+                                    "Citizen": {
+                                      "type": "GameValueContext",
+                                      "_name": "Citizen",
+                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                      "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                    },
+                                    "Requirements": "HasNone"
+                                  }
+                                }
+                              ],
+                              "Comparison": "All"
+                            }
+                          },
+                          "Then": [
+                            {
+                              "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                              "reference": false,
+                              "properties": {
+                                "TargetBankAccount": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.TreasuryBankAccount",
+                                    "name": "The Federation of White Tiger Treasury",
+                                    "reference": true
+                                  }
+                                },
+                                "Currency": {
+                                  "type": "GameValueWrapper",
+                                  "value": {
+                                    "type": "Eco.Gameplay.Economy.Currency",
+                                    "name": "Euro",
+                                    "reference": true
+                                  }
+                                },
+                                "Amount": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                                  "properties": {
+                                    "Number": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.ProgressivePercent",
+                                      "properties": {
+                                        "Number": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                          "properties": {
+                                            "LeftNumber": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                              "properties": {
+                                                "LeftNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                  "properties": {
+                                                    "CustomStatName": "income",
+                                                    "Settlement": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                        "name": "The Federation of White Tiger",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "TimeRangeInHours": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 24.0
+                                                    },
+                                                    "TimeRangeType": "CountBackFromPresentTime",
+                                                    "RestrictCountToCitizen": {
+                                                      "type": "GameValueContext",
+                                                      "_name": "Citizen",
+                                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                      "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                                    }
+                                                  }
+                                                },
+                                                "Operation": "Subtract",
+                                                "RightNumber": {
+                                                  "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                                  "properties": {
+                                                    "CustomStatName": "expense",
+                                                    "Settlement": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": {
+                                                        "type": "Eco.Gameplay.Settlements.Settlement",
+                                                        "name": "The Federation of White Tiger",
+                                                        "reference": true
+                                                      }
+                                                    },
+                                                    "TimeRangeInHours": {
+                                                      "type": "GameValueWrapper",
+                                                      "value": 24.0
+                                                    },
+                                                    "TimeRangeType": "CountBackFromPresentTime",
+                                                    "RestrictCountToCitizen": {
+                                                      "type": "GameValueContext",
+                                                      "_name": "Citizen",
+                                                      "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                                      "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "Operation": "Divide",
+                                            "RightNumber": {
+                                              "type": "GameValueWrapper",
+                                              "value": 24.0
+                                            }
+                                          }
+                                        },
+                                        "Thresholds": [
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "Eco.Gameplay.Civics.GameValues.ThresholdMileStone",
+                                            "reference": false,
+                                            "properties": {
+                                              "Threshold": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              },
+                                              "Percent": {
+                                                "type": "GameValueWrapper",
+                                                "value": 0.0
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "Percent": {
+                                      "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                                      "properties": {
+                                        "LeftNumber": {
+                                          "type": "GameValueWrapper",
+                                          "value": 100.0
+                                        },
+                                        "Operation": "Subtract",
+                                        "RightNumber": {
+                                          "type": "Eco.Gameplay.Civics.GameValues.Values.Stats.CustomStatQuery",
+                                          "properties": {
+                                            "CustomStatName": "CompanyTaxRate",
+                                            "Settlement": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Settlements.Settlement",
+                                                "name": "The Federation of White Tiger",
+                                                "reference": true
+                                              }
+                                            },
+                                            "TimeRangeInHours": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "TimeRangeType": "CountBackFromPresentTime",
+                                            "RestrictCountToCitizen": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "Target": {
+                                  "type": "GameValueContext",
+                                  "_name": "Citizen",
+                                  "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                  "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                },
+                                "TaxCode": "Federal Income Tax",
+                                "Suspended": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "Silent": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.No",
+                                  "properties": {}
+                                },
+                                "InfoboxOnSuccess": {
+                                  "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Draft"
+  }
+}

@@ -1,0 +1,2394 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Federal Power Bill 1.3",
+  "reference": false,
+  "description": "Cost to buy power is: 1,77e per kwh.             1 kwh is equal to running a machine that uses 1000 power for one hour\n\nThis law makes all power on White Tiger a federal resources controlled by the federal government. The federal government will compensate any producer with a value of 1,77e per kwh produced from Industrial Generators / Wind Turbine/ Solar Power. \nWe deem that Combustion generators an harmful technology and will only be compensating for its power generation not the running cost. This will be 1,77e per kwh through a rebate on pollution account and powerbill\n\nBuying power from the government is set at the same rate we compensate it for 1,77e per kwh from the producers. This makes it at least cost neutral for someone who wants to use their own power from Combustion Generators / Industrial Generators / Wind Turbine / Solar Power.\nWe also give an extra payment of 1,56e for Industrial Generators per kwh to compensate for the running cost.\nFor Wind Turbine / Solar Power we give an extra payment of 5,23e per kwh on top of the 1.77e for a total of 7e payment per kwh \n\nPower bill taxes in a suspended state and section 3 collects its every hour to reduce the amount of spam in our citizens accounts.\n\nSection 1 Covers the billing of power\nSection 2 Covers payment for green power to the producer\nSection 3 Covers collecting the powerbill from its suspended state\nSection 4 Covers the Payment and rebate for the Industrial Generators\nSection 5 Covers the rebate for the Combustion Generators\n\nBecause of limitations in the coding of laws on White Tiger, this payment structure is only valid for all non-elected citizens and companies.\r\nIf you are an elected official and operating a generator, we need you to contact the federal government.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Power Bill",
+          "UserDescription": "bills the use of power to all entities. All used power by elected official will be assumed to be for private used. Elected official who operates government owned items that consume power needs to contact the Federal government to draft out a contract to get those items excluded if they do not wish to pay for them out of pocket.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerConsumed"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerConsumed",
+                    "propNameBacker": "PowerConsumer",
+                    "propDisplayName": "Power Consumer",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<foldout><linktext><u>48 World Objects</u></linktext><title>48 World Objects</title><link=\"Item:AdvancedCarpentryTableItem\"><style=\"Item\"><icon name=\"AdvancedCarpentryTableItem\" type=\"\">Advanced Carpentry Table</icon></style></link>\r\n<link=\"Item:AdvancedMasonryTableItem\"><style=\"Item\"><icon name=\"AdvancedMasonryTableItem\" type=\"\">Advanced Masonry Table</icon></style></link>\r\n<link=\"Item:AdvancedTailoringTableItem\"><style=\"Item\"><icon name=\"AdvancedTailoringTableItem\" type=\"\">Advanced Tailoring Table</icon></style></link>\r\n<link=\"Item:AutomaticLoomItem\"><style=\"Item\"><icon name=\"AutomaticLoomItem\" type=\"\">Automatic Loom</icon></style></link>\r\n<link=\"Item:ChandelierItem\"><style=\"Item\"><icon name=\"ChandelierItem\" type=\"\">Chandelier</icon></style></link>\r\n<link=\"Item:ElectricLatheItem\"><style=\"Item\"><icon name=\"ElectricLatheItem\" type=\"\">Electric Lathe</icon></style></link>\r\n<link=\"Item:ElectricMachinistTableItem\"><style=\"Item\"><icon name=\"ElectricMachinistTableItem\" type=\"\">Electric Machinist Table</icon></style></link>\r\n<link=\"Item:ElectricPlanerItem\"><style=\"Item\"><icon name=\"ElectricPlanerItem\" type=\"\">Electric Planer</icon></style></link>\r\n<link=\"Item:ElectricStampingPressItem\"><style=\"Item\"><icon name=\"ElectricStampingPressItem\" type=\"\">Electric Stamping Press</icon></style></link>\r\n<link=\"Item:ElectricWallLampItem\"><style=\"Item\"><icon name=\"ElectricWallLampItem\" type=\"\">Electric Wall Lamp</icon></style></link>\r\n<link=\"Item:ElectricWaterPumpItem\"><style=\"Item\"><icon name=\"ElectricWaterPumpItem\" type=\"\">Electric Water Pump</icon></style></link>\r\n<link=\"Item:FrothFloatationCellItem\"><style=\"Item\"><icon name=\"FrothFloatationCellItem\" type=\"\">Froth Floatation Cell</icon></style></link>\r\n<link=\"Item:HangingElectricWallLampItem\"><style=\"Item\"><icon name=\"HangingElectricWallLampItem\" type=\"\">Hanging Electric Wall Lamp</icon></style></link>\r\n<link=\"Item:IndustrialRefrigeratorItem\"><style=\"Item\"><icon name=\"IndustrialRefrigeratorItem\" type=\"\">Industrial Refrigerator</icon></style></link>\r\n<link=\"Item:InjectionMoldMachineItem\"><style=\"Item\"><icon name=\"InjectionMoldMachineItem\" type=\"\">Injection Mold Machine</icon></style></link>\r\n<link=\"Item:JawCrusherItem\"><style=\"Item\"><icon name=\"JawCrusherItem\" type=\"\">Jaw Crusher</icon></style></link>\r\n<link=\"Item:LargeFestivePaperLanternItem\"><style=\"Item\"><icon name=\"LargeFestivePaperLanternItem\" type=\"\">Large Festive Paper Lantern</icon></style></link>\r\n<link=\"Item:LargePaperLanternItem\"><style=\"Item\"><icon name=\"LargePaperLanternItem\" type=\"\">Large Paper Lantern</icon></style></link>\r\n<link=\"Item:LighthouseLampItem\"><style=\"Item\"><icon name=\"LighthouseLampItem\" type=\"\">Lighthouse Lamp</icon></style></link>\r\n<link=\"Item:ModernDoubleStreetLightItem\"><style=\"Item\"><icon name=\"ModernDoubleStreetLightItem\" type=\"\">Modern Double Street Light</icon></style></link>\r\n<link=\"Item:ModernStreetLightItem\"><style=\"Item\"><icon name=\"ModernStreetLightItem\" type=\"\">Modern Street Light</icon></style></link>\r\n<link=\"Item:PoweredStorageSiloItem\"><style=\"Item\"><icon name=\"PoweredStorageSiloItem\" type=\"\">Powered Storage Silo</icon></style></link>\r\n<link=\"Item:PumpJackItem\"><style=\"Item\"><icon name=\"PumpJackItem\" type=\"\">Pump Jack</icon></style></link>\r\n<link=\"Item:RefrigeratorItem\"><style=\"Item\"><icon name=\"RefrigeratorItem\" type=\"\">Refrigerator</icon></style></link>\r\n<link=\"Item:RoboticAssemblyLineItem\"><style=\"Item\"><icon name=\"RoboticAssemblyLineItem\" type=\"\">Robotic Assembly Line</icon></style></link>\r\n<link=\"Item:RollingMillItem\"><style=\"Item\"><icon name=\"RollingMillItem\" type=\"\">Rolling Mill</icon></style></link>\r\n<link=\"Item:SensorBasedBeltSorterItem\"><style=\"Item\"><icon name=\"SensorBasedBeltSorterItem\" type=\"\">Sensor Based Belt Sorter</icon></style></link>\r\n<link=\"Item:SmallPaperLanternItem\"><style=\"Item\"><icon name=\"SmallPaperLanternItem\" type=\"\">Small Paper Lantern</icon></style></link>\r\n<link=\"Item:SpinMelterItem\"><style=\"Item\"><icon name=\"SpinMelterItem\" type=\"\">Spin Melter</icon></style></link>\r\n<link=\"Item:SteelAbstractFixtureItem\"><style=\"Item\"><icon name=\"SteelAbstractFixtureItem\" type=\"\">Steel Abstract Fixture</icon></style></link>\r\n<link=\"Item:SteelCeilingLightItem\"><style=\"Item\"><icon name=\"SteelCeilingLightItem\" type=\"\">Steel Ceiling Light</icon></style></link>\r\n<link=\"Item:SteelFloorLampItem\"><style=\"Item\"><icon name=\"SteelFloorLampItem\" type=\"\">Steel Floor Lamp</icon></style></link>\r\n<link=\"Item:SteelHangingFixtureItem\"><style=\"Item\"><icon name=\"SteelHangingFixtureItem\" type=\"\">Steel Hanging Fixture</icon></style></link>\r\n<link=\"Item:SteelHangingLampItem\"><style=\"Item\"><icon name=\"SteelHangingLampItem\" type=\"\">Steel Hanging Lamp</icon></style></link>\r\n<link=\"Item:SteelKitchenLampItem\"><style=\"Item\"><icon name=\"SteelKitchenLampItem\" type=\"\">Steel Kitchen Lamp</icon></style></link>\r\n<link=\"Item:SteelSearchlightItem\"><style=\"Item\"><icon name=\"SteelSearchlightItem\" type=\"\">Steel Searchlight</icon></style></link>\r\n<link=\"Item:SteelSquareFixtureItem\"><style=\"Item\"><icon name=\"SteelSquareFixtureItem\" type=\"\">Steel Square Fixture</icon></style></link>\r\n<link=\"Item:SteelTableLampItem\"><style=\"Item\"><icon name=\"SteelTableLampItem\" type=\"\">Steel Table Lamp</icon></style></link>\r\n<link=\"Item:StoveItem\"><style=\"Item\"><icon name=\"StoveItem\" type=\"\">Stove</icon></style></link>\r\n<link=\"Item:StreetlampItem\"><style=\"Item\"><icon name=\"StreetlampItem\" type=\"\">Streetlamp</icon></style></link>\r\n<link=\"Item:TallowLampItem\"><style=\"Item\"><icon name=\"TallowLampItem\" type=\"\">Tallow Lamp</icon></style></link>\r\n<link=\"Item:TallowWallLampItem\"><style=\"Item\"><icon name=\"TallowWallLampItem\" type=\"\">Tallow Wall Lamp</icon></style></link>\r\n<link=\"Item:WashingMachineItem\"><style=\"Item\"><icon name=\"WashingMachineItem\" type=\"\">Washing Machine</icon></style></link>\r\n<link=\"Item:WasteFilterItem\"><style=\"Item\"><icon name=\"WasteFilterItem\" type=\"\">Waste Filter</icon></style></link>\r\n<link=\"Item:WoodenCeilingLightItem\"><style=\"Item\"><icon name=\"WoodenCeilingLightItem\" type=\"\">Wooden Ceiling Light</icon></style></link>\r\n<link=\"Item:WoodenFloorLampItem\"><style=\"Item\"><icon name=\"WoodenFloorLampItem\" type=\"\">Wooden Floor Lamp</icon></style></link>\r\n<link=\"Item:WoodenKitchenLampItem\"><style=\"Item\"><icon name=\"WoodenKitchenLampItem\" type=\"\">Wooden Kitchen Lamp</icon></style></link>\r\n<link=\"Item:WoodenTableLampItem\"><style=\"Item\"><icon name=\"WoodenTableLampItem\" type=\"\">Wooden Table Lamp</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricWaterPumpItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.JawCrusherItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedCarpentryTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WasteFilterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RollingMillItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PumpJackItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RefrigeratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WashingMachineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargePaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernDoubleStreetLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LighthouseLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoveItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredStorageSiloItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelCeilingLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelKitchenLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTableLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialRefrigeratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernStreetLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonryTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SpinMelterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedTailoringTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricPlanerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StreetlampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelHangingLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeFestivePaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallPaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.InjectionMoldMachineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TallowLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HangingElectricWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AutomaticLoomItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricStampingPressItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SensorBasedBeltSorterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelAbstractFixtureItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelSquareFixtureItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricMachinistTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenKitchenLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelFloorLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenFloorLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TallowWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RoboticAssemblyLineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenCeilingLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FrothFloatationCellItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ChandelierItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelTableLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelSearchlightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricLatheItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelHangingFixtureItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object consuming the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>16 Districts</u></linktext><title>16 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114937\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>\r\n<link=\"view:2708:114936\"><icon name=\"District\" type=\"\"><color=#949291FF>Federal Highways Buffer</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651766\"><icon name=\"District\" type=\"\"><color=#7F3A73FF>Meteor Store Revision 8</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Meteor Store Revision 8",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways Buffer",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pu / 1800000",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pu",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Used",
+                                  "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Power Used</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually consumed by this generator.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object consuming the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>16 Districts</u></linktext><title>16 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114937\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>\r\n<link=\"view:2708:114936\"><icon name=\"District\" type=\"\"><color=#949291FF>Federal Highways Buffer</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651766\"><icon name=\"District\" type=\"\"><color=#7F3A73FF>Meteor Store Revision 8</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Meteor Store Revision 8",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Highways Buffer",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                          }
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pu / 1800000",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pu",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Used",
+                                  "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Power Used</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually consumed by this generator.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                          }
+                        }
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Payment for providing Green Power",
+          "UserDescription": "Gives a payment for Citizens for providing Green power. 7e per kwh.\nIf you are a mayor/Governor you will not be eligible for this law. You can request to be included by contacting the government, Special rules will apply to not get presonal advantages for government owned IGs\nWe have also included some excempted districts which is to deal with government should not be included in this law",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<foldout><linktext><u>2 World Objects</u></linktext><title>2 World Objects</title><link=\"Item:SolarGeneratorItem\"><style=\"Item\"><icon name=\"SolarGeneratorItem\" type=\"\">Solar Generator</icon></style></link>\r\n<link=\"Item:WindTurbineItem\"><style=\"Item\"><icon name=\"WindTurbineItem\" type=\"\">Wind Turbine</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WindTurbineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SolarGeneratorItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>18 Districts</u></linktext><title>18 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:28579959\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Elected Mayor Governor</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Elected Mayor Governor",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 514285",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "Solar/Wind Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>18 Districts</u></linktext><title>18 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:5307104\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Federal Electrical Worker</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Federal Electrical Worker",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 514285",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "PaymentCode": "Solar/Wind Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Collecting suspended Taxes on Pollution Tax account",
+          "UserDescription": "This checks every hour if there is any tax that is suspended and then collects it if there is any debt.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Non-Abandoned",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.SmartTax.OwedTaxes",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Euro",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              },
+                              "TargetAccount": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "# Federal Pollution Tax Account",
+                                  "reference": true
+                                }
+                              },
+                              "ConsiderRebates": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                "properties": {}
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 1.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 0.01
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Handels rebates and payments of Industrial Generators",
+          "UserDescription": "This law gives citizens a rebate and payment for producing power with an IG. 1,77e rebate per kwh which will work on both power tax and pollution tax. 1,56e payment per kwh to cover running cost for the IG \nIf you are a mayor/Governor you will not be eligible for this law. You can request to be included by contacting the government, Special rules will apply to not get presonal advantages for government owned IGs\nWe have also included some excempted districts which is to deal with government should not be included in this law",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.IPlaceableItem"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<link=\"Item:IndustrialGeneratorItem\"><style=\"Item\"><icon name=\"IndustrialGeneratorItem\" type=\"\">Industrial Generator</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialGeneratorItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>18 Districts</u></linktext><title>18 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:28579959\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Elected Mayor Governor</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Elected Mayor Governor",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2033898",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "RebateCode": "IG Rebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2300000",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "IG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>18 Districts</u></linktext><title>18 Districts</title><link=\"view:2708:114966\"><icon name=\"District\" type=\"\"><color=#BCBC00FF>Federal Bank</color></icon></link>\r\n<link=\"view:2708:114939\"><icon name=\"District\" type=\"\"><color=#EBFF00FF>Federal Laser Zone</color></icon></link>\r\n<link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:114958\"><icon name=\"District\" type=\"\"><color=#4B51D5FF>Federal University</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:114955\"><icon name=\"District\" type=\"\"><color=#AB0300FF>Office of the Federal Government</color></icon></link>\r\n<link=\"view:2708:114965\"><icon name=\"District\" type=\"\"><color=#B27601FF>Office of the Government of Unica</color></icon></link>\r\n<link=\"view:2708:27698965\"><icon name=\"District\" type=\"\"><color=#BEB769FF>Offices of the Governments of the States Revision 12</color></icon></link>\r\n<link=\"view:2708:114962\"><icon name=\"District\" type=\"\"><color=#252A2AFF>Presidential Palace</color></icon></link>\r\n<link=\"view:2708:9392639\"><icon name=\"District\" type=\"\"><color=#8ED49BFF>School House Revision 2</color></icon></link>\r\n<link=\"view:2708:28651764\"><icon name=\"District\" type=\"\"><color=#CF7570FF>Solar Farm Revision 10</color></icon></link>\r\n<link=\"view:2708:9392640\"><icon name=\"District\" type=\"\"><color=#76DDE8FF>State College Revision 2</color></icon></link>\r\n<link=\"view:2708:114964\"><icon name=\"District\" type=\"\"><color=#3A1F00FF>The Capitol</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link>\r\n<link=\"view:2708:114963\"><icon name=\"District\" type=\"\"><color=#BCC2CAFF>Utility Plot</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "The Capitol",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Laser Zone",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Presidential Palace",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Solar Farm Revision 10",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Government of Unica",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "State College Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Bank",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal University",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "School House Revision 2",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Utility Plot",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Office of the Federal Government",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Offices of the Governments of the States Revision 12",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:28579959\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Elected Mayor Governor</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Elected Mayor Governor",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2033898",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "RebateCode": "IG Rebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2300000",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "PaymentCode": "IG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Handles rebate for Combustion Generators",
+          "UserDescription": "Takes the power from the producer and compensate it with a 1,77e rebate per kwh on the pollution tax account and power bill law.\nIf you are a mayor/Governor you will not be eligible for this law. You can request to be included by contacting the government, Special rules will apply to not get presonal advantages for government owned CG\nWe have also included some excempted districts which is to deal with government should not be included in this law",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.IPlaceableItem"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<link=\"Item:CombustionGeneratorItem\"><style=\"Item\"><icon name=\"CombustionGeneratorItem\" type=\"\">Combustion Generator</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>6 Districts</u></linktext><title>6 Districts</title><link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:28579959\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Elected Mayor Governor</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Elected Mayor Governor",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2033898",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "RebateCode": "CG Rebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>6 Districts</u></linktext><title>6 Districts</title><link=\"view:2708:28651765\"><icon name=\"District\" type=\"\"><color=#4C1237FF>Federal Power Plant Revision 4</color></icon></link>\r\n<link=\"view:2708:28651769\"><icon name=\"District\" type=\"\"><color=#4E3041FF>FoxVille Powerplant</color></icon></link>\r\n<link=\"view:2708:28651768\"><icon name=\"District\" type=\"\"><color=#383445FF>Nimmerland Power Plant Revision 5</color></icon></link>\r\n<link=\"view:2708:28651770\"><icon name=\"District\" type=\"\"><color=#51B460FF>Town 2 Revision</color></icon></link>\r\n<link=\"view:2708:28651771\"><icon name=\"District\" type=\"\"><color=#850A86FF>Town 3 Revision</color></icon></link>\r\n<link=\"view:2708:28651767\"><icon name=\"District\" type=\"\"><color=#8C2454FF>Unica Power Plant Revision 6</color></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Power Plant Revision 4",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Nimmerland Power Plant Revision 5",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 2 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Unica Power Plant Revision 6",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Town 3 Revision",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "FoxVille Powerplant",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "InsideOne"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                            "properties": {
+                              "Titles": {
+                                "type": "GamePickerList",
+                                "mustDeriveType": {
+                                  "type": "Type",
+                                  "value": "Eco.Gameplay.Civics.Titles.Title"
+                                },
+                                "requiredTag": null,
+                                "internalDescription": "<link=\"view:1979:28579959\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Elected Mayor Governor</style></icon></link>",
+                                "entries": [
+                                  {
+                                    "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                    "name": "Elected Mayor Governor",
+                                    "reference": true
+                                  }
+                                ]
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              },
+                              "Requirements": "HasAll"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartRebate_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pg / 2033898",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pg",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "RebateCode": "CG Rebate",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
