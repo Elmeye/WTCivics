@@ -146,6 +146,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -267,6 +268,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -388,6 +390,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -537,6 +540,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -686,6 +690,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -835,6 +840,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -956,6 +962,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1077,6 +1084,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1226,6 +1234,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1375,6 +1384,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1524,6 +1534,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1651,6 +1662,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1772,6 +1784,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -1921,6 +1934,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2042,6 +2056,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2163,6 +2178,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2284,6 +2300,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2405,6 +2422,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2554,6 +2572,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2703,6 +2722,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2852,6 +2872,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -2973,6 +2994,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3094,6 +3116,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3215,6 +3238,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3342,6 +3366,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3469,6 +3494,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3596,6 +3622,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3745,6 +3772,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -3866,6 +3894,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4015,6 +4044,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4164,6 +4194,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4291,6 +4322,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4412,6 +4444,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4533,6 +4566,7 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
                         "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
@@ -4667,8 +4701,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -4788,8 +4823,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -4927,8 +4963,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -5468,8 +5505,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -5617,8 +5655,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -5766,8 +5805,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -5915,8 +5955,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -6064,8 +6105,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
@@ -6213,8 +6255,9 @@
                     "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
                     "reference": false,
                     "properties": {
+                      "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
                         "properties": {}
                       }
                     }
