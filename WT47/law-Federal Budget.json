@@ -81,7 +81,7 @@
                                           "type": "GameValueWrapper",
                                           "value": {
                                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                            "name": "# Ministry of Education Budget",
+                                            "name": "# Minister of Education Budget",
                                             "reference": true
                                           }
                                         }
@@ -115,7 +115,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "# Ministry of Education Budget",
+                                    "name": "# Minister of Education Budget",
                                     "reference": true
                                   }
                                 },
@@ -456,7 +456,7 @@
                                           "type": "GameValueWrapper",
                                           "value": {
                                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                            "name": "# Ministry of Finance Budget",
+                                            "name": "# Federal Bank Budget",
                                             "reference": true
                                           }
                                         }
@@ -490,7 +490,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "# Ministry of Finance Budget",
+                                    "name": "# Federal Bank Budget",
                                     "reference": true
                                   }
                                 },
@@ -581,7 +581,7 @@
                                           "type": "GameValueWrapper",
                                           "value": {
                                             "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                            "name": "# Secretary of Culture Budget",
+                                            "name": "# Minister of Culture Budget",
                                             "reference": true
                                           }
                                         }
@@ -615,7 +615,7 @@
                                   "type": "GameValueWrapper",
                                   "value": {
                                     "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-                                    "name": "# Secretary of Culture Budget",
+                                    "name": "# Minister of Culture Budget",
                                     "reference": true
                                   }
                                 },

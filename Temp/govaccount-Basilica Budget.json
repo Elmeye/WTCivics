@@ -4,7 +4,7 @@
     0
   ],
   "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
-  "name": "Income Tracking",
+  "name": "# Basilica Budget",
   "reference": false,
   "description": null,
   "managers": [
@@ -16,5 +16,14 @@
   ],
   "users": [],
   "properties": {},
-  "holdings": []
+  "holdings": [
+    {
+      "currency": {
+        "type": "Eco.Gameplay.Economy.Currency",
+        "name": "Donation Receipt",
+        "reference": true
+      },
+      "amount": 5000000.0
+    }
+  ]
 }
