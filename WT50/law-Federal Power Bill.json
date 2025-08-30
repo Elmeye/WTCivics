@@ -1,0 +1,1924 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Federal Power Bill",
+  "reference": false,
+  "description": "This law makes all electrical power on White Tiger a federal resources controlled by the federal government. \r\nThe federal government will provide monetary compensation to the producer.\n\nCost and compensation can be seen in the government bank accounts stated below. If the bank account has 2,5€ in it that means that it will tax/compenstate you 2,5€ per kwh depending if you are a consumer/producer\r\n\r\r\nCost to use 1 kwh can be seen in the government bank account \"# Federal Power Bill Payout (kwh)\" 1 kwh is equal to running a machine that uses 1000 power for one hour\r\nCompensation for Combustion Generators can be seen in the government bank account # Federal Power Bill Payout (CG)\r\nCompensation for Industrial Generators can be seen in the government bank account # Federal Power Bill Payout (IG)\r\nCompensation for Solar and Wind Generators can be seen in the government bank account # Federal Power Bill Payout (Solar and Wind)\n\nPower bill invoices in a suspended state and section 3 collects its every hour to reduce the amount of spam in our citizens accounts.\r\n\r\nSection 1 Covers the invoicing of electrical power\r\nSection 2 Covers compensation for producing power for Solar and Wind\nSection 3 Covers collecting the invoice for power consumption from its suspended state\r\nSection 4 Covers compensation for producing power for a Industrial Generator\r\nSection 5 Covers compensation for producing power for a Combustion Generator\nSection 6 blocks all transfers into the bankaccount unless you are MoI or PM\r\n\r\n///Notes for the Federal Governments! \r\r\n*Towns/States who operate their own powerplants needs to get their powerplant districted else the mayor or governor will be geting paid for the towns/states powerplant into their private account. \r\nThis will result in the town/state not geting any payments for the produced power and you would need to sort that through a different law/contract.\r\r\n\r\nAuthor of the law: XoY, feel free to send a DM if you are wondering anything about the law.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Power Invoice",
+          "UserDescription": "Invoices the use of all electric power to all entities. All used electric power by elected officials will be assumed to be for private used. Elected official who operates government owned items that consume power can contact the Federal government and ask to get that deed districted into the Federal Power Bill District to get that power excluded from this law.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerConsumed"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerConsumed",
+                    "propNameBacker": "PowerConsumer",
+                    "propDisplayName": "Power Consumer",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<foldout><linktext><u>48 World Objects</u></linktext><title>48 World Objects</title><link=\"Item:AdvancedCarpentryTableItem\"><style=\"Item\"><icon name=\"AdvancedCarpentryTableItem\" type=\"\">Advanced Carpentry Table</icon></style></link>\r\n<link=\"Item:AdvancedMasonryTableItem\"><style=\"Item\"><icon name=\"AdvancedMasonryTableItem\" type=\"\">Advanced Masonry Table</icon></style></link>\r\n<link=\"Item:AdvancedTailoringTableItem\"><style=\"Item\"><icon name=\"AdvancedTailoringTableItem\" type=\"\">Advanced Tailoring Table</icon></style></link>\r\n<link=\"Item:AutomaticLoomItem\"><style=\"Item\"><icon name=\"AutomaticLoomItem\" type=\"\">Automatic Loom</icon></style></link>\r\n<link=\"Item:ChandelierItem\"><style=\"Item\"><icon name=\"ChandelierItem\" type=\"\">Chandelier</icon></style></link>\r\n<link=\"Item:ElectricLatheItem\"><style=\"Item\"><icon name=\"ElectricLatheItem\" type=\"\">Electric Lathe</icon></style></link>\r\n<link=\"Item:ElectricMachinistTableItem\"><style=\"Item\"><icon name=\"ElectricMachinistTableItem\" type=\"\">Electric Machinist Table</icon></style></link>\r\n<link=\"Item:ElectricPlanerItem\"><style=\"Item\"><icon name=\"ElectricPlanerItem\" type=\"\">Electric Planer</icon></style></link>\r\n<link=\"Item:ElectricStampingPressItem\"><style=\"Item\"><icon name=\"ElectricStampingPressItem\" type=\"\">Electric Stamping Press</icon></style></link>\r\n<link=\"Item:ElectricWallLampItem\"><style=\"Item\"><icon name=\"ElectricWallLampItem\" type=\"\">Electric Wall Lamp</icon></style></link>\r\n<link=\"Item:ElectricWaterPumpItem\"><style=\"Item\"><icon name=\"ElectricWaterPumpItem\" type=\"\">Electric Water Pump</icon></style></link>\r\n<link=\"Item:FrothFloatationCellItem\"><style=\"Item\"><icon name=\"FrothFloatationCellItem\" type=\"\">Froth Floatation Cell</icon></style></link>\r\n<link=\"Item:HangingElectricWallLampItem\"><style=\"Item\"><icon name=\"HangingElectricWallLampItem\" type=\"\">Hanging Electric Wall Lamp</icon></style></link>\r\n<link=\"Item:IndustrialRefrigeratorItem\"><style=\"Item\"><icon name=\"IndustrialRefrigeratorItem\" type=\"\">Industrial Refrigerator</icon></style></link>\r\n<link=\"Item:InjectionMoldMachineItem\"><style=\"Item\"><icon name=\"InjectionMoldMachineItem\" type=\"\">Injection Mold Machine</icon></style></link>\r\n<link=\"Item:JawCrusherItem\"><style=\"Item\"><icon name=\"JawCrusherItem\" type=\"\">Jaw Crusher</icon></style></link>\r\n<link=\"Item:LargeFestivePaperLanternItem\"><style=\"Item\"><icon name=\"LargeFestivePaperLanternItem\" type=\"\">Large Festive Paper Lantern</icon></style></link>\r\n<link=\"Item:LargePaperLanternItem\"><style=\"Item\"><icon name=\"LargePaperLanternItem\" type=\"\">Large Paper Lantern</icon></style></link>\r\n<link=\"Item:LighthouseLampItem\"><style=\"Item\"><icon name=\"LighthouseLampItem\" type=\"\">Lighthouse Lamp</icon></style></link>\r\n<link=\"Item:ModernDoubleStreetLightItem\"><style=\"Item\"><icon name=\"ModernDoubleStreetLightItem\" type=\"\">Modern Double Street Light</icon></style></link>\r\n<link=\"Item:ModernStreetLightItem\"><style=\"Item\"><icon name=\"ModernStreetLightItem\" type=\"\">Modern Street Light</icon></style></link>\r\n<link=\"Item:PoweredStorageSiloItem\"><style=\"Item\"><icon name=\"PoweredStorageSiloItem\" type=\"\">Powered Storage Silo</icon></style></link>\r\n<link=\"Item:PumpJackItem\"><style=\"Item\"><icon name=\"PumpJackItem\" type=\"\">Pump Jack</icon></style></link>\r\n<link=\"Item:RefrigeratorItem\"><style=\"Item\"><icon name=\"RefrigeratorItem\" type=\"\">Refrigerator</icon></style></link>\r\n<link=\"Item:RoboticAssemblyLineItem\"><style=\"Item\"><icon name=\"RoboticAssemblyLineItem\" type=\"\">Robotic Assembly Line</icon></style></link>\r\n<link=\"Item:RollingMillItem\"><style=\"Item\"><icon name=\"RollingMillItem\" type=\"\">Rolling Mill</icon></style></link>\r\n<link=\"Item:SensorBasedBeltSorterItem\"><style=\"Item\"><icon name=\"SensorBasedBeltSorterItem\" type=\"\">Sensor Based Belt Sorter</icon></style></link>\r\n<link=\"Item:SmallPaperLanternItem\"><style=\"Item\"><icon name=\"SmallPaperLanternItem\" type=\"\">Small Paper Lantern</icon></style></link>\r\n<link=\"Item:SpinMelterItem\"><style=\"Item\"><icon name=\"SpinMelterItem\" type=\"\">Spin Melter</icon></style></link>\r\n<link=\"Item:SteelAbstractFixtureItem\"><style=\"Item\"><icon name=\"SteelAbstractFixtureItem\" type=\"\">Steel Abstract Fixture</icon></style></link>\r\n<link=\"Item:SteelCeilingLightItem\"><style=\"Item\"><icon name=\"SteelCeilingLightItem\" type=\"\">Steel Ceiling Light</icon></style></link>\r\n<link=\"Item:SteelFloorLampItem\"><style=\"Item\"><icon name=\"SteelFloorLampItem\" type=\"\">Steel Floor Lamp</icon></style></link>\r\n<link=\"Item:SteelHangingFixtureItem\"><style=\"Item\"><icon name=\"SteelHangingFixtureItem\" type=\"\">Steel Hanging Fixture</icon></style></link>\r\n<link=\"Item:SteelHangingLampItem\"><style=\"Item\"><icon name=\"SteelHangingLampItem\" type=\"\">Steel Hanging Lamp</icon></style></link>\r\n<link=\"Item:SteelKitchenLampItem\"><style=\"Item\"><icon name=\"SteelKitchenLampItem\" type=\"\">Steel Kitchen Lamp</icon></style></link>\r\n<link=\"Item:SteelSearchlightItem\"><style=\"Item\"><icon name=\"SteelSearchlightItem\" type=\"\">Steel Searchlight</icon></style></link>\r\n<link=\"Item:SteelSquareFixtureItem\"><style=\"Item\"><icon name=\"SteelSquareFixtureItem\" type=\"\">Steel Square Fixture</icon></style></link>\r\n<link=\"Item:SteelTableLampItem\"><style=\"Item\"><icon name=\"SteelTableLampItem\" type=\"\">Steel Table Lamp</icon></style></link>\r\n<link=\"Item:StoveItem\"><style=\"Item\"><icon name=\"StoveItem\" type=\"\">Stove</icon></style></link>\r\n<link=\"Item:StreetlampItem\"><style=\"Item\"><icon name=\"StreetlampItem\" type=\"\">Streetlamp</icon></style></link>\r\n<link=\"Item:TallowLampItem\"><style=\"Item\"><icon name=\"TallowLampItem\" type=\"\">Tallow Lamp</icon></style></link>\r\n<link=\"Item:TallowWallLampItem\"><style=\"Item\"><icon name=\"TallowWallLampItem\" type=\"\">Tallow Wall Lamp</icon></style></link>\r\n<link=\"Item:WashingMachineItem\"><style=\"Item\"><icon name=\"WashingMachineItem\" type=\"\">Washing Machine</icon></style></link>\r\n<link=\"Item:WasteFilterItem\"><style=\"Item\"><icon name=\"WasteFilterItem\" type=\"\">Waste Filter</icon></style></link>\r\n<link=\"Item:WoodenCeilingLightItem\"><style=\"Item\"><icon name=\"WoodenCeilingLightItem\" type=\"\">Wooden Ceiling Light</icon></style></link>\r\n<link=\"Item:WoodenFloorLampItem\"><style=\"Item\"><icon name=\"WoodenFloorLampItem\" type=\"\">Wooden Floor Lamp</icon></style></link>\r\n<link=\"Item:WoodenKitchenLampItem\"><style=\"Item\"><icon name=\"WoodenKitchenLampItem\" type=\"\">Wooden Kitchen Lamp</icon></style></link>\r\n<link=\"Item:WoodenTableLampItem\"><style=\"Item\"><icon name=\"WoodenTableLampItem\" type=\"\">Wooden Table Lamp</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.FrothFloatationCellItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelKitchenLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedMasonryTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredStorageSiloItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LighthouseLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeFestivePaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StreetlampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WashingMachineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelCeilingLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.StoveItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AutomaticLoomItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTableLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedTailoringTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TallowWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.AdvancedCarpentryTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenKitchenLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelSearchlightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RollingMillItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricPlanerItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ChandelierItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HangingElectricWallLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SpinMelterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricMachinistTableItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialRefrigeratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.InjectionMoldMachineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenFloorLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WasteFilterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelTableLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelHangingLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelHangingFixtureItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenCeilingLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelSquareFixtureItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallPaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RoboticAssemblyLineItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelAbstractFixtureItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricStampingPressItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SensorBasedBeltSorterItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricWaterPumpItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteelFloorLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.JawCrusherItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernDoubleStreetLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.RefrigeratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargePaperLanternItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TallowLampItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ElectricLatheItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ModernStreetLightItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PumpJackItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object consuming the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pu / 3600000 * kwh",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pu",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Used",
+                                  "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Power Used</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually consumed by this generator.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "kwh",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (kwh)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object consuming the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                          }
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pu / 3600000 * kwh",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pu",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Used",
+                                  "markedUpName": "<icon name=\"PowerConsumed\" type=\"\">Power Used</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually consumed by this generator.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "kwh",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (kwh)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for consuming the power.</i>"
+                          }
+                        }
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Payment for providing Green Power(solar and wind)",
+          "UserDescription": "Gives a payment to Citizens for providing electrical power through a Solar or Wind Generator. The amount compensated can be seen in the bank account # Federal Power Bill Payout (Solar and Wind)\r\nTowns and States needs to request to get their power plans districted into the Federal Power Bill District to avoid geting paid for the towns/states powerplant into their private account.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.Item"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<foldout><linktext><u>2 World Objects</u></linktext><title>2 World Objects</title><link=\"Item:SolarGeneratorItem\"><style=\"Item\"><icon name=\"SolarGeneratorItem\" type=\"\">Solar Generator</icon></style></link>\r\n<link=\"Item:WindTurbineItem\"><style=\"Item\"><icon name=\"WindTurbineItem\" type=\"\">Wind Turbine</icon></style></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SolarGeneratorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WindTurbineItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * sw",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "sw",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (Solar and Wind)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "Solar/Wind Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * sw",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "sw",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (Solar and Wind)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "PaymentCode": "Solar/Wind Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Collecting suspended Taxes on Pollution Tax account",
+          "UserDescription": "This checks every hour if there is any tax that is suspended and then collects it if there is any debt.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Non-Abandoned",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Compare",
+                        "properties": {
+                          "Left": {
+                            "type": "Eco.Mods.SmartTax.OwedTaxes",
+                            "properties": {
+                              "Currency": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.Currency",
+                                  "name": "Euro",
+                                  "reference": true
+                                }
+                              },
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              },
+                              "TargetAccount": {
+                                "type": "GameValueWrapper",
+                                "value": {
+                                  "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                  "name": "# Federal Pollution Tax Account",
+                                  "reference": true
+                                }
+                              },
+                              "ConsiderRebates": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                "properties": {}
+                              }
+                            }
+                          },
+                          "Comparison": "GreaterThan",
+                          "Right": {
+                            "type": "GameValueWrapper",
+                            "value": 1.0
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "GameValueWrapper",
+                        "value": 0.01
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "TaxCode": "Electrical Bill",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Handels payments of Industrial Generators",
+          "UserDescription": "Gives a payment to Citizens for providing electrical power through a industrical generator. The amount compensated can be seen in the bank account # Federal Power Bill Payout (IG)\r\nTowns and States needs to request to get their power plans districted into the Federal Power Bill District to avoid geting paid for the towns/states powerplant into their private account.",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.IPlaceableItem"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<link=\"Item:IndustrialGeneratorItem\"><style=\"Item\"><icon name=\"IndustrialGeneratorItem\" type=\"\">Industrial Generator</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.IndustrialGeneratorItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * ig",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "ig",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (IG)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "IG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * ig",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "ig",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (IG)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "Eco.Mods.Companies.EmployerLegalPersonAlias",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      },
+                      "PaymentCode": "IG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Handles Payments for Combustion Generators",
+          "UserDescription": "Gives a payment to Citizens for providing electrical power through a combustion generator. The amount compensated can be seen in the bank account # Federal Power Bill Payout (CG)\r\nTowns and States needs to request to get their power plans districted into the Federal Power Bill District to avoid geting paid for the towns/states powerplant into their private account.\n",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Mods.LawExtensions.GameActions.PowerGenerated"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Mods.LawExtensions.GameActions.PowerGenerated",
+                    "propNameBacker": "PowerGenerator",
+                    "propDisplayName": "Power Generator",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Items.IPlaceableItem"
+                        },
+                        "requiredTag": "World Object",
+                        "internalDescription": "<link=\"Item:CombustionGeneratorItem\"><style=\"Item\"><icon name=\"CombustionGeneratorItem\" type=\"\">Combustion Generator</icon></style></link>",
+                        "entries": [
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.CombustionGeneratorItem"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * cg",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "cg",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (CG)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "CG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "GameValueContext",
+                        "_name": "Is Electrical",
+                        "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Is Electrical</icon>",
+                        "contextDescription": "<i>Is the power generated electrical in nature?</i>"
+                      },
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.DistrictRequirements",
+                        "properties": {
+                          "Location": {
+                            "type": "GameValueContext",
+                            "_name": "Action Location",
+                            "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Action Location</icon>",
+                            "contextDescription": "<i>The location of the object generating the power.</i>"
+                          },
+                          "Districts": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.LegislationSystem.District"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<link=\"view:3900:29165626\"><icon name=\"District\" type=\"\"><color=#073DD8FF>Federal Electric Power Bill District Revision 6</color></icon></link>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.LegislationSystem.District",
+                                "name": "Federal Electric Power Bill District Revision 6",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Requirements": "OutsideAll"
+                        }
+                      },
+                      {
+                        "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartPay_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "SourceBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Federal Pollution Tax Account",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                        "properties": {
+                          "Formula": "pp / 3600000 * cg",
+                          "Variables": [
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "pp",
+                                "Definition": {
+                                  "type": "GameValueContext",
+                                  "_name": "Power Produced",
+                                  "markedUpName": "<icon name=\"PowerGenerated\" type=\"\">Power Produced</icon>",
+                                  "contextDescription": "<i>How much power, in Joules, was actually produced by this generator. This could be '0' if the generator is disabled by the power grid to save resources.</i>"
+                                }
+                              }
+                            },
+                            {
+                              "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                              "reference": false,
+                              "properties": {
+                                "Name": "cg",
+                                "Definition": {
+                                  "type": "Eco.Mods.LawExtensions.GovernmentAccountHolding",
+                                  "properties": {
+                                    "Currency": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.Currency",
+                                        "name": "Euro",
+                                        "reference": true
+                                      }
+                                    },
+                                    "Account": {
+                                      "type": "GameValueWrapper",
+                                      "value": {
+                                        "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                        "name": "# Federal Power Bill Payout (CG)",
+                                        "reference": true
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen who is responsible for generating the power.</i>"
+                      },
+                      "PaymentCode": "CG Payment",
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Euro Movement Restrictions",
+          "UserDescription": "This prevents the movement of euro into and out of the named bankaccounts unless you are the MoI or PM",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.TransferMoney"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "SourceBankAccount",
+                    "propDisplayName": "Source Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "Any",
+                        "entries": []
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "TargetBankAccount",
+                    "propDisplayName": "Target Bank Account",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.BankAccount"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<foldout><linktext><u>4 Bank Accounts</u></linktext><title>4 Bank Accounts</title><link=\"view:767:19373963\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Power Bill Payout (CG)</style></icon></link>\r\n<link=\"view:767:19322841\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Power Bill Payout (IG)</style></icon></link>\r\n<link=\"view:767:19322569\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Power Bill Payout (kwh)</style></icon></link>\r\n<link=\"view:767:19322978\"><icon name=\"EconomyViewerItem\" type=\"\"><style=\"BankAccount\"># Federal Power Bill Payout (Solar and Wind)</style></icon></link></foldout>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Power Bill Payout (CG)",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Power Bill Payout (IG)",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Power Bill Payout (kwh)",
+                            "reference": true
+                          },
+                          {
+                            "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                            "name": "# Federal Power Bill Payout (Solar and Wind)",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "type": "Eco.Gameplay.GameActions.SelectTriggerConfig",
+                    "typeToConfig": "Eco.Gameplay.GameActions.TransferMoney",
+                    "propNameBacker": "Currency",
+                    "propDisplayName": "Currency",
+                    "properties": {
+                      "List": {
+                        "type": "GamePickerList",
+                        "mustDeriveType": {
+                          "type": "Type",
+                          "value": "Eco.Gameplay.Economy.Currency"
+                        },
+                        "requiredTag": null,
+                        "internalDescription": "<link=\"view:4475:121906\"><icon name=\"CurrencySymbol\" type=\"nobg\"><style=\"Currency\">Euro</style></icon></link>",
+                        "entries": [
+                          {
+                            "type": "Eco.Gameplay.Economy.Currency",
+                            "name": "Euro",
+                            "reference": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Values.TitleRequirements",
+                        "properties": {
+                          "Titles": {
+                            "type": "GamePickerList",
+                            "mustDeriveType": {
+                              "type": "Type",
+                              "value": "Eco.Gameplay.Civics.Titles.Title"
+                            },
+                            "requiredTag": null,
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:3721:122198\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1713:122268\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Minister of Infrastructure</style></icon></link>\r\n<link=\"view:1713:122274\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link></foldout>",
+                            "entries": [
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Minister of Infrastructure",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Prime Minister",
+                                "reference": true
+                              },
+                              {
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
+                                "reference": true
+                              }
+                            ]
+                          },
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen who transfered the money. Note: Can only be taxed if they are a citizen of the settlement of the law executing.</i>"
+                          },
+                          "Requirements": "HasNone"
+                        }
+                      }
+                    ],
+                    "Comparison": "Any"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Gameplay.Civics.LegalActions.Prevent_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "DisplayText": "Only MoI or PM transfer money in here",
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}

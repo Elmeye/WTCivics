@@ -4667,13 +4667,13 @@
                             "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:3198:116032\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:4829:116114\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:4829:116103\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link></foldout>",
                             "entries": [
                               {
-                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Members of Parliament",
+                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
+                                "name": "Game Masters",
                                 "reference": true
                               },
                               {
-                                "type": "Eco.Gameplay.Civics.Titles.AppointedTitle",
-                                "name": "Game Masters",
+                                "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
+                                "name": "Members of Parliament",
                                 "reference": true
                               },
                               {
@@ -4703,7 +4703,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -4825,7 +4825,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -4965,7 +4965,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -5009,11 +5009,19 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
+                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
+                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
                           },
                           {
                             "type": "Type",
@@ -5021,15 +5029,23 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Tarantula+TarantulaSpecies"
+                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
+                            "value": "Eco.Mods.TechTree.SnappingTurtle+SnappingTurtleSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Elk+ElkSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Coyote+CoyoteSpecies"
                           },
                           {
                             "type": "Type",
@@ -5041,51 +5057,11 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Alligator+AlligatorSpecies"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.BlueShark+BlueSharkSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.BighornSheep+BighornSheepSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Elk+ElkSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Agouti+AgoutiSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SnappingTurtle+SnappingTurtleSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Bass+BassSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Fox+FoxSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.Cod+CodSpecies"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PrairieDog+PrairieDogSpecies"
+                            "value": "Eco.Mods.TechTree.Tuna+TunaSpecies"
                           },
                           {
                             "type": "Type",
@@ -5093,15 +5069,19 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.Organisms.Tortoise+TortoiseSpecies"
+                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MountainGoat+MountainGoatSpecies"
+                            "value": "Eco.Mods.TechTree.Bass+BassSpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.PacificSardine+PacificSardineSpecies"
+                            "value": "Eco.Mods.TechTree.Tarantula+TarantulaSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Hare+HareSpecies"
                           },
                           {
                             "type": "Type",
@@ -5109,11 +5089,27 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.Deer+DeerSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.Jaguar+JaguarSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PacificSardine+PacificSardineSpecies"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PrairieDog+PrairieDogSpecies"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.Turkey+TurkeySpecies"
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.Crab+CrabSpecies"
+                            "value": "Eco.Mods.TechTree.Wolf+WolfSpecies"
                           }
                         ]
                       }
@@ -5233,51 +5229,7 @@
                         "entries": [
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.TruckItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SteamTractorItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.HandPlowItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.EgyptianCanoeItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SkidSteerItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.ExcavatorItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                            "value": "Eco.Mods.TechTree.MediumFishingTrawlerItem"
                           },
                           {
                             "type": "Type",
@@ -5285,7 +5237,15 @@
                           },
                           {
                             "type": "Type",
+                            "value": "Eco.Mods.TechTree.SteamTractorItem"
+                          },
+                          {
+                            "type": "Type",
                             "value": "Eco.Mods.TechTree.IndustrialBargeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.LargeCanoeItem"
                           },
                           {
                             "type": "Type",
@@ -5293,15 +5253,23 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
-                          },
-                          {
-                            "type": "Type",
-                            "value": "Eco.Mods.TechTree.PoweredCartItem"
-                          },
-                          {
-                            "type": "Type",
                             "value": "Eco.Mods.TechTree.SteamTruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodenBoatItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.EgyptianCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallCanoeItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodShopCartItem"
                           },
                           {
                             "type": "Type",
@@ -5309,7 +5277,35 @@
                           },
                           {
                             "type": "Type",
-                            "value": "Eco.Mods.TechTree.MediumFishingTrawlerItem"
+                            "value": "Eco.Mods.TechTree.WheelbarrowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SmallWoodCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.TruckItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.HandPlowItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.ExcavatorItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.PoweredCartItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.WoodenTransportShipItem"
+                          },
+                          {
+                            "type": "Type",
+                            "value": "Eco.Mods.TechTree.SkidSteerItem"
                           }
                         ]
                       }
@@ -5507,7 +5503,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -5657,7 +5653,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -5807,7 +5803,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -5957,7 +5953,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -6107,7 +6103,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
@@ -6257,7 +6253,7 @@
                     "properties": {
                       "DisplayText": null,
                       "InfoboxOnSuccess": {
-                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
                         "properties": {}
                       }
                     }
