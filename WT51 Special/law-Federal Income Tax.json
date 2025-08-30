@@ -3926,16 +3926,16 @@
                               "value": "Eco.Gameplay.Civics.Titles.Title"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:3721:122198\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1713:122276\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Members of Parliament</style></icon></link>\r\n<link=\"view:1713:122274\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Prime Minister</style></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>3 Titles</u></linktext><title>3 Titles</title><link=\"view:3721:122198\"><icon name=\"AppointedTitle\" type=\"\"><style=\"Government\">Game Masters</style></icon></link>\r\n<link=\"view:1713:122276\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Cardinal</style></icon></link>\r\n<link=\"view:1713:122274\"><icon name=\"ElectedTitle\" type=\"\"><style=\"Government\">Cardinal Dean</style></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Prime Minister",
+                                "name": "Cardinal Dean",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.Civics.Titles.ElectedTitle",
-                                "name": "Members of Parliament",
+                                "name": "Cardinal",
                                 "reference": true
                               },
                               {
