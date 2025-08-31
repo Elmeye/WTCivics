@@ -1279,7 +1279,7 @@
                               "value": "Eco.Gameplay.LegislationSystem.District"
                             },
                             "requiredTag": null,
-                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:3900:122244\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>\r\n<link=\"view:3900:122246\"><icon name=\"District\" type=\"\"><color=#949291FF>Federal Highways Buffer</color></icon></link>\r\n<link=\"view:3900:21054347\"><icon name=\"District\" type=\"\"><color=#A1AC9FFF>Federal Power Grid Revision 6</color></icon></link>\r\n<link=\"view:3900:29165627\"><icon name=\"District\" type=\"\"><color=#EFFF00FF>Global Power grid Revision 3</color></icon></link></foldout>",
+                            "internalDescription": "<foldout><linktext><u>4 Districts</u></linktext><title>4 Districts</title><link=\"view:3900:122244\"><icon name=\"District\" type=\"\"><color=#7F7F7FFF>Federal Highways</color></icon></link>\r\n<link=\"view:3900:122246\"><icon name=\"District\" type=\"\"><color=#949291FF>Federal Highways Buffer</color></icon></link>\r\n<link=\"view:3900:21054347\"><icon name=\"District\" type=\"\"><color=#A1AC9FFF>Federal Power Grid</color></icon></link>\r\n<link=\"view:3900:29165627\"><icon name=\"District\" type=\"\"><color=#EFFF00FF>Global Power Grid</color></icon></link></foldout>",
                             "entries": [
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
@@ -1293,12 +1293,12 @@
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Global Power grid Revision 3",
+                                "name": "Global Power Grid",
                                 "reference": true
                               },
                               {
                                 "type": "Eco.Gameplay.LegislationSystem.District",
-                                "name": "Federal Power Grid Revision 6",
+                                "name": "Federal Power Grid",
                                 "reference": true
                               }
                             ]
