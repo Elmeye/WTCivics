@@ -1,0 +1,466 @@
+{
+  "version": [
+    1,
+    0
+  ],
+  "type": "Eco.Gameplay.Civics.Laws.Law",
+  "name": "Temporary Laser Wealth Tax",
+  "reference": false,
+  "description": "A temporary wealth tax specifically to help finish crafting the lasers, to be removed once the lasers are crafted.",
+  "properties": {
+    "Sections": [
+      {
+        "type": "Eco.Gameplay.Civics.Laws.LawSection",
+        "reference": false,
+        "properties": {
+          "Title": "Wealth Tax",
+          "UserDescription": "Every hour tax 0.4% of the citizens wealth less ubi the citizen has currently recived, over the day this would be 9.6%",
+          "Triggers": [
+            {
+              "type": "Eco.Gameplay.Civics.Laws.TriggerSettings",
+              "reference": false,
+              "properties": {
+                "Trigger": {
+                  "type": "Type",
+                  "value": "Eco.Gameplay.GameActions.CitizenTimer"
+                },
+                "Configs": [
+                  {
+                    "type": "Eco.Gameplay.GameActions.CitizenTimerTriggerConfig",
+                    "typeToConfig": null,
+                    "propNameBacker": null,
+                    "propDisplayName": null,
+                    "properties": {
+                      "RepeatForEachCitizen": {
+                        "type": "Eco.Gameplay.Civics.Demographics.Demographic",
+                        "name": "Everyone",
+                        "reference": true
+                      },
+                      "HoursBetweenExecutions": 1.0
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "IfThenBlocks": [
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Mods.Companies.IsCompanyLegalPerson",
+                        "properties": {
+                          "Citizen": {
+                            "type": "GameValueContext",
+                            "_name": "Citizen",
+                            "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                            "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Meteor Store",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "_name": "Citizen",
+                                    "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                    "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                "properties": {
+                                  "Formula": "UBIPaid-UBISeized",
+                                  "Variables": [
+                                    {
+                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                      "reference": false,
+                                      "properties": {
+                                        "Name": "UBIPaid",
+                                        "Definition": {
+                                          "type": "Eco.Mods.SmartTax.QueryPaymentsIssued",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Euro",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Target": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            },
+                                            "FilterSourceAccount": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "# Federal Bank (ONLY FOR UBI)",
+                                                "reference": true
+                                              }
+                                            },
+                                            "FilterPaymentCode": "",
+                                            "IntervalStart": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "IntervalEnd": {
+                                              "type": "GameValueWrapper",
+                                              "value": 999.0
+                                            },
+                                            "IntervalRelative": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                      "reference": false,
+                                      "properties": {
+                                        "Name": "UBISeized",
+                                        "Definition": {
+                                          "type": "Eco.Mods.SmartTax.QueryTaxesIssued",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Euro",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Target": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            },
+                                            "FilterTargetAccount": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "# Federal Bank (ONLY FOR UBI)",
+                                                "reference": true
+                                              }
+                                            },
+                                            "FilterTaxCode": null,
+                                            "IntervalStart": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "IntervalEnd": {
+                                              "type": "GameValueWrapper",
+                                              "value": 999.0
+                                            },
+                                            "IntervalRelative": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 0.4
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "TaxCode": "Laser Wealth Tax",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "Eco.Gameplay.Civics.IfThenBlock",
+              "reference": false,
+              "properties": {
+                "If": {
+                  "type": "Eco.Gameplay.Civics.GameValues.SetOfConditions",
+                  "properties": {
+                    "List": [
+                      {
+                        "type": "Eco.Gameplay.Civics.GameValues.Not",
+                        "properties": {
+                          "NotValue": {
+                            "type": "Eco.Mods.Companies.IsEmployeeOfCompany",
+                            "properties": {
+                              "Citizen": {
+                                "type": "GameValueContext",
+                                "_name": "Citizen",
+                                "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "Comparison": "All"
+                  }
+                },
+                "Then": [
+                  {
+                    "type": "Eco.Mods.SmartTax.SmartTax_LegalAction",
+                    "reference": false,
+                    "properties": {
+                      "TargetBankAccount": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                          "name": "# Meteor Store",
+                          "reference": true
+                        }
+                      },
+                      "Currency": {
+                        "type": "GameValueWrapper",
+                        "value": {
+                          "type": "Eco.Gameplay.Economy.Currency",
+                          "name": "Euro",
+                          "reference": true
+                        }
+                      },
+                      "Amount": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Percent_GameValue",
+                        "properties": {
+                          "Number": {
+                            "type": "Eco.Gameplay.Civics.GameValues.Arithmetic",
+                            "properties": {
+                              "LeftNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.Values.Wealth",
+                                "properties": {
+                                  "Currency": {
+                                    "type": "GameValueWrapper",
+                                    "value": {
+                                      "type": "Eco.Gameplay.Economy.Currency",
+                                      "name": "Euro",
+                                      "reference": true
+                                    }
+                                  },
+                                  "Citizen": {
+                                    "type": "GameValueContext",
+                                    "_name": "Citizen",
+                                    "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                    "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                  }
+                                }
+                              },
+                              "Operation": "Subtract",
+                              "RightNumber": {
+                                "type": "Eco.Gameplay.Civics.GameValues.TextFormula",
+                                "properties": {
+                                  "Formula": "UBIPaid-UBISeized",
+                                  "Variables": [
+                                    {
+                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                      "reference": false,
+                                      "properties": {
+                                        "Name": "UBIPaid",
+                                        "Definition": {
+                                          "type": "Eco.Mods.SmartTax.QueryPaymentsIssued",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Euro",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Target": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            },
+                                            "FilterSourceAccount": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "# Federal Bank (ONLY FOR UBI)",
+                                                "reference": true
+                                              }
+                                            },
+                                            "FilterPaymentCode": null,
+                                            "IntervalStart": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "IntervalEnd": {
+                                              "type": "GameValueWrapper",
+                                              "value": 999.0
+                                            },
+                                            "IntervalRelative": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "Eco.Gameplay.Civics.GameValues.NamedVariable",
+                                      "reference": false,
+                                      "properties": {
+                                        "Name": "UBISeized",
+                                        "Definition": {
+                                          "type": "Eco.Mods.SmartTax.QueryTaxesIssued",
+                                          "properties": {
+                                            "Currency": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.Currency",
+                                                "name": "Euro",
+                                                "reference": true
+                                              }
+                                            },
+                                            "Target": {
+                                              "type": "GameValueContext",
+                                              "_name": "Citizen",
+                                              "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                                              "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                                            },
+                                            "FilterTargetAccount": {
+                                              "type": "GameValueWrapper",
+                                              "value": {
+                                                "type": "Eco.Gameplay.Economy.GovernmentBankAccount",
+                                                "name": "# Federal Bank (ONLY FOR UBI)",
+                                                "reference": true
+                                              }
+                                            },
+                                            "FilterTaxCode": null,
+                                            "IntervalStart": {
+                                              "type": "GameValueWrapper",
+                                              "value": 0.0
+                                            },
+                                            "IntervalEnd": {
+                                              "type": "GameValueWrapper",
+                                              "value": 999.0
+                                            },
+                                            "IntervalRelative": {
+                                              "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "Percent": {
+                            "type": "GameValueWrapper",
+                            "value": 0.4
+                          }
+                        }
+                      },
+                      "Target": {
+                        "type": "GameValueContext",
+                        "_name": "Citizen",
+                        "markedUpName": "<icon name=\"User\" type=\"\">Citizen</icon>",
+                        "contextDescription": "<i>The citizen currently being processed for the timer event.</i>"
+                      },
+                      "TaxCode": "Laser Wealth Tax",
+                      "Suspended": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      },
+                      "Silent": {
+                        "type": "Eco.Gameplay.Civics.GameValues.Yes",
+                        "properties": {}
+                      },
+                      "InfoboxOnSuccess": {
+                        "type": "Eco.Gameplay.Civics.GameValues.No",
+                        "properties": {}
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "State": "Active"
+  }
+}
